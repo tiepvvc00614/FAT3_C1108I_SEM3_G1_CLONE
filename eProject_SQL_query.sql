@@ -1,5 +1,0 @@
-CREATE DATABASE eProject
-GO
-USE eProject
-GO
-
