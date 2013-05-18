@@ -47,7 +47,84 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Contact.aspx" />
+    <Content Include="css\backgrounds\bgnoise_lg.css" />
+    <Content Include="css\backgrounds\irongrip.css" />
+    <Content Include="css\backgrounds\low_contrast_linen.css" />
+    <Content Include="css\backgrounds\purty_wood.css" />
+    <Content Include="css\backgrounds\retina_wood.css" />
+    <Content Include="css\backgrounds\tex2res5.css" />
+    <Content Include="css\backgrounds\wood_pattern.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\color\blue.css" />
+    <Content Include="css\color\brown.css" />
+    <Content Include="css\color\green.css" />
+    <Content Include="css\color\orange.css" />
+    <Content Include="css\color\red.css" />
+    <Content Include="css\customize.css" />
+    <Content Include="css\flexslider.css" />
+    <Content Include="css\font-awesome-ie7.css" />
+    <Content Include="css\font-awesome.css" />
+    <Content Include="css\jquery-ui-1.10.1.min.css" />
+    <Content Include="css\layout\Boxed.css" />
+    <Content Include="css\layout\Wide.css" />
+    <Content Include="css\style.css" />
     <Content Include="Default.aspx" />
+    <Content Include="font\fontawesome-webfont.svg" />
+    <Content Include="img\132x116.jpg" />
+    <Content Include="img\212x192.jpg" />
+    <Content Include="img\214x136.jpg" />
+    <Content Include="img\294x216.jpg" />
+    <Content Include="img\372x370.jpg" />
+    <Content Include="img\614x300.jpg" />
+    <Content Include="img\64x64.jpg" />
+    <Content Include="img\650x700.jpg" />
+    <Content Include="img\68x60.jpg" />
+    <Content Include="img\694x240.jpg" />
+    <Content Include="img\694x246.jpg" />
+    <Content Include="img\72x72.jpg" />
+    <Content Include="img\92x92.jpg" />
+    <Content Include="img\backgrounds\bgnoise_lg.png" />
+    <Content Include="img\backgrounds\irongrip.png" />
+    <Content Include="img\backgrounds\low_contrast_linen.png" />
+    <Content Include="img\backgrounds\purty_wood.png" />
+    <Content Include="img\backgrounds\retina_wood.png" />
+    <Content Include="img\backgrounds\tex2res5.png" />
+    <Content Include="img\backgrounds\wood_pattern.png" />
+    <Content Include="img\dottedBorder.png" />
+    <Content Include="img\glyphicons-halflings-white.png" />
+    <Content Include="img\glyphicons-halflings.png" />
+    <Content Include="img\Layer-1.png" />
+    <Content Include="img\Layer-2.png" />
+    <Content Include="img\Layer-3.png" />
+    <Content Include="img\Layer-4.png" />
+    <Content Include="img\layer5.png" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\map.png" />
+    <Content Include="img\payment.png" />
+    <Content Include="img\star-off.png" />
+    <Content Include="img\star-on.png" />
+    <Content Include="img\tweetIcon.png" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\custom.js" />
+    <Content Include="js\fancybox\blank.gif" />
+    <Content Include="js\fancybox\fancybox_loading.gif" />
+    <Content Include="js\fancybox\fancybox_overlay.png" />
+    <Content Include="js\fancybox\fancybox_sprite.png" />
+    <Content Include="js\fancybox\jquery.fancybox.css" />
+    <Content Include="js\fancybox\jquery.fancybox.js" />
+    <Content Include="js\jquery.cookie.js" />
+    <Content Include="js\jquery.cycle2.carousel.min.js" />
+    <Content Include="js\jquery.cycle2.min.js" />
+    <Content Include="js\jquery.flexslider-min.js" />
+    <Content Include="js\jquery.placeholder.min.js" />
+    <Content Include="js\jquery.tweet.js" />
+    <Content Include="Master Page\UserControl\Cart.ascx" />
+    <Content Include="Master Page\UserControl\Category.ascx" />
+    <Content Include="Master Page\UserControl\Footer.ascx" />
+    <Content Include="Master Page\UserControl\Header.ascx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -57,17 +134,69 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Default.aspx.cs">
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Master Page\MainMP.Master.cs">
+      <DependentUpon>MainMP.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master Page\MainMP.Master.designer.cs">
+      <DependentUpon>MainMP.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Master Page\UserControl\Cart.ascx.cs">
+      <DependentUpon>Cart.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master Page\UserControl\Cart.ascx.designer.cs">
+      <DependentUpon>Cart.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Master Page\UserControl\Category.ascx.cs">
+      <DependentUpon>Category.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master Page\UserControl\Category.ascx.designer.cs">
+      <DependentUpon>Category.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Master Page\UserControl\Footer.ascx.cs">
+      <DependentUpon>Footer.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master Page\UserControl\Footer.ascx.designer.cs">
+      <DependentUpon>Footer.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Master Page\UserControl\Header.ascx.cs">
+      <DependentUpon>Header.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master Page\UserControl\Header.ascx.designer.cs">
+      <DependentUpon>Header.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\WebConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="admin\" />
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Master Page\MainMP.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="font\fontawesome-webfont.eot" />
+    <None Include="font\fontawesome-webfont.ttf" />
+    <None Include="font\fontawesome-webfont.woff" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace eProject_SEM3_G1
+namespace eProject_SEM3_G1.Master_Page.UserControl
 {
-    public partial class Default : System.Web.UI.Page
+    public partial class Cart : System.Web.UI.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {

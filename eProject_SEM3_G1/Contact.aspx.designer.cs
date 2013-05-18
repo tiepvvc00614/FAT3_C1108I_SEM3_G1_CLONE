@@ -11,7 +11,7 @@ namespace eProject_SEM3_G1
 {
 
 
-    public partial class Default
+    public partial class Contact
     {
     }
 }

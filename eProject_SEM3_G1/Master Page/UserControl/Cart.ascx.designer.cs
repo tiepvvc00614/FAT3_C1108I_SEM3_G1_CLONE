@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace eProject_SEM3_G1
+namespace eProject_SEM3_G1.Master_Page.UserControl
 {
 
 
-    public partial class Default
+    public partial class Cart
     {
     }
 }

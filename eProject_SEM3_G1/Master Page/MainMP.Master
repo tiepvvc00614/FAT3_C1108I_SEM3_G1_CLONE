@@ -1,0 +1,138 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MainMP.master.cs" Inherits="eProject_SEM3_G1.Master_Page.MainMP" %>
+<%@ Register Src="UserControl/Header.ascx" TagName="HeaderUC" TagPrefix="headerUC" %>
+<%@ Register Src="UserControl/Footer.ascx" TagName="FooterUC" TagPrefix="footerUC" %>
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+	<meta charset="utf-8">
+	<title>
+        <% Response.Write(eProject_SEM3_G1.Utilities.WebConfiguration.SiteName); %>
+        <asp:ContentPlaceHolder ID="TitleTextContentPlaceHolder" runat="server">
+            
+        </asp:ContentPlaceHolder>
+    </title>
+	<meta name="description" content="">
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="css/bootstrap.min.css" media="screen">
+	<!-- jquery ui css -->
+	<link rel="stylesheet" href="css/jquery-ui-1.10.1.min.css">
+	<link rel="stylesheet" href="css/customize.css">
+	<link rel="stylesheet" href="css/font-awesome.css">
+	<link rel="stylesheet" href="css/style.css">
+	<!-- flexslider css-->
+	<link rel="stylesheet" href="css/flexslider.css">
+	<!-- fancybox -->
+	<link rel="stylesheet" href="js/fancybox/jquery.fancybox.css">
+
+    <asp:ContentPlaceHolder ID="HeaderAppend" runat="server">
+    </asp:ContentPlaceHolder>
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+		<link rel="stylesheet" href="css/font-awesome-ie7.css">
+	<![endif]-->
+	<!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="<% Response.Write(eProject_SEM3_G1.Utilities.WebConfiguration.FaviconURL); %>">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+</head>
+
+<body>
+
+	<div id="mainContainer" class="clearfix">
+
+		<!--begain header-->
+		
+        <headerUC:HeaderUC ID="headerUC" runat="server" />
+
+		<!-- end header -->
+
+
+
+        <asp:ContentPlaceHolder ID="MainContentPlaceHolder" runat="server">
+        </asp:ContentPlaceHolder>
+
+
+		<!--begain footer-->
+		<footer>
+		    <footerUC:FooterUC ID="footerContent" runat="server" />
+		</footer>
+		<!--end footer-->
+
+	</div><!--end mainContainer-->
+
+
+	<!-- Sidebar Widget
+	================================================== -->
+	<div class="switcher">
+		<h3>Site Switcher</h3>
+		<a class="Widget-toggle-link">+</a>
+
+		<div class="switcher-content clearfix">
+			<div class="layout-switch">
+				<h4>Layout Style</h4>
+				<div class="btn-group">
+					<a id="wide-style" class="btn">Wide</a>
+	  				<a id="boxed-style" class="btn">Boxed</a>
+				</div>
+			</div><!--end layout-switch-->
+
+			<div class="color-switch clearfix">
+				<h4>Color Style</h4>
+				<a id="orange-color" class="color-switch-link">orange</a>
+				<a id="blue-color" class="color-switch-link">blue</a>
+				<a id="green-color" class="color-switch-link">green</a>
+				<a id="brown-color" class="color-switch-link">brown</a>
+				<a id="red-color" class="color-switch-link">red</a>
+			</div><!--end color-switch-->
+
+			<div class="pattern-switch">
+				<h4>BG Pattern</h4>
+				<a style="background:url(img/backgrounds/retina_wood.png);">retina_wood</a>
+				<a style="background:url(img/backgrounds/bgnoise_lg.png);">bgnoise_lg</a>
+				<a style="background:url(img/backgrounds/purty_wood.png);">purty_wood</a>
+				<a style="background:url(img/backgrounds/irongrip.png);">irongrip</a>
+				<a style="background:url(img/backgrounds/low_contrast_linen.png);">low_contrast_linen</a>
+				<a style="background:url(img/backgrounds/tex2res5.png);">tex2res5</a>
+				<a style="background:url(img/backgrounds/wood_pattern.png);">wood_pattern</a>
+			</div><!--end pattern-switch-->
+
+		</div><!--end switcher-content-->
+	</div>
+	<!-- End Sidebar Widget-->
+
+
+	<!-- JS
+	================================================== -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
+	<!-- jQuery.Cookie -->
+	<script src="js/jquery.cookie.js"></script>
+	<!-- bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- flexslider -->
+    <script src="js/jquery.flexslider-min.js"></script>
+    <!-- cycle2 -->
+    <script src="js/jquery.cycle2.min.js"></script>
+    <script src="js/jquery.cycle2.carousel.min.js"></script>
+    <!-- tweets -->
+    <script src="js/jquery.tweet.js"></script>
+    <!-- fancybox -->
+    <script src="js/fancybox/jquery.fancybox.js"></script>
+    <!-- custom function-->
+    <script src="js/custom.js"></script>
+    
+</body>
