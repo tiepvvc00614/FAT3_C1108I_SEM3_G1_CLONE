@@ -1769,6 +1769,7 @@
     <Folder Include="admin\theme\scripts\excanvas\testcases\.svn\tmp\text-base\" />
     <Folder Include="admin\theme\scripts\plupload\examples\uploads\" />
     <Folder Include="App_Data\" />
+    <Folder Include="Model\DataAccess\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Master Page\MainMP.Master" />

@@ -5,8 +5,8 @@ using System.Text;
 
 namespace eProject_SEM3_G1.Model
 {
-    interface IAddress
+    public interface IAddress
     {
-        public void AddressChanged(Address sender);
+        void AddressChanged(Address sender);
     }
 }

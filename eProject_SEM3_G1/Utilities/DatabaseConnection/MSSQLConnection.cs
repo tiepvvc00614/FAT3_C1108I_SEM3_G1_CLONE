@@ -9,7 +9,7 @@ namespace eProject_SEM3_G1.Utilities.DatabaseConnection
     public class MSSQLConnection : SqlClientConnectionAbstract
     {
         private static SqlConnection con;
-        public SqlConnection GetConnection()
+        public override SqlConnection GetConnection()
         {
 
             return new SqlConnection("");

@@ -8,7 +8,7 @@ namespace eProject_SEM3_G1.Utilities.DatabaseConnection
 {
     public abstract class SqlClientConnectionAbstract
     {
-        public SqlConnection GetConnection();
+        public abstract SqlConnection GetConnection();
 
     }
 }
