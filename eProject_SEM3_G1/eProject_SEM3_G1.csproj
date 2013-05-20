@@ -1735,7 +1735,27 @@
     <Compile Include="Master Page\UserControl\Header.ascx.designer.cs">
       <DependentUpon>Header.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Model\Address.cs" />
+    <Compile Include="Model\AddressBook.cs" />
+    <Compile Include="Model\BillingAddress.cs" />
+    <Compile Include="Model\Category.cs" />
+    <Compile Include="Model\Country.cs" />
+    <Compile Include="Model\Customer.cs" />
+    <Compile Include="Model\Guest.cs" />
+    <Compile Include="Model\IAddress.cs" />
+    <Compile Include="Model\Order.cs" />
+    <Compile Include="Model\OrderDetails.cs" />
+    <Compile Include="Model\Product.cs" />
+    <Compile Include="Model\Region.cs" />
+    <Compile Include="Model\ShippingAddress.cs" />
+    <Compile Include="Model\ShippingPrice.cs" />
+    <Compile Include="Model\ShippingService.cs" />
+    <Compile Include="Model\Tracking.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\DatabaseConnection\DatabaseFactory.cs" />
+    <Compile Include="Utilities\DatabaseConnection\MSSQLConnection.cs" />
+    <Compile Include="Utilities\DatabaseConnection\SqlClientConnectionAbstract.cs" />
     <Compile Include="Utilities\WebConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>

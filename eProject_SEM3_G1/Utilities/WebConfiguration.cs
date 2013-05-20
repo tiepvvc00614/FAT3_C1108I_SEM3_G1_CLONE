@@ -153,7 +153,7 @@ namespace eProject_SEM3_G1.Utilities
             //get admin settings in here
 
             adminEmail = @"admin@bookstore.com";
-            siteName = @"Book store online";
+            siteName = @"Bookfine";
             siteURL = @"bookstore.com";
             faviconURL = @"images/favicon.ico";
         }
