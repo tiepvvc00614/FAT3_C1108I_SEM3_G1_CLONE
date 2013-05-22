@@ -16,13 +16,24 @@ namespace eProject_SEM3_G1.Model
         private int inStock;
         private Category inCategory;
         private List<Product> relatedProduct;
-
+        private int discount;
         private ProductDAO productDataAccess;
 
         
 
         private Dictionary<string, string> productInfos;
 
+        public int ProductDiscount
+        {
+            get
+            {
+                return discount;
+            }
+            set
+            {
+                if (discount != value) discount = value;
+            }
+        }
         public int ProductId
         {
             get
