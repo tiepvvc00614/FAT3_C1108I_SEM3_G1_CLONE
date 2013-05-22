@@ -31,6 +31,35 @@ namespace eProject_SEM3_G1.Model.DataAccess
         {
             try
             {
+                Product productReturn = new Product();
+
+                productReturn.ProductInfos = GetProductInfo(productId);
+                productReturn.RelatedProduct = GetRelatedProduct(productId);
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private static Dictionary<string, string> GetProductInfo(int productId)
+        {
+            try
+            {
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private static List<Product> GetRelatedProduct(int productId)
+        {
+            try
+            {
                 return null;
             }
             catch (Exception ex)
