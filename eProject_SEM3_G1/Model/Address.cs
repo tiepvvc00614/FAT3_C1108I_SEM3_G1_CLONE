@@ -42,7 +42,7 @@ namespace eProject_SEM3_G1.Model
             }
         }
 
-        public string Address
+        public string FullAddress
         {
             get
             {
