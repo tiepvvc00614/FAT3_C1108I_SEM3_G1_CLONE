@@ -29,15 +29,15 @@ namespace eProject_SEM3_G1.Model.DataAccess
 
         }
 
-        public static Product Select(int productId) 
+        public Product Select() 
         {
             try
             {
                 Product productReturn = new Product();
-                SqlConnection con = DatabaseFactory.GetConnection(DatabaseFactory.SQL_TYPE_MSSQL).GetConnection();
                 SqlCommand command = new SqlCommand();
+                command.Connection = this.connectionForAccess;
                 command.CommandType = System.Data.CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@product_id", productId);
+                command.Parameters.AddWithValue("@product_id", this.productForAccess.ProductId);
                 SqlDataReader reader = command.ExecuteReader();
                 if (reader.Read())
                 {
@@ -48,8 +48,6 @@ namespace eProject_SEM3_G1.Model.DataAccess
                     productReturn.ProductImageURL = reader.GetString(5);
                     productReturn.ProductInStock = reader.GetInt32(6);
                 }
-                productReturn.ProductInfos = GetProductInfo(productId);
-                productReturn.RelatedProduct = GetRelatedProduct(productId);
 
                 return productReturn;
             }
@@ -59,17 +57,20 @@ namespace eProject_SEM3_G1.Model.DataAccess
             }
         }
 
-        private static Dictionary<string, string> GetProductInfo(int productId)
+        public Dictionary<string, string> GetProductInfo()
         {
             try
             {
-                SqlConnection con = DatabaseFactory.GetConnection(DatabaseFactory.SQL_TYPE_MSSQL).GetConnection();
+                if (this.productForAccess == null || this.productForAccess.ProductId == 0)
+                    throw new NullReferenceException("Product access object can't be null");
+
                 Dictionary<string, string> dictionaryReturn = new Dictionary<string, string>();                
                 SqlCommand command= new SqlCommand();
+                command.Connection = this.connectionForAccess;
                 command.CommandType= System.Data.CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@product_id",productId);
+                command.Parameters.AddWithValue("@product_id", this.productForAccess.ProductId);
                 SqlDataReader reader= command.ExecuteReader();
-                if(reader.Read())
+                while(reader.Read())
                 {
                     dictionaryReturn.Add(reader.GetString(0), reader.GetString(1));
                 }
@@ -81,15 +82,18 @@ namespace eProject_SEM3_G1.Model.DataAccess
             }
         }
 
-        private static List<Product> GetRelatedProduct(int productId)
+        public List<Product> GetRelatedProduct()
         {
             try
             {
-                SqlConnection con = DatabaseFactory.GetConnection(DatabaseFactory.SQL_TYPE_MSSQL).GetConnection();
+                if (this.productForAccess == null || this.productForAccess.ProductId == 0)
+                    throw new NullReferenceException("Product access object can't be null");
+
                 List<Product> listProductReturn = new List<Product>();                
                 SqlCommand command = new SqlCommand();
+                command.Connection = this.connectionForAccess;
                 command.CommandType = System.Data.CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@product_id", productId);
+                command.Parameters.AddWithValue("@product_id", this.productForAccess.ProductId);
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
@@ -109,7 +113,6 @@ namespace eProject_SEM3_G1.Model.DataAccess
             {
                 throw ex;
             }
-      
         }
     }
 }

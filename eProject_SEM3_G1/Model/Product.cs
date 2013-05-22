@@ -19,7 +19,24 @@ namespace eProject_SEM3_G1.Model
         private int discount;
         private ProductDAO productDataAccess;
 
-        
+        public Product()
+        {
+            this.productDataAccess = new ProductDAO(this);
+        }
+
+        public Product(int productId)
+        {
+            this.productId = productId;
+            this.productDataAccess = new ProductDAO(this);
+
+            Product productTemp = this.productDataAccess.Select();
+            this.ProductId = productTemp.productId;
+            this.ProductName = productTemp.productName;
+            this.ProductPrice = productTemp.price;
+            this.ProductDescription = productTemp.description;
+            this.ProductImageURL = productTemp.imageURL;
+            this.ProductDiscount = productTemp.discount;
+        }
 
         private Dictionary<string, string> productInfos;
 
@@ -121,11 +138,11 @@ namespace eProject_SEM3_G1.Model
         {
             get 
             {
+                if (productInfos == null)
+                {
+                    productInfos = this.productDataAccess.GetProductInfo();
+                }
                 return productInfos;
-            }
-            set
-            {
-                productInfos = value;
             }
         }
 
@@ -133,12 +150,17 @@ namespace eProject_SEM3_G1.Model
         {
             get
             {
+                if (relatedProduct == null)
+                {
+                    relatedProduct = productDataAccess.GetRelatedProduct();
+                }
                 return relatedProduct;
             }
-            set
-            {
-                relatedProduct = value;
-            }
+        }
+
+        public override string ToString()
+        {
+            return String.Format("Product ID: %i | Product Name: %s | Product Price: %f | Product Image URL: %s | In Stock: %i | In Category: %s", this.productId, this.productName, this.price, this.imageURL, this.inStock, this.inCategory.ToString());
         }
     }
 }

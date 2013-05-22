@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using eProject_SEM3_G1.Model;
-using eProject_SEM3_G1.Model.DataAccess;
 
 namespace eProject_SEM3_G1
 {
@@ -22,7 +21,7 @@ namespace eProject_SEM3_G1
 
                     productId = int.Parse(Request.Params["productId"].ToString());
 
-                    Product product = ProductDAO.Select(productId);
+                    Product product = new Product(productId);
                 }
                 else
                 {

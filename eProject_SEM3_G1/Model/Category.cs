@@ -11,5 +11,10 @@ namespace eProject_SEM3_G1.Model
         private string categoryName;
         private List<Category> childrenCategory;
 
+
+        public override string ToString()
+        {
+            return this.categoryName;
+        }
     }
 }
