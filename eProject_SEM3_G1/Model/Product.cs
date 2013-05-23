@@ -30,6 +30,8 @@ namespace eProject_SEM3_G1.Model
             this.productDataAccess = new ProductDAO(this);
 
             Product productTemp = this.productDataAccess.Select();
+
+
             this.ProductId = productTemp.productId;
             this.ProductName = productTemp.productName;
             this.ProductPrice = productTemp.price;
@@ -55,7 +57,7 @@ namespace eProject_SEM3_G1.Model
         {
             get
             {
-                return productId;
+                return 3;
             }
             set
             {

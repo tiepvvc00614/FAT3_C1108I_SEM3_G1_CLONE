@@ -21,13 +21,12 @@ namespace eProject_SEM3_G1
 
                     productId = int.Parse(Request.Params["productId"].ToString());
 
-                    /*Product product = new Product(productId);
+                    Product product = new Product(productId);
                     Dictionary<string, string> productInfo = product.ProductInfos;
-                    List<Product> relatedProduct = product.RelatedProduct;
+                    //List<Product> relatedProduct = product.RelatedProduct;
 
                     productName.InnerText = product.ProductName;
                     price.InnerText = product.ProductPrice.ToString();
-                    Title = product.ProductName;
                     productID.Value = product.ProductId.ToString();
                     descriptionProduct.InnerText = product.ProductDescription;
                     imageHref.HRef = product.ProductImageURL;
@@ -47,13 +46,12 @@ namespace eProject_SEM3_G1
                     {
                         quantityHTML += "<option value='not-avaiable'>Not-Avaiable</option>";
                     }
-
                     quantity.InnerHtml = quantityHTML;
                     /*=============END Generate quantity html string============*/
 
 
 
-                    /* Generate product infos string 
+                    /* Generate product infos string */
                     string productInfosHTML = "";
                     productInfosHTML += "<dt>";
                     productInfosHTML += "Availabilty: ";
@@ -86,7 +84,8 @@ namespace eProject_SEM3_G1
             }
             catch (Exception ex)
             {
-                content_place.InnerHtml = "Product not found";
+                content_place.InnerHtml = ex.StackTrace;
+                content_place.InnerHtml += ex.Message;
                 //Response.Write(@"<script>alert('" + ex.Message + "');</script>");
             }
         }

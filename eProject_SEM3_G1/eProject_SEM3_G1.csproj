@@ -1603,6 +1603,7 @@
     <Content Include="css\style.css" />
     <Content Include="Default.aspx" />
     <Content Include="font\fontawesome-webfont.svg" />
+    <Content Include="img\1.jpg" />
     <Content Include="img\132x116.jpg" />
     <Content Include="img\212x192.jpg" />
     <Content Include="img\214x136.jpg" />
