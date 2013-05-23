@@ -21,7 +21,7 @@ namespace eProject_SEM3_G1
 
                     productId = int.Parse(Request.Params["productId"].ToString());
 
-                    Product product = new Product(productId);
+                    /*Product product = new Product(productId);
                     Dictionary<string, string> productInfo = product.ProductInfos;
                     List<Product> relatedProduct = product.RelatedProduct;
 
@@ -29,8 +29,12 @@ namespace eProject_SEM3_G1
                     price.InnerText = product.ProductPrice.ToString();
                     Title = product.ProductName;
                     productID.Value = product.ProductId.ToString();
+                    descriptionProduct.InnerText = product.ProductDescription;
+                    imageHref.HRef = product.ProductImageURL;
+                    imageUrl.Src = product.ProductImageURL;
 
-                    /* Generate quantity html string */
+
+                    /* Generate quantity html string 
                     string quantityHTML = "<option>-- Select Quantity --</option>";
                     if (product.ProductInStock > 0)
                     {
@@ -49,7 +53,7 @@ namespace eProject_SEM3_G1
 
 
 
-                    /* Generate product infos string */
+                    /* Generate product infos string 
                     string productInfosHTML = "";
                     productInfosHTML += "<dt>";
                     productInfosHTML += "Availabilty: ";

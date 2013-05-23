@@ -265,6 +265,11 @@ function resizeRelatedProductImage() {
     });
 }
 
+function addToCart(productId, quantity) 
+{
+    
+}
+
 $(document).ready(function () {
     topNavToSelect();
     NavToSelect();
@@ -281,4 +286,18 @@ $(document).ready(function () {
     changeColorStyle();
     rangePriceSlider();
     resizeRelatedProductImage();
+
+    $("#add-to-cart-form").on("submit", function (evt) {
+        evt.preventDefault();
+        var productId = $("#ctl00_MainContentPlaceHolder_productID").val();
+        var quantitySelected = $("#ctl00_MainContentPlaceHolder_quantity").val();
+        if (isNaN(productId) || isNaN(quantitySelected)) {
+            alert("Please choose quantity");
+            return false;
+        }
+
+        addToCart(productId, quantitySelected);
+
+    });
+
 });

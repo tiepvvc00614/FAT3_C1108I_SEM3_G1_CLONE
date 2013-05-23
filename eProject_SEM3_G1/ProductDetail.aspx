@@ -44,14 +44,12 @@
 									<div class="product-inputs">
 										<form method="post" id="add-to-cart-form">
 											<div class="controls-row">
-											    <select class="span4" name="#" ID="quantity" runat="server">
+											    <select class="span4" name="quantity" ID="quantity" runat="server">
 												    <option>-- Select Quantity --</option>
-												    <option value="">Red</option>
-												    <option value="">Blue</option>
-												    <option value="">Brown</option>
+                                                    <option value="1">1</option>
 											    </select>
 											</div><!--end controls-row-->
-                                            <input type="hidden" name="product-id" value="" id="productID" runat="server" />
+                                            <input type="hidden" name="product-id" class="product-id" value="1" id="productID" runat="server" />
 											<div class="input-append">
 											<button class="btn btn-primary"><i class="icon-shopping-cart"></i> Add To Cart</button>
 											</div>
