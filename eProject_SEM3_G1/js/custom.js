@@ -265,6 +265,35 @@ function resizeRelatedProductImage() {
     });
 }
 
+function resizeMainImage() {
+    var maxWidth = 372;
+    var maxHeight = 370;
+    var divThumbImg = $("#ctl00_MainContentPlaceHolder_imageHref img");
+    divThumbImg.each(function (i) {
+
+        var this_width = $(this).width();
+        var this_height = $(this).height();
+
+        var h;
+        var w;
+
+        if (this_width / this_height < maxWidth / maxHeight) {
+            h = maxHeight;
+            w = Math.ceil(maxHeight / this_height * this_width);
+        } else {
+            w = maxWidth;
+            h = Math.ceil(maxWidth / this_width * this_height);
+        }
+
+        $(this).css({
+            height: 372,
+            width: 370
+        });
+
+    });
+}
+
+
 function addToCart(productId, quantity) 
 {
     
@@ -285,6 +314,7 @@ $(document).ready(function () {
     changeLayoutStyle();
     changeColorStyle();
     rangePriceSlider();
+    resizeMainImage();
     resizeRelatedProductImage();
 
     $("#add-to-cart-form").on("submit", function (evt) {

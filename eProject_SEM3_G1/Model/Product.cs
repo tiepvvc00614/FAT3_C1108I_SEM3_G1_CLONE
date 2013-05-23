@@ -24,9 +24,9 @@ namespace eProject_SEM3_G1.Model
             this.productDataAccess = new ProductDAO(this);
         }
 
-        public Product(int productId)
+        public Product(int productIdz)
         {
-            this.productId = productId;
+            this.productId = productIdz;
             this.productDataAccess = new ProductDAO(this);
 
             Product productTemp = this.productDataAccess.Select();
@@ -57,11 +57,11 @@ namespace eProject_SEM3_G1.Model
         {
             get
             {
-                return 3;
+                return this.productId;
             }
             set
             {
-                if (productId != value) productId = value;
+                productId = value;
             }
         }
 

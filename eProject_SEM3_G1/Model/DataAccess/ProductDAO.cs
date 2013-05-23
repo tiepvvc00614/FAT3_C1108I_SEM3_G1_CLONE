@@ -41,27 +41,38 @@ namespace eProject_SEM3_G1.Model.DataAccess
                 command.Connection = this.connectionForAccess;
                 command.CommandType = System.Data.CommandType.StoredProcedure;
                 command.Parameters.Clear();
-
-                SqlParameter param = new SqlParameter("@product_id", System.Data.DbType.Int32);
-
-                param.SqlDbType = System.Data.SqlDbType.Int;
-
-                command.Parameters.AddWithValue("@product_id", Int32.Parse("3"));
-
-                //command.Parameters.AddWithValue("@product_id",1);
-                //command.Parameters["@product_id"].DbType = System.Data.DbType.Int32;
-
+                command.Parameters.AddWithValue("@product_id", Int32.Parse(this.productForAccess.ProductId.ToString()));
                 SqlDataReader reader = command.ExecuteReader();
                 if (reader.Read())
                 {
-                    productReturn.ProductId = 3;
+                    productReturn.ProductId = reader.GetInt32(0);
                     productReturn.ProductName = reader.GetString(1);
                     productReturn.ProductPrice = float.Parse(reader.GetValue(2).ToString());
-                    //throw new Exception(reader.GetDataTypeName(2).ToString());
-                    productReturn.ProductDescription = reader.GetString(3);
-                    productReturn.ProductDiscount = reader.GetInt32(4);
+                    var desc = reader.GetSqlValue(3);
+                    if (desc == DBNull.Value)
+                    {
+                        productReturn.ProductDescription = "";
+                    }
+                    else
+                    {
+                        productReturn.ProductDescription = String.Format(desc.ToString());
+
+                    }
+
+
+                    System.Data.SqlTypes.SqlInt32 disc = (System.Data.SqlTypes.SqlInt32)reader.GetSqlValue(4);
+                    if (disc.IsNull)
+                    {
+                        productReturn.ProductDiscount = 0;
+                    }
+                    else
+                    {
+                        productReturn.ProductDiscount = disc.Value;
+                    } 
                     productReturn.ProductImageURL = reader.GetString(5);
                     productReturn.ProductInStock = reader.GetInt32(6);
+                    
+                    
                 }
                 reader.Close();
                 return productReturn;
@@ -118,11 +129,8 @@ namespace eProject_SEM3_G1.Model.DataAccess
                     Product product = new Product();
                     product.ProductId = reader.GetInt32(0);
                     product.ProductName= reader.GetString(1);
-                    product.ProductPrice= float.Parse(reader.GetValue(2).ToString());
-                    product.ProductDescription= reader.GetString(3);
-                    product.ProductDiscount = reader.GetInt32(4);
+                    product.ProductPrice = float.Parse(reader.GetValue(2).ToString());                                  
                     product.ProductImageURL= reader.GetString(5);
-                    product.ProductInStock = reader.GetInt32(6);
                     listProductReturn.Add(product);
                 }
                 reader.Close();

@@ -23,7 +23,7 @@ namespace eProject_SEM3_G1
 
                     Product product = new Product(productId);
                     Dictionary<string, string> productInfo = product.ProductInfos;
-                    //List<Product> relatedProduct = product.RelatedProduct;
+                    List<Product> relatedProduct = product.RelatedProduct;
 
                     productName.InnerText = product.ProductName;
                     price.InnerText = product.ProductPrice.ToString();
