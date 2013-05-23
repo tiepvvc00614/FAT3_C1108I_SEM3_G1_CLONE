@@ -13,6 +13,15 @@ namespace eProject_SEM3_G1 {
     public partial class ProductDetail {
         
         /// <summary>
+        /// content_place control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl content_place;
+        
+        /// <summary>
         /// productName control.
         /// </summary>
         /// <remarks>
@@ -49,13 +58,13 @@ namespace eProject_SEM3_G1 {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl price;
         
         /// <summary>
-        /// productInfo control.
+        /// productInfoDL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl productInfo;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl productInfoDL;
         
         /// <summary>
         /// quantity control.
@@ -65,6 +74,15 @@ namespace eProject_SEM3_G1 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlSelect quantity;
+        
+        /// <summary>
+        /// productID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden productID;
         
         /// <summary>
         /// descriptionProduct control.

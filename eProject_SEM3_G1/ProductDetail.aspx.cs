@@ -22,6 +22,57 @@ namespace eProject_SEM3_G1
                     productId = int.Parse(Request.Params["productId"].ToString());
 
                     Product product = new Product(productId);
+                    Dictionary<string, string> productInfo = product.ProductInfos;
+                    List<Product> relatedProduct = product.RelatedProduct;
+
+                    productName.InnerText = product.ProductName;
+                    price.InnerText = product.ProductPrice.ToString();
+                    Title = product.ProductName;
+                    productID.Value = product.ProductId.ToString();
+
+                    /* Generate quantity html string */
+                    string quantityHTML = "<option>-- Select Quantity --</option>";
+                    if (product.ProductInStock > 0)
+                    {
+                        for (int i = 1; i <= product.ProductInStock; i++)
+                        {
+                            quantityHTML += "<option value='"+ i.ToString() +"'>"+ i.ToString() +"</option>";
+                        }
+                    }
+                    else
+                    {
+                        quantityHTML += "<option value='not-avaiable'>Not-Avaiable</option>";
+                    }
+
+                    quantity.InnerHtml = quantityHTML;
+                    /*=============END Generate quantity html string============*/
+
+
+
+                    /* Generate product infos string */
+                    string productInfosHTML = "";
+                    productInfosHTML += "<dt>";
+                    productInfosHTML += "Availabilty: ";
+                    productInfosHTML += "</dt>";
+
+                    productInfosHTML += "<dd>";
+                    productInfosHTML += (product.ProductInStock > 0) ? "YES" : "NO";
+                    productInfosHTML += "</dd>";
+
+                    foreach (KeyValuePair<string, string> kvp in productInfo)
+                    {
+                        productInfosHTML += "<dt>";
+                        productInfosHTML += ""+ kvp.Key.ToString() +": ";
+                        productInfosHTML += "</dt>";
+
+                        productInfosHTML += "<dd>"+ kvp.Value.ToString() +"</dd>";
+                    }
+
+                    productInfoDL.InnerHtml = productInfosHTML;
+                    /*=============END Generate product infos html string===========*/
+
+
+
                 }
                 else
                 {
@@ -29,13 +80,10 @@ namespace eProject_SEM3_G1
                 }
                 
             }
-            catch (FormatException fex)
-            {
-                Response.Write(@"<script>alert('Wrong format product id');</script>");
-            }
             catch (Exception ex)
             {
-                Response.Write(@"<script>alert('" + ex.Message + "');</script>");
+                content_place.InnerHtml = "Product not found";
+                //Response.Write(@"<script>alert('" + ex.Message + "');</script>");
             }
         }
     }

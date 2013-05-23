@@ -236,19 +236,49 @@ function rangePriceSlider() {
 }
 
 
-$(document).ready(function(){
-	topNavToSelect();
-	NavToSelect();
-	showtooltip();
-	cartContent();
-	flexSlideShow();
-	productSlider();
-	productFancyBox();
-	dropdownMainNav();
-	latestTweets();
-	openSidePanel();
-	changeBackgroundPattern();
-	changeLayoutStyle();
-	changeColorStyle();
-	rangePriceSlider();
+function resizeRelatedProductImage() {
+
+    var maxWidth = 92;
+    var maxHeight = 92;
+    var divThumbImg = $(".thumbImage img");
+    divThumbImg.each(function (i) {
+
+        var this_width = $(this).width();
+        var this_height = $(this).height();
+
+        var h;
+        var w;
+
+        if (this_width / this_height < maxWidth / maxHeight) {
+            h = maxHeight;
+            w = Math.ceil(maxHeight / this_height * this_width);
+        } else {
+            w = maxWidth;
+            h = Math.ceil(maxWidth / this_width * this_height);
+        }
+
+        $(this).css({
+            height: h,
+            width: w
+        });
+
+    });
+}
+
+$(document).ready(function () {
+    topNavToSelect();
+    NavToSelect();
+    showtooltip();
+    cartContent();
+    flexSlideShow();
+    productSlider();
+    productFancyBox();
+    dropdownMainNav();
+    latestTweets();
+    openSidePanel();
+    changeBackgroundPattern();
+    changeLayoutStyle();
+    changeColorStyle();
+    rangePriceSlider();
+    resizeRelatedProductImage();
 });

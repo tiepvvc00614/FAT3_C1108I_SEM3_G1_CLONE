@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="HeaderAppend" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
-<div class="container">
+<div class="container" ID="content_place" runat="server">
 
 			<div class="row">
 				
@@ -27,7 +27,7 @@
 										<span ID="price" runat="server">$150.00</span>
 									</div><!--end product-price-->
 									<div class="product-info">
-										<dl class="dl-horizontal" ID="productInfo" runat="server">
+										<dl class="dl-horizontal" ID="productInfoDL" runat="server">
 										  <dt>Availabilty:</dt>
 										  <dd>Available In Stock</dd>
 
@@ -42,7 +42,7 @@
 										</dl>
 									</div><!--end product-info-->
 									<div class="product-inputs">
-										<form method="post" action="page">
+										<form method="post" id="add-to-cart-form">
 											<div class="controls-row">
 											    <select class="span4" name="#" ID="quantity" runat="server">
 												    <option>-- Select Quantity --</option>
@@ -51,6 +51,7 @@
 												    <option value="">Brown</option>
 											    </select>
 											</div><!--end controls-row-->
+                                            <input type="hidden" name="product-id" value="" id="productID" runat="server" />
 											<div class="input-append">
 											<button class="btn btn-primary"><i class="icon-shopping-cart"></i> Add To Cart</button>
 											</div>
@@ -69,10 +70,10 @@
 					<div class="product-tab">
 						<ul class="nav nav-tabs">
 						  <li class="active">
-						  	<a href="#description" data-toggle="tab">Descraption</a>
+						  	<a href="#description" data-toggle="tab">Description</a>
 						  </li>
 						  <li>
-						  	<a href="#specfications" data-toggle="tab">Specfications</a>
+						  	<a href="#shipping-info" data-toggle="tab">Shipping info</a>
 						  </li>
 						  <li>
 						  	<a href="#return-info" data-toggle="tab">Return Info</a>
@@ -88,29 +89,12 @@
 								</p>
 								
 							</div>
-							<div class="tab-pane" id="specfications">
-								<table class="table table-compare">
-									<tr>
-										<td class="aligned-color"><h5>Momery</h5></td>
-										<td>Test One</td>
-										<td>16GB</td>
-									</tr>
-									<tr>
-										<td class="aligned-color"><h5>Processor</h5></td>
-										<td>No. of Cores</td>
-										<td>No.4</td>
-									</tr>
-									<tr>
-										<td class="aligned-color"><h5>Momery</h5></td>
-										<td>Test One</td>
-										<td>16GB</td>
-									</tr>
-									<tr>
-										<td class="aligned-color"><h5>Processor</h5></td>
-										<td>No. of Cores</td>
-										<td>No.4</td>
-									</tr>
-								</table>
+							<div class="tab-pane" id="shipping-info">
+								<h4>Read our Shipping info</h4><br>
+								<p>
+									Suspendisse potenti. In non nisl sem, eu rutrum augue. Donec eu dolor vel massa ornare cursus id eget erat. Mauris in ante magna. Curabitur eget risus mi, non interdum lacus. Duis magna leo, rhoncus eget malesuada quis, semper a quam. Morbi imperdiet imperdiet lectus ac pellentesque. Integer diam sem, vulputate in feugiat ut, porttitor eu libero. Integer non dolor ipsum. Cras condimentum mattis turpis quis vestibulum. Nulla a augue ipsum. Donec aliquam velit vel metus fermentum dictum sodales metus condimentum. Nullam id massa quis nulla molestie ultrices eget sed nulla. Cras feugiat odio at tellus euismod lacinia.
+									
+								</p>
 							</div>
 							<div class="tab-pane" id="return-info">
 								<h4>Read our Returning info</h4><br>
@@ -271,7 +255,7 @@
 							</li>
 							<li class="span4 clearfix">
 								<div class="thumbImage">
-									<a href=""><img src="img/92x92.jpg" alt=""></a>
+									<a href=""><img src="img/212x192.jpg" alt=""></a>
 								</div>
 								<div class="thumbSetting">
 									<div class="thumbTitle">
@@ -314,6 +298,96 @@
 								</div>
 							</li>
 							<li class="span4 clearfix">
+								<div class="thumbImage">
+									<a href=""><img src="img/92x92.jpg" alt=""></a>
+								</div>
+								<div class="thumbSetting">
+									<div class="thumbTitle">
+										<a href="#" class="invarseColor">
+											Foliomania the designer portfolio
+										</a>
+									</div>
+									<div class="thumbPrice">
+										<span>$150.00</span>
+									</div>
+								</div>
+							</li>
+                            <li class="span4 clearfix">
+								<div class="thumbImage">
+									<a href=""><img src="img/92x92.jpg" alt=""></a>
+								</div>
+								<div class="thumbSetting">
+									<div class="thumbTitle">
+										<a href="#" class="invarseColor">
+											Foliomania the designer portfolio
+										</a>
+									</div>
+									<div class="thumbPrice">
+										<span>$150.00</span>
+									</div>
+								</div>
+							</li>
+                            <li class="span4 clearfix">
+								<div class="thumbImage">
+									<a href=""><img src="img/92x92.jpg" alt=""></a>
+								</div>
+								<div class="thumbSetting">
+									<div class="thumbTitle">
+										<a href="#" class="invarseColor">
+											Foliomania the designer portfolio
+										</a>
+									</div>
+									<div class="thumbPrice">
+										<span>$150.00</span>
+									</div>
+								</div>
+							</li>
+                            <li class="span4 clearfix">
+								<div class="thumbImage">
+									<a href=""><img src="img/92x92.jpg" alt=""></a>
+								</div>
+								<div class="thumbSetting">
+									<div class="thumbTitle">
+										<a href="#" class="invarseColor">
+											Foliomania the designer portfolio
+										</a>
+									</div>
+									<div class="thumbPrice">
+										<span>$150.00</span>
+									</div>
+								</div>
+							</li>
+                            <li class="span4 clearfix">
+								<div class="thumbImage">
+									<a href=""><img src="img/92x92.jpg" alt=""></a>
+								</div>
+								<div class="thumbSetting">
+									<div class="thumbTitle">
+										<a href="#" class="invarseColor">
+											Foliomania the designer portfolio
+										</a>
+									</div>
+									<div class="thumbPrice">
+										<span>$150.00</span>
+									</div>
+								</div>
+							</li>
+                            <li class="span4 clearfix">
+								<div class="thumbImage">
+									<a href=""><img src="img/92x92.jpg" alt=""></a>
+								</div>
+								<div class="thumbSetting">
+									<div class="thumbTitle">
+										<a href="#" class="invarseColor">
+											Foliomania the designer portfolio
+										</a>
+									</div>
+									<div class="thumbPrice">
+										<span>$150.00</span>
+									</div>
+								</div>
+							</li>
+                            <li class="span4 clearfix">
 								<div class="thumbImage">
 									<a href=""><img src="img/92x92.jpg" alt=""></a>
 								</div>
@@ -333,95 +407,6 @@
 
 
 
-					<div class="special">
-						<div class="titleHeader clearfix">
-							<h3>Featured</h3>
-						</div><!--end titleHeader-->
-
-						<ul class="vProductItemsTiny">
-							<li class="span4 clearfix">
-								<div class="thumbImage">
-									<a href=""><img src="img/92x92.jpg" alt=""></a>
-								</div>
-								<div class="thumbSetting">
-									<div class="thumbTitle">
-										<a href="#" class="invarseColor">
-											Foliomania the title here
-										</a>
-									</div>
-									<div class="thumbPrice">
-										<span>$150.00</span>
-									</div>
-									<ul class="rating">
-										<li><i class="star-off"></i></li>
-										<li><i class="star-off"></i></li>
-										<li><i class="star-off"></i></li>
-										<li><i class="star-off"></i></li>
-										<li><i class="star-off"></i></li>
-									</ul>
-								</div>
-							</li>
-							<li class="span4 clearfix">
-								<div class="thumbImage">
-									<a href=""><img src="img/92x92.jpg" alt=""></a>
-								</div>
-								<div class="thumbSetting">
-									<div class="thumbTitle">
-										<a href="#" class="invarseColor">
-											Foliomania the designer portfolio
-										</a>
-									</div>
-									<div class="thumbPrice">
-										<span>$150.00</span>
-									</div>
-									<ul class="rating">
-										<li><i class="star-on"></i></li>
-										<li><i class="star-on"></i></li>
-										<li><i class="star-on"></i></li>
-										<li><i class="star-off"></i></li>
-										<li><i class="star-off"></i></li>
-									</ul>
-								</div>
-							</li>
-							<li class="span4 clearfix">
-								<div class="thumbImage">
-									<a href=""><img src="img/92x92.jpg" alt=""></a>
-								</div>
-								<div class="thumbSetting">
-									<div class="thumbTitle">
-										<a href="#" class="invarseColor">
-											Foliomania the designer portfolio
-										</a>
-									</div>
-									<div class="thumbPrice">
-										<span>$150.00</span>
-									</div>
-									<ul class="rating">
-										<li><i class="star-on"></i></li>
-										<li><i class="star-on"></i></li>
-										<li><i class="star-on"></i></li>
-										<li><i class="star-off"></i></li>
-										<li><i class="star-off"></i></li>
-									</ul>
-								</div>
-							</li>
-							<li class="span4 clearfix">
-								<div class="thumbImage">
-									<a href=""><img src="img/92x92.jpg" alt=""></a>
-								</div>
-								<div class="thumbSetting">
-									<div class="thumbTitle">
-										<a href="#" class="invarseColor">
-											Foliomania the designer portfolio
-										</a>
-									</div>
-									<div class="thumbPrice">
-										<span>$150.00</span>
-									</div>
-								</div>
-							</li>
-						</ul>
-					</div><!--end special-->
 
 				</div><!--end aside-inner-->
 				</aside><!--end span3-->
