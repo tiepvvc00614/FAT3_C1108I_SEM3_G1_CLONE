@@ -51,7 +51,7 @@
 											</div><!--end controls-row-->
                                             <input type="hidden" name="product-id" class="product-id" value="1" id="productID" runat="server" />
 											<div class="input-append">
-											<button class="btn btn-primary"><i class="icon-shopping-cart"></i> Add To Cart</button>
+											<button class="btn btn-primary"><i class="icon-shopping-cart"></i> Add To Cart</button><br /><img src="/img/ajax-loader.gif" id="ajax-loader" style="display:none;" />
 											</div>
 											
 										</form><!--end form-->

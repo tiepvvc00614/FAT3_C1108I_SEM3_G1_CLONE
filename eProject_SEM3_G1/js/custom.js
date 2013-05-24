@@ -254,7 +254,7 @@ function resizeImage(maxW, maxH, imgToResize) {
 }
 
 function resizeMainImage() {
-    var maxWidth = 372;
+    var maxWidth = 362;
     var maxHeight = 370;
     var divThumbImg = $("#ctl00_MainContentPlaceHolder_imageHref img");
     divThumbImg.each(function (i) {
@@ -274,7 +274,18 @@ function resizeRelatedImage() {
 
 function addToCart(productId, quantity) 
 {
-    
+    $('#ajax-loader').show();
+    $.ajax({
+        url: "/Ajax/ShoppingCart.aspx",
+        type: "POST",
+        data: {
+            quantity: quantity,
+            product: productId
+        },
+        success: function (msg) {
+            console.log(msg);
+        }
+    });
 }
 
 $(document).ready(function () {
@@ -299,13 +310,14 @@ $(document).ready(function () {
     $("#add-to-cart-form").on("submit", function (evt) {
         evt.preventDefault();
         var productId = $("#ctl00_MainContentPlaceHolder_productID").val();
-        var quantitySelected = $("#ctl00_MainContentPlaceHolder_quantity").val();
+        var quantitySelected = $("select[name=quantity]").val();
         if (isNaN(productId) || isNaN(quantitySelected)) {
             alert("Please choose quantity");
             return false;
         }
 
         addToCart(productId, quantitySelected);
+        
 
     });
 

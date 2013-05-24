@@ -123,6 +123,7 @@ namespace eProject_SEM3_G1.Model.DataAccess
                     product.ProductId = reader.GetInt32(0);
                     product.ProductName= reader.GetString(1);                               
                     product.ProductImageURL= reader.GetString(5);
+                    product.ProductPrice = float.Parse(reader.GetValue(2).ToString());
                     listProductReturn.Add(product);
                 }
                 reader.Close();
