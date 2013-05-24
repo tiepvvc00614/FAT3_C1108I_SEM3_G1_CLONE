@@ -1579,6 +1579,7 @@
     <Content Include="admin\theme\skins\css\purple-wine.css" />
     <Content Include="admin\theme\skins\css\purple-wine.min.css" />
     <Content Include="admin\UserManagement.aspx" />
+    <Content Include="Ajax\ShoppingCart.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="css\backgrounds\bgnoise_lg.css" />
     <Content Include="css\backgrounds\irongrip.css" />
@@ -1683,6 +1684,13 @@
     </Compile>
     <Compile Include="admin\UserManagement.aspx.designer.cs">
       <DependentUpon>UserManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\ShoppingCart.aspx.cs">
+      <DependentUpon>ShoppingCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\ShoppingCart.aspx.designer.cs">
+      <DependentUpon>ShoppingCart.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
