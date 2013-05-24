@@ -43,9 +43,22 @@ namespace eProject_SEM3_G1.Model
         {
             get { return orderDetailProduct; }
         } 
+    }
 
+    public class OrderDetailComparer : IEqualityComparer<OrderDetails>
+    {
+        public bool Equals(OrderDetails one, OrderDetails two)
+        {
+            if (one.OrderDetailProduct.ProductId == two.OrderDetailProduct.ProductId)
+            {
+                return true;
+            }
+            else return false;
+        }
 
-
-
+        public int GetHashCode(OrderDetails order)
+        {
+            return order.OrderDetailProduct.ProductId.GetHashCode();
+        }
     }
 }

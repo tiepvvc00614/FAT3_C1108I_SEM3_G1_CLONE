@@ -10,6 +10,6 @@
 namespace eProject_SEM3_G1.Ajax {
     
     
-    public partial class ShoppingCart {
+    public partial class ShoppingCartHandler {
     }
 }

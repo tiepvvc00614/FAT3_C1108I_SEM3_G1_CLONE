@@ -1579,7 +1579,7 @@
     <Content Include="admin\theme\skins\css\purple-wine.css" />
     <Content Include="admin\theme\skins\css\purple-wine.min.css" />
     <Content Include="admin\UserManagement.aspx" />
-    <Content Include="Ajax\ShoppingCart.aspx" />
+    <Content Include="Ajax\ShoppingCartHandler.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="css\backgrounds\bgnoise_lg.css" />
     <Content Include="css\backgrounds\irongrip.css" />
@@ -1685,12 +1685,12 @@
     <Compile Include="admin\UserManagement.aspx.designer.cs">
       <DependentUpon>UserManagement.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Ajax\ShoppingCart.aspx.cs">
-      <DependentUpon>ShoppingCart.aspx</DependentUpon>
+    <Compile Include="Ajax\ShoppingCartHandler.aspx.cs">
+      <DependentUpon>ShoppingCartHandler.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Ajax\ShoppingCart.aspx.designer.cs">
-      <DependentUpon>ShoppingCart.aspx</DependentUpon>
+    <Compile Include="Ajax\ShoppingCartHandler.aspx.designer.cs">
+      <DependentUpon>ShoppingCartHandler.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
@@ -1766,6 +1766,7 @@
     <Compile Include="Model\ShippingAddress.cs" />
     <Compile Include="Model\ShippingPrice.cs" />
     <Compile Include="Model\ShippingService.cs" />
+    <Compile Include="Model\ShoppingCart.cs" />
     <Compile Include="Model\Tracking.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="ProductDetail.aspx.cs">

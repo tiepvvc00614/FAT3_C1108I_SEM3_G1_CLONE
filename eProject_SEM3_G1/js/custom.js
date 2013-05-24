@@ -276,7 +276,7 @@ function addToCart(productId, quantity)
 {
     $('#ajax-loader').show();
     $.ajax({
-        url: "/Ajax/ShoppingCart.aspx",
+        url: "/Ajax/ShoppingCartHandler.aspx",
         type: "POST",
         data: {
             quantity: quantity,
