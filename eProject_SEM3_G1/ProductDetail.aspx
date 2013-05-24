@@ -43,8 +43,8 @@
 									</div><!--end product-info-->
 									<div class="product-inputs">
 										<form method="post" id="add-to-cart-form">
-											<div class="controls-row">
-											    <select class="span4" name="quantity" ID="quantity" runat="server">
+											<div class="controls-row" ID="quantity" runat="server">
+											    <select class="span4" name="quantity">
 												    <option>-- Select Quantity --</option>
                                                     <option value="1">1</option>
 											    </select>
@@ -113,107 +113,8 @@
 						</div><!--end titleHeader-->
 
 						<div class="row">
-						<ul class="hProductItems clearfix">
-							<li class="span3 clearfix">
-								<div class="thumbnail">
-									<a href=""><img src="img/212x192.jpg" alt=""></a>
-								</div>
-								<div class="thumbSetting">
-									<div class="thumbTitle">
-										<a href="#" class="invarseColor">
-											Foliomania the designer portfolio brochure
-										</a>
-									</div>
-									<div class="thumbPrice">
-										<span>$150.00</span>
-									</div>
-
-									<div class="thumbButtons">
-										<button class="btn btn-primary btn-small" data-title="+To Cart" data-placement="top" data-toggle="tooltip">
-											<i class="icon-shopping-cart"></i>
-										</button>
-										<button class="btn btn-small" data-title="+To WishList" data-placement="top" data-toggle="tooltip">
-											<i class="icon-heart"></i>
-										</button>
-									
-										<button class="btn btn-small" data-title="+To Compare" data-placement="top" data-toggle="tooltip">
-											<i class="icon-refresh"></i>
-										</button>
-									</div>
-
-									<ul class="rating">
-										<li><i class="star-on"></i></li>
-										<li><i class="star-on"></i></li>
-										<li><i class="star-on"></i></li>
-										<li><i class="star-on"></i></li>
-										<li><i class="star-off"></i></li>
-									</ul>
-								</div>
-							</li>
-							<li class="span3 clearfix">
-								<div class="thumbnail">
-									<a href=""><img src="img/212x192.jpg" alt=""></a>
-								</div>
-								<div class="thumbSetting">
-									<div class="thumbTitle">
-										<a href="#" class="invarseColor">
-											Foliomania the designer portfolio brochure
-										</a>
-									</div>
-									<div class="thumbPrice">
-										<span>$150.00</span>
-									</div>
-
-									<div class="thumbButtons">
-										<button class="btn btn-primary btn-small" data-title="+To Cart" data-placement="top" data-toggle="tooltip">
-											<i class="icon-shopping-cart"></i>
-										</button>
-										<button class="btn btn-small" data-title="+To WishList" data-placement="top" data-toggle="tooltip">
-											<i class="icon-heart"></i>
-										</button>
-									
-										<button class="btn btn-small" data-title="+To Compare" data-placement="top" data-toggle="tooltip">
-											<i class="icon-refresh"></i>
-										</button>
-									</div>
-
-									<ul class="rating">
-										<li><i class="star-on"></i></li>
-										<li><i class="star-on"></i></li>
-										<li><i class="star-on"></i></li>
-										<li><i class="star-off"></i></li>
-										<li><i class="star-off"></i></li>
-									</ul>
-								</div>
-							</li>
-							<li class="span3 clearfix">
-								<div class="thumbnail">
-									<a href=""><img src="img/212x192.jpg" alt=""></a>
-								</div>
-								<div class="thumbSetting">
-									<div class="thumbTitle">
-										<a href="#" class="invarseColor">
-											Foliomania the designer portfolio brochure
-										</a>
-									</div>
-									<div class="thumbPrice">
-										<span>$150.00</span>
-									</div>
-
-									<div class="thumbButtons">
-										<button class="btn btn-primary btn-small" data-title="+To Cart" data-placement="top" data-toggle="tooltip">
-											<i class="icon-shopping-cart"></i>
-										</button>
-										<button class="btn btn-small" data-title="+To WishList" data-placement="top" data-toggle="tooltip">
-											<i class="icon-heart"></i>
-										</button>
-									
-										<button class="btn btn-small" data-title="+To Compare" data-placement="top" data-toggle="tooltip">
-											<i class="icon-refresh"></i>
-										</button>
-									</div>
-								</div>
-							</li>
+						<ul class="hProductItems clearfix" ID="relatedProductHTMLControl" runat="server">
+							
 						</ul>
 						</div><!--end row-->
 					</div><!--end related-product-->

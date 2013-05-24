@@ -73,7 +73,7 @@ namespace eProject_SEM3_G1 {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect quantity;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl quantity;
         
         /// <summary>
         /// productID control.
@@ -92,5 +92,14 @@ namespace eProject_SEM3_G1 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl descriptionProduct;
+        
+        /// <summary>
+        /// relatedProductHTMLControl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl relatedProductHTMLControl;
     }
 }

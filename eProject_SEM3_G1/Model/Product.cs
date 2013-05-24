@@ -38,6 +38,7 @@ namespace eProject_SEM3_G1.Model
             this.ProductDescription = productTemp.description;
             this.ProductImageURL = productTemp.imageURL;
             this.ProductDiscount = productTemp.discount;
+            this.ProductInStock = productTemp.inStock;
         }
 
         private Dictionary<string, string> productInfos;
@@ -50,7 +51,7 @@ namespace eProject_SEM3_G1.Model
             }
             set
             {
-                if (discount != value) discount = value;
+                discount = value;
             }
         }
         public int ProductId
@@ -116,11 +117,11 @@ namespace eProject_SEM3_G1.Model
         {
             get
             {
-                return inStock;
+                return this.inStock;
             }
             set
             {
-                inStock = value;
+                this.inStock = value;
             }
         }
 

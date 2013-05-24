@@ -26,15 +26,16 @@ namespace eProject_SEM3_G1
                     List<Product> relatedProduct = product.RelatedProduct;
 
                     productName.InnerText = product.ProductName;
-                    price.InnerText = product.ProductPrice.ToString();
+                    price.InnerText = "$" + product.ProductPrice.ToString();
                     productID.Value = product.ProductId.ToString();
-                    descriptionProduct.InnerText = product.ProductDescription;
+                    descriptionProduct.InnerHtml = product.ProductDescription;
                     imageHref.HRef = product.ProductImageURL;
                     imageUrl.Src = product.ProductImageURL;
 
 
-                    /* Generate quantity html string 
-                    string quantityHTML = "<option>-- Select Quantity --</option>";
+                    /*Generate quantity html string */
+                    string quantityHTML = " <select class='span4' name='quantity'>";
+                    quantityHTML += "<option>-- Select Quantity --</option>";
                     if (product.ProductInStock > 0)
                     {
                         for (int i = 1; i <= product.ProductInStock; i++)
@@ -46,6 +47,7 @@ namespace eProject_SEM3_G1
                     {
                         quantityHTML += "<option value='not-avaiable'>Not-Avaiable</option>";
                     }
+                    quantityHTML += "</select>";
                     quantity.InnerHtml = quantityHTML;
                     /*=============END Generate quantity html string============*/
 
@@ -58,7 +60,7 @@ namespace eProject_SEM3_G1
                     productInfosHTML += "</dt>";
 
                     productInfosHTML += "<dd>";
-                    productInfosHTML += (product.ProductInStock > 0) ? "YES" : "NO";
+                    productInfosHTML += product.ProductInStock.ToString();
                     productInfosHTML += "</dd>";
 
                     foreach (KeyValuePair<string, string> kvp in productInfo)
@@ -73,6 +75,37 @@ namespace eProject_SEM3_G1
                     productInfoDL.InnerHtml = productInfosHTML;
                     /*=============END Generate product infos html string===========*/
 
+                    /* Generate related product html string*/
+
+                    string relatedProductHTML = "";
+
+                    foreach (Product item in relatedProduct)
+                    {
+                        relatedProductHTML += "<li class='span3 clearfix'>";
+                        relatedProductHTML += "<div class='thumbnail'>";
+                        relatedProductHTML += "<a href=" + item.ProductImageURL + "><img src="+ item.ProductImageURL +" class='relatedImgProduct'></a>";
+
+                        relatedProductHTML += "</div>";
+                        relatedProductHTML += "<div class='thumbSetting'>";
+
+                        relatedProductHTML += "<div class='thumbTitle'>";
+
+                        relatedProductHTML += "<a href=/ProductDetail.aspx?productId="+ item.ProductId +" class='invarseColor'> " + item.ProductName + "</a>";
+
+                        relatedProductHTML += "</div>";
+                        relatedProductHTML += "<div class='thumbPrice'>";
+                        relatedProductHTML += "<span>$"+ item.ProductPrice.ToString() +"</span>";
+                        relatedProductHTML += "</div>";
+                        relatedProductHTML += "<div class='thumbButtons'>";
+                        relatedProductHTML += "<button class=\"btn btn-primary btn-small\" data-title=\"+To Cart\" data-placement=\"top\" data-toggle=\"tooltip\">";
+                        relatedProductHTML += "<i class=\"icon-shopping-cart\"></i>";
+                        relatedProductHTML += "</button>";
+                        relatedProductHTML += "</div>";
+                        relatedProductHTML += "</div>";
+                    }
+                    relatedProductHTMLControl.InnerHtml = relatedProductHTML;
+
+                    /*=========END Generate related product html string=========*/
 
 
                 }

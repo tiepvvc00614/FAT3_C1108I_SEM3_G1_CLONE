@@ -35,6 +35,7 @@ namespace eProject_SEM3_G1.Model.DataAccess
             {
                 if (this.productForAccess == null || this.productForAccess.ProductId == 0)
                     throw new NullReferenceException("Product access object can't be null");
+
                 Product productReturn = new Product();
                 SqlCommand command = new SqlCommand();
                 command.CommandText = "ViewProduct";
@@ -48,30 +49,22 @@ namespace eProject_SEM3_G1.Model.DataAccess
                     productReturn.ProductId = reader.GetInt32(0);
                     productReturn.ProductName = reader.GetString(1);
                     productReturn.ProductPrice = float.Parse(reader.GetValue(2).ToString());
-                    var desc = reader.GetSqlValue(3);
-                    if (desc == DBNull.Value)
-                    {
-                        productReturn.ProductDescription = "";
-                    }
-                    else
-                    {
-                        productReturn.ProductDescription = String.Format(desc.ToString());
 
-                    }
+
+                    System.Data.SqlTypes.SqlString desc = (System.Data.SqlTypes.SqlString)reader.GetSqlValue(3);
+
+                    if (desc.IsNull) productReturn.ProductDescription = "N/A";
+                    else productReturn.ProductDescription = String.Format(desc.Value);
+
 
 
                     System.Data.SqlTypes.SqlInt32 disc = (System.Data.SqlTypes.SqlInt32)reader.GetSqlValue(4);
-                    if (disc.IsNull)
-                    {
-                        productReturn.ProductDiscount = 0;
-                    }
-                    else
-                    {
-                        productReturn.ProductDiscount = disc.Value;
-                    } 
+
+                    if (disc.IsNull) productReturn.ProductDiscount = 0;
+                    else productReturn.ProductDiscount = disc.Value;
+
                     productReturn.ProductImageURL = reader.GetString(5);
                     productReturn.ProductInStock = reader.GetInt32(6);
-                    
                     
                 }
                 reader.Close();
@@ -128,8 +121,7 @@ namespace eProject_SEM3_G1.Model.DataAccess
                 {
                     Product product = new Product();
                     product.ProductId = reader.GetInt32(0);
-                    product.ProductName= reader.GetString(1);
-                    product.ProductPrice = float.Parse(reader.GetValue(2).ToString());                                  
+                    product.ProductName= reader.GetString(1);                               
                     product.ProductImageURL= reader.GetString(5);
                     listProductReturn.Add(product);
                 }
