@@ -28,17 +28,6 @@
 									</div><!--end product-price-->
 									<div class="product-info">
 										<dl class="dl-horizontal" ID="productInfoDL" runat="server">
-										  <dt>Availabilty:</dt>
-										  <dd>Available In Stock</dd>
-
-										  <dt>Product Code:</dt>
-										  <dd>No. CtAw9458</dd>
-
-										  <dt>Manfactuer:</dt>
-										  <dd>Nicka Corparation</dd>
-
-										   <dt>Review Points:</dt>
-										  <dd>25 Points</dd>
 										</dl>
 									</div><!--end product-info-->
 									<div class="product-inputs">

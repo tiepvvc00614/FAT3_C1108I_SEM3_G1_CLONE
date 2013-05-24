@@ -29,12 +29,16 @@ namespace eProject_SEM3_G1.Ajax
                     if (listItem.Add(orderDetails)) 
                     {
                         List<OrderDetails> orderList = listItem.ToList<OrderDetails>();
+                        float totalPrice = 0;
 
                         string jsonStr = "{";
+                        jsonStr += "\"message\": \"Added\",";
                         jsonStr += "\"listItem\": [";
                         for (int i=0; i< orderList.Count; i++)
                         {
+                            
                             OrderDetails currentOrderDetail = orderList[i];
+                            totalPrice += currentOrderDetail.TotalPrice;
                             jsonStr += "{";
                             jsonStr += "\"imageUrl\":\"" + currentOrderDetail.OrderDetailProduct.ProductImageURL + "\",";
                             jsonStr += "\"productName\":\"" + currentOrderDetail.OrderDetailProduct.ProductName + "\",";
@@ -48,20 +52,20 @@ namespace eProject_SEM3_G1.Ajax
                                 jsonStr += ",";
                             }
                         }
-                        jsonStr += "]";
-
+                        jsonStr += "],";
+                        jsonStr += "\"totalPrice\": \"" + totalPrice.ToString() + "\"";
                         jsonStr += "}";
                         Response.Write(jsonStr);
                     }
-                    else Response.Write("False");
+                    else Response.Write("{\"message\": \"Item have been exist\"}");
                 }
                 catch (FormatException)
                 {
-                    Response.Write("Item id or quantity is invalid");
+                    Response.Write("{\"message\": \"Item id or quantity is invalid\"}");
                 }
                 catch (Exception ex)
                 {
-                    Response.Write(ex.Message);
+                    Response.Write("{\"message\": \""+ ex.Message +"\"}");
                 }
             }
         }

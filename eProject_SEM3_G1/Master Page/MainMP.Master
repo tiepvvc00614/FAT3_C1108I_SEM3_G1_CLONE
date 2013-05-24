@@ -133,6 +133,7 @@
     <!-- fancybox -->
     <script src="js/fancybox/jquery.fancybox.js"></script>
     <!-- custom function-->
+    <script src="js/jquery.tmpl.js" type="text/javascript"></script>
     <script src="js/custom.js"></script>
     
 </body>

@@ -248,8 +248,8 @@ function resizeRelatedProductImage() {
 
 function resizeImage(maxW, maxH, imgToResize) {
     imgToResize.css({
-        height: maxW,
-        width: maxH
+        height: maxH,
+        width: maxW
     });
 }
 
@@ -270,6 +270,14 @@ function resizeRelatedImage() {
     });
 }
 
+function resizeThumbCartImage() {
+    var maxWidth = 72;
+    var maxHeight = 72;
+    var divThumbImg = $("#thumbCartItem");
+    divThumbImg.each(function (i) {
+        resizeImage(maxWidth, maxHeight, $(this));
+    });
+}
 
 
 function addToCart(productId, quantity) 
@@ -283,10 +291,19 @@ function addToCart(productId, quantity)
             product: productId
         },
         success: function (msg) {
-            console.log(msg);
+            if (msg.message == "Added") {
+                console.log(msg);
+                $.get('./js/jquery.tmpl/cart_template.txt', function (data) {
+                    $.tmpl(data, msg).appendTo(".table-cart");
+                    //resizeThumbCartImage();
+                });
+            }
         }
     });
 }
+
+
+
 
 $(document).ready(function () {
     topNavToSelect();
@@ -304,6 +321,7 @@ $(document).ready(function () {
     changeColorStyle();
     rangePriceSlider();
     resizeMainImage();
+
     resizeRelatedImage();
     resizeRelatedProductImage();
 
@@ -317,8 +335,6 @@ $(document).ready(function () {
         }
 
         addToCart(productId, quantitySelected);
-        
-
     });
 
 });
