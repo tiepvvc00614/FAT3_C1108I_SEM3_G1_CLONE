@@ -166,4 +166,19 @@ namespace eProject_SEM3_G1.Model
             return String.Format("Product ID: %i | Product Name: %s | Product Price: %f | Product Image URL: %s | In Stock: %i | In Category: %s", this.productId, this.productName, this.price, this.imageURL, this.inStock, this.inCategory.ToString());
         }
     }
+
+    public class ProductComparer : IEqualityComparer<Product>
+    {
+        public bool Equals(Product one, Product two)
+        {
+            return one.ProductId == two.ProductId;
+        }
+
+        public int GetHashCode(Product pro)
+        {
+            return pro.ProductId.GetHashCode();
+        }
+    }
+
+
 }
