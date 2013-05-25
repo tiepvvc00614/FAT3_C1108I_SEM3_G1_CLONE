@@ -1,35 +1,45 @@
-<tbody>
-{{each listItem}}
-<tr>
-	<td class="cart-product-info">
-		<a href="${imageUrl}"><img src="${imageUrl}" alt="${productName}" id="thumbCartItem"></a>
-		<div class="cart-product-desc">
-			<p><a class="invarseColor" href="#">${productName}</a></p>
-			<ul class="unstyled">
-				{{if inStock > 0}}
-					<li>Available: Yes</li>
-					{{else}}
-					<li>Available: NO</li>
-				{{/if}}
-			</ul>
-		</div>
-	</td>
-	<td class="cart-product-setting">
-		<p><strong>${quantity}x-$${productPrice}</strong></p>
-		<a href="#" class="remove-pro" data-toggle="tooltip" data-title="Delete"><i class="icon-trash"></i></a>
-	</td>
-</tr>
-{{/each}}
-</tbody>
-
-<tfoot>
+<a class="btn dropdown-toggle" data-toggle="dropdown" href="#" id="shoppingCartItemCount">
+	<i class="icon-shopping-cart"></i> {{if listItem.length > 0}} ${listItem.length} {{if listItem.length > 1}} Items {{else}} Item {{/if}} {{else}} Empty{{/if}}
+	<span class="caret"></span>
+</a>
+<div class="dropdown-menu cart-content pull-right">
+	<table class="table-cart">
+	{{if listItem.length > 0}}
+	<tbody>
+	{{each listItem}}
 	<tr>
 		<td class="cart-product-info">
-			<a href="Cart.aspx" class="btn btn-small">View cart</a>
-			<a href="Checkout.aspx" class="btn btn-small btn-primary">Checkout</a>
+			<a href="${imageUrl}"><img src="${imageUrl}" alt="${productName}" id="thumbCartItem"></a>
+			<div class="cart-product-desc">
+				<p><a class="invarseColor" href="#">${productName}</a></p>
+				<ul class="unstyled">
+					{{if inStock > 0}}
+						<li>Available: Yes</li>
+						{{else}}
+						<li>Available: NO</li>
+					{{/if}}
+				</ul>
+			</div>
 		</td>
-		<td>
-			<h3>TOTAL<br>$${totalPrice}</h3>
+		<td class="cart-product-setting">
+			<p><strong>${quantity}x-$${productPrice}</strong></p>
+			<a href="#" class="remove-pro" data-toggle="tooltip" data-title="Delete"><i class="icon-trash"></i></a>
 		</td>
 	</tr>
-</tfoot>
+	{{/each}}
+	</tbody>
+
+	<tfoot>
+		<tr>
+			<td class="cart-product-info">
+				<a href="Cart.aspx" class="btn btn-small">View cart</a>
+				<a href="Checkout.aspx" class="btn btn-small btn-primary">Checkout</a>
+			</td>
+			<td>
+				<h3>TOTAL<br>$${totalPrice}</h3>
+			</td>
+		</tr>
+	</tfoot>
+	{{/if}}
+	</table>					
+</div>

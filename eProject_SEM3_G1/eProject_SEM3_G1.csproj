@@ -1654,6 +1654,7 @@
     <Content Include="js\jquery.cycle2.min.js" />
     <Content Include="js\jquery.flexslider-min.js" />
     <Content Include="js\jquery.placeholder.min.js" />
+    <Content Include="js\jquery.tmpl\cart_template.txt" />
     <Content Include="js\jquery.tweet.js" />
     <Content Include="js\jquery.tmpl.js" />
     <Content Include="Master Page\UserControl\Cart.ascx" />
@@ -1794,7 +1795,6 @@
     <Folder Include="admin\theme\scripts\excanvas\testcases\.svn\tmp\text-base\" />
     <Folder Include="admin\theme\scripts\plupload\examples\uploads\" />
     <Folder Include="App_Data\" />
-    <Folder Include="js\jquery.tmpl\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Master Page\MainMP.Master" />

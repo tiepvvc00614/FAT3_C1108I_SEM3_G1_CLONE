@@ -239,28 +239,13 @@ function rangePriceSlider() {
 function resizeImage(maxWidth, maxHeight, imgToResize) {
     var ratio = 0;
     imgToResize.each(function (i) {
-        var width = $(this).width();    // Current image width
-        var height = $(this).height();  // Current image height
-        if (width > maxWidth) {
-            ratio = maxWidth / width;   // get ratio for scaling image
-            $(this).css("width", maxWidth); // Set new width
-            $(this).css("height", height * ratio);  // Scale height based on ratio
-            height = height * ratio;    // Reset height to match scaled image
-        }
-
-        var width = $(this).width();    // Current image width
-        var height = $(this).height();  // Current image height
-
-        // Check if current height is larger than max
-        if (height > maxHeight) {
-            ratio = maxHeight / height; // get ratio for scaling image
-            $(this).css("height", maxHeight);   // Set new height
-            $(this).css("width", width * ratio);    // Scale width based on ratio
-            width = width * ratio;    // Reset width to match scaled image
-        }
+        $(this).css({
+            width: maxWidth,
+            height: maxHeight
+        });
         $(this).parent().parent().css({
-            height: $(this).height(),
-            width: $(this).width()
+            width: maxWidth,
+            height: maxHeight
         });
     });
     
@@ -279,14 +264,30 @@ function addToCart(productId, quantity)
         },
         success: function (msg) {
             if (msg.message == "Added") {
-                console.log(msg);
                 $.get('./js/jquery.tmpl/cart_template.txt', function (data) {
-                    $.tmpl(data, msg).appendTo(".table-cart");
-                    //resizeThumbCartImage();
+                    $('.cart').html($.tmpl(data, msg));
+                    $('#shoppingCartItemCount').trigger('click', function () {
+                        $('body').animate({scrollTop: 0}, 5000);
+                    });
+                    $('#ajax-loader').hide();
                 });
             }
             else
                 alert(msg.message);
+        }
+    });
+}
+
+function preloaderShoppingCart() {
+    $.ajax({
+        url: "/Ajax/ShoppingCartHandler.aspx",
+        type: "GET",
+        data: {
+        },
+        success: function (msg) {
+            $.get('/js/jquery.tmpl/cart_template.txt', function (data) {
+                $('.cart').html($.tmpl(data, msg));
+            });
         }
     });
 }
@@ -314,6 +315,7 @@ $(document).ready(function () {
     resizeImage(212, 192, $(".relatedImgProduct"));
     resizeImage(362, 370, $("#ctl00_MainContentPlaceHolder_imageHref img"));
     resizeImage(92, 92, $(".thumbImage img"));
+    preloaderShoppingCart();
 
     $("#add-to-cart-form").on("submit", function (evt) {
         evt.preventDefault();

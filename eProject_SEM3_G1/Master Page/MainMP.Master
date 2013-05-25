@@ -135,5 +135,6 @@
     <!-- custom function-->
     <script src="js/jquery.tmpl.js" type="text/javascript"></script>
     <script src="js/custom.js"></script>
+    <script ID="cartLoader" runat="server"></script>
     
 </body>
