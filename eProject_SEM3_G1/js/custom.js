@@ -236,47 +236,34 @@ function rangePriceSlider() {
 }
 
 
-function resizeRelatedProductImage() {
+function resizeImage(maxWidth, maxHeight, imgToResize) {
+    var ratio = 0;
+    imgToResize.each(function (i) {
+        var width = $(this).width();    // Current image width
+        var height = $(this).height();  // Current image height
+        if (width > maxWidth) {
+            ratio = maxWidth / width;   // get ratio for scaling image
+            $(this).css("width", maxWidth); // Set new width
+            $(this).css("height", height * ratio);  // Scale height based on ratio
+            height = height * ratio;    // Reset height to match scaled image
+        }
 
-    var maxWidth = 92;
-    var maxHeight = 92;
-    var divThumbImg = $(".thumbImage img");
-    divThumbImg.each(function (i) {
-        resizeImage(maxWidth, maxHeight, $(this));
-    });
-}
+        var width = $(this).width();    // Current image width
+        var height = $(this).height();  // Current image height
 
-function resizeImage(maxW, maxH, imgToResize) {
-    imgToResize.css({
-        height: maxH,
-        width: maxW
+        // Check if current height is larger than max
+        if (height > maxHeight) {
+            ratio = maxHeight / height; // get ratio for scaling image
+            $(this).css("height", maxHeight);   // Set new height
+            $(this).css("width", width * ratio);    // Scale width based on ratio
+            width = width * ratio;    // Reset width to match scaled image
+        }
+        $(this).parent().parent().css({
+            height: $(this).height(),
+            width: $(this).width()
+        });
     });
-}
-
-function resizeMainImage() {
-    var maxWidth = 362;
-    var maxHeight = 370;
-    var divThumbImg = $("#ctl00_MainContentPlaceHolder_imageHref img");
-    divThumbImg.each(function (i) {
-        resizeImage(maxWidth, maxHeight, $(this));
-    });
-}
-function resizeRelatedImage() {
-    var maxWidth = 212;
-    var maxHeight = 192;
-    var divThumbImg = $(".relatedImgProduct");
-    divThumbImg.each(function (i) {
-        resizeImage(maxWidth, maxHeight, $(this));
-    });
-}
-
-function resizeThumbCartImage() {
-    var maxWidth = 72;
-    var maxHeight = 72;
-    var divThumbImg = $("#thumbCartItem");
-    divThumbImg.each(function (i) {
-        resizeImage(maxWidth, maxHeight, $(this));
-    });
+    
 }
 
 
@@ -298,6 +285,8 @@ function addToCart(productId, quantity)
                     //resizeThumbCartImage();
                 });
             }
+            else
+                alert(msg.message);
         }
     });
 }
@@ -320,10 +309,11 @@ $(document).ready(function () {
     changeLayoutStyle();
     changeColorStyle();
     rangePriceSlider();
-    resizeMainImage();
 
-    resizeRelatedImage();
-    resizeRelatedProductImage();
+    resizeImage(72, 72, $("#thumbCartItem"));
+    resizeImage(212, 192, $(".relatedImgProduct"));
+    resizeImage(362, 370, $("#ctl00_MainContentPlaceHolder_imageHref img"));
+    resizeImage(92, 92, $(".thumbImage img"));
 
     $("#add-to-cart-form").on("submit", function (evt) {
         evt.preventDefault();
