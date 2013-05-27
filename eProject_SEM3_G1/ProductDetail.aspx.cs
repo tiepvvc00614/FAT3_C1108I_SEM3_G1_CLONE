@@ -107,7 +107,6 @@ namespace eProject_SEM3_G1
 
                     /*=========END Generate related product html string=========*/
 
-
                 }
                 else
                 {
