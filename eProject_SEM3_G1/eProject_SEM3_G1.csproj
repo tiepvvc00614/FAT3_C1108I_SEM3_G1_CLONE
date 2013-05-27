@@ -1579,6 +1579,7 @@
     <Content Include="admin\theme\skins\css\purple-wine.css" />
     <Content Include="admin\theme\skins\css\purple-wine.min.css" />
     <Content Include="admin\UserManagement.aspx" />
+    <Content Include="Ajax\GetProductInfo.aspx" />
     <Content Include="Ajax\ShoppingCartHandler.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="css\backgrounds\bgnoise_lg.css" />
@@ -1637,6 +1638,7 @@
     <Content Include="img\logo.png" />
     <Content Include="img\map.png" />
     <Content Include="img\payment.png" />
+    <Content Include="img\product-loader.gif" />
     <Content Include="img\star-off.png" />
     <Content Include="img\star-on.png" />
     <Content Include="img\tweetIcon.png" />
@@ -1655,8 +1657,10 @@
     <Content Include="js\jquery.flexslider-min.js" />
     <Content Include="js\jquery.placeholder.min.js" />
     <Content Include="js\jquery.tmpl\cart_template.txt" />
+    <Content Include="js\jquery.tmpl\product_detail_template.txt" />
     <Content Include="js\jquery.tweet.js" />
     <Content Include="js\jquery.tmpl.js" />
+    <Content Include="js\product-loader.js" />
     <Content Include="Master Page\UserControl\Cart.ascx" />
     <Content Include="Master Page\UserControl\Category.ascx" />
     <Content Include="Master Page\UserControl\Footer.ascx" />
@@ -1686,6 +1690,13 @@
     </Compile>
     <Compile Include="admin\UserManagement.aspx.designer.cs">
       <DependentUpon>UserManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\GetProductInfo.aspx.cs">
+      <DependentUpon>GetProductInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\GetProductInfo.aspx.designer.cs">
+      <DependentUpon>GetProductInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Ajax\ShoppingCartHandler.aspx.cs">
       <DependentUpon>ShoppingCartHandler.aspx</DependentUpon>

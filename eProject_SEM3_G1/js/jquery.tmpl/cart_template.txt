@@ -7,9 +7,9 @@
 	{{if listItem.length > 0}}
 	<tbody>
 	{{each listItem}}
-	<tr>
+	<tr forProductId="${productId}">
 		<td class="cart-product-info">
-			<a href="${imageUrl}"><img src="${imageUrl}" alt="${productName}" id="thumbCartItem"></a>
+			<a href="${imageUrl}"><img src="${imageUrl}" alt="${productName}" id="thumbCartItem" style="width: 72px; height: 72px;"></a>
 			<div class="cart-product-desc">
 				<p><a class="invarseColor" href="#">${productName}</a></p>
 				<ul class="unstyled">
@@ -23,7 +23,7 @@
 		</td>
 		<td class="cart-product-setting">
 			<p><strong>${quantity}x-$${productPrice}</strong></p>
-			<a href="#" class="remove-pro" data-toggle="tooltip" data-title="Delete"><i class="icon-trash"></i></a>
+			<a href="#" class="remove-pro" productId="${productId}" data-toggle="tooltip" data-title="Delete"><i class="icon-trash"></i></a>
 		</td>
 	</tr>
 	{{/each}}

@@ -91,33 +91,29 @@ namespace eProject_SEM3_G1.Model.DataAccess
             try
             {
                 HashSet<Product> hsReturn = new HashSet<Product>(new ProductComparer());
-
                 return hsReturn;
             }
             catch (Exception ex)
             {
-                
                 throw ex;
             }
         }
 
-        public Product Select() 
+        public static Product GetProductByProductId(int productId) 
         {
             try
             {
-                if (this.productForAccess == null || this.productForAccess.ProductId == 0)
-                    throw new NullReferenceException("Product access object can't be null");
-
-                Product productReturn = new Product();
+                Product productReturn = null;
                 SqlCommand command = new SqlCommand();
                 command.CommandText = "ViewProduct";
-                command.Connection = this.connectionForAccess;
+                command.Connection = DatabaseFactory.GetConnection(DatabaseFactory.SQL_TYPE_MSSQL).GetConnection();
                 command.CommandType = System.Data.CommandType.StoredProcedure;
                 command.Parameters.Clear();
-                command.Parameters.AddWithValue("@product_id", Int32.Parse(this.productForAccess.ProductId.ToString()));
+                command.Parameters.AddWithValue("@product_id", Int32.Parse(productId.ToString()));
                 SqlDataReader reader = command.ExecuteReader();
                 if (reader.Read())
                 {
+                    productReturn = new Product();
                     productReturn.ProductId = reader.GetInt32(0);
                     productReturn.ProductName = reader.GetString(1);
                     productReturn.ProductPrice = float.Parse(reader.GetValue(2).ToString());
@@ -131,9 +127,8 @@ namespace eProject_SEM3_G1.Model.DataAccess
 
                     productReturn.ProductImageURL = reader.GetString(5);
                     productReturn.ProductInStock = reader.GetInt32(6);
-                    
+                    reader.Close();
                 }
-                reader.Close();
                 return productReturn;
             }
             catch (Exception ex)

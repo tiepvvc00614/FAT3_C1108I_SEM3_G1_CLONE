@@ -263,17 +263,20 @@ function addToCart(productId, quantity)
             product: productId
         },
         success: function (msg) {
+            console.log(msg);
             if (msg.message == "Added") {
                 $.get('./js/jquery.tmpl/cart_template.txt', function (data) {
+
                     $('.cart').html($.tmpl(data, msg));
                     $('#shoppingCartItemCount').trigger('click', function () {
-                        $('body').animate({scrollTop: 0}, 5000);
+                        $('body').animate({ scrollTop: 0 }, 5000);
                     });
-                    $('#ajax-loader').hide();
+                   
                 });
             }
             else
                 alert(msg.message);
+            $('#ajax-loader').hide();
         }
     });
 }
@@ -311,22 +314,21 @@ $(document).ready(function () {
     changeColorStyle();
     rangePriceSlider();
 
-    resizeImage(72, 72, $("#thumbCartItem"));
-    resizeImage(212, 192, $(".relatedImgProduct"));
-    resizeImage(362, 370, $("#ctl00_MainContentPlaceHolder_imageHref img"));
-    resizeImage(92, 92, $(".thumbImage img"));
+
     preloaderShoppingCart();
 
     $("#add-to-cart-form").on("submit", function (evt) {
+        console.log("Okay");
         evt.preventDefault();
-        var productId = $("#ctl00_MainContentPlaceHolder_productID").val();
+        var productId = $("#productID").val();
         var quantitySelected = $("select[name=quantity]").val();
         if (isNaN(productId) || isNaN(quantitySelected)) {
             alert("Please choose quantity");
             return false;
         }
-
         addToCart(productId, quantitySelected);
     });
+
+
 
 });

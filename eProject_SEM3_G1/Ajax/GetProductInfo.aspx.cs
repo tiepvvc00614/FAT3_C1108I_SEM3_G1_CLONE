@@ -4,33 +4,34 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using eProject_SEM3_G1.Model;
+using eProject_SEM3_G1.Model.DataAccess;
 
-namespace eProject_SEM3_G1
+namespace eProject_SEM3_G1.Ajax
 {
-    public partial class ProductDetail : System.Web.UI.Page
+    public partial class GetProductInfo : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
             try
             {
+                Response.ContentType = "application/json";
                 if (Request.Params["productId"] != null)
                 {
                     int productId = 0;
+
                     productId = int.Parse(Request.Params["productId"].ToString());
+
+                    Product product = ProductDAO.GetProductByProductId(productId);
+                    Response.Write(product.ToJSONString());
                 }
-                else
-                {
-                    throw new ArgumentNullException("Wrong URL");
-                }
-                
             }
             catch (Exception ex)
             {
-                content_place.InnerHtml = ex.StackTrace;
-                content_place.InnerHtml += ex.Message;
-                //Response.Write(@"<script>alert('" + ex.Message + "');</script>");
+                throw ex;
             }
+      
+            
         }
     }
 }

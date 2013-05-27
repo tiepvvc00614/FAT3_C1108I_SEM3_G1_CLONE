@@ -1,0 +1,73 @@
+﻿(function ($) {
+    $.extend(jQuery.tmpl.tag, {
+        "for": {
+            _default: { $2: "var i=1;i<=1;i++" },
+            open: 'for ($2){',
+            close: '};'
+        }
+    });
+})(jQuery);
+
+$('document').ready(function () {
+    $.urlParam = function (name) {
+        var results = new RegExp('[\\?&amp;]' + name + '=([^&amp;#]*)').exec(window.location.href);
+        return results[1] || 0;
+    }
+
+    var container = $('.container');
+
+    var productId = $.urlParam('productId');
+    if (isNaN(productId)) {
+        return false;
+    }
+
+    $.get("/Ajax/GetProductInfo.aspx?productId=" + productId, function (msg) {
+        $.get('/js/jquery.tmpl/product_detail_template.txt', function (data) {
+            $('#ctl00_MainContentPlaceHolder_content_place').html($.tmpl(data, msg));
+            $("#add-to-cart-form").on("submit", function (evt) {
+                evt.preventDefault();
+                var productId = $("#productID").val();
+                var quantitySelected = $("select[name=quantity]").val();
+                if (isNaN(productId) || isNaN(quantitySelected)) {
+                    alert("Please choose quantity");
+                    return false;
+                }
+                addToCart(productId, quantitySelected);
+            });
+
+            $("#related-btn-add-to-cart").on('click', function (evt) {
+                console.log("Okay");
+                evt.preventDefault();
+                var productId = $(this).attr('productId');
+                addToCart(productId, 1);
+            });
+        });
+    });
+});
+
+function addToCart(productId, quantity) {
+    $('#ajax-loader').show();
+    $.ajax({
+        url: "/Ajax/ShoppingCartHandler.aspx",
+        type: "POST",
+        data: {
+            quantity: quantity,
+            product: productId
+        },
+        success: function (msg) {
+            console.log(msg);
+            if (msg.message == "Added") {
+                $.get('./js/jquery.tmpl/cart_template.txt', function (data) {
+                    $('.cart').html($.tmpl(data, msg));
+                    $('#shoppingCartItemCount').trigger('click', function () {
+                        $('body').animate({ scrollTop: 0 }, 5000);
+                    });
+
+                });
+            }
+            else
+                alert(msg.message);
+            $('#ajax-loader').hide();
+        }
+    });
+}

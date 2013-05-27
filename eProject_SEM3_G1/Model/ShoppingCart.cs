@@ -38,6 +38,7 @@ namespace eProject_SEM3_G1.Model
                     totalPrice += currentOrderDetail.TotalPrice;
                     jsonStr += "{";
                     jsonStr += "\"imageUrl\":\"" + currentOrderDetail.OrderDetailProduct.ProductImageURL + "\",";
+                    jsonStr += "\"productId\":\"" + currentOrderDetail.OrderDetailProduct.ProductId + "\",";
                     jsonStr += "\"productName\":\"" + currentOrderDetail.OrderDetailProduct.ProductName + "\",";
                     jsonStr += "\"productPrice\":\"" + currentOrderDetail.OrderDetailProduct.ProductPrice.ToString() + "\",";
                     jsonStr += "\"inStock\":\"" + currentOrderDetail.OrderDetailProduct.ProductInStock.ToString() + "\",";

@@ -19,28 +19,7 @@ namespace eProject_SEM3_G1.Model
         private int discount;
         private ProductDAO productDataAccess;
 
-        public Product()
-        {
-            this.productDataAccess = new ProductDAO(this);
-        }
-
-        public Product(int productIdz)
-        {
-            this.productId = productIdz;
-            this.productDataAccess = new ProductDAO(this);
-
-            Product productTemp = this.productDataAccess.Select();
-
-
-            this.ProductId = productTemp.productId;
-            this.ProductName = productTemp.productName;
-            this.ProductPrice = productTemp.price;
-            this.ProductDescription = productTemp.description;
-            this.ProductImageURL = productTemp.imageURL;
-            this.ProductDiscount = productTemp.discount;
-            this.ProductInStock = productTemp.inStock;
-        }
-
+        internal Product() { productDataAccess = new ProductDAO(this); }
         private Dictionary<string, string> productInfos;
 
         public int ProductDiscount
@@ -164,6 +143,90 @@ namespace eProject_SEM3_G1.Model
         public override string ToString()
         {
             return String.Format("Product ID: %i | Product Name: %s | Product Price: %f | Product Image URL: %s | In Stock: %i | In Category: %s", this.productId, this.productName, this.price, this.imageURL, this.inStock, this.inCategory.ToString());
+        }
+
+        public string ToJSONString() {
+            try
+            {
+                Dictionary<string, string> productInfo = this.ProductInfos;
+                List<Product> relatedProduct = this.RelatedProduct;
+                string jsonStr = "{";
+                jsonStr += "\"productName\": \""+ this.ProductName +"\",";
+                jsonStr += "\"productId\": \"" + this.ProductId + "\",";
+                jsonStr += "\"productImageURL\": \"" + this.ProductImageURL + "\",";
+                jsonStr += "\"inStock\": \"" + this.inStock + "\",";
+                jsonStr += "\"productDescription\": \"" + this.ProductDescription + "\",";
+                jsonStr += "\"productId\": \"" + this.ProductId + "\",";
+                jsonStr += "\"productPrice\": \"" + this.ProductPrice + "\",";
+
+
+                List<string> listKeyProductInfo = productInfo.Keys.ToList<string>();
+                List<string> listValueProductInfo = productInfo.Values.ToList<string>();
+
+                jsonStr += "\"productInfos\": [";
+                for (int i = 0; i < listKeyProductInfo.Count; i++)
+                {
+                    jsonStr += "{";
+                    jsonStr += "\"key\":\"" + listKeyProductInfo[i].ToString() + "\",";
+                    jsonStr += "\"value\":\"" + listValueProductInfo[i].ToString() + "\"";
+                    jsonStr += "}";
+
+                    if (i < listKeyProductInfo.Count - 1)
+                    {
+                        jsonStr += ",";
+                    }
+                }
+                jsonStr += "],";
+
+                jsonStr += "\"relatedProduct\": [";
+                for (int i = 0; i < relatedProduct.Count; i++)
+                {
+                    Product temp = relatedProduct[i];
+                    jsonStr += "{";
+                    jsonStr += "\"productName\": \"" + temp.ProductName + "\",";
+                    jsonStr += "\"productId\": \"" + temp.ProductId + "\",";
+                    jsonStr += "\"productImageURL\": \"" + temp.ProductImageURL + "\",";
+                    jsonStr += "\"inStock\": \"" + temp.inStock + "\",";
+                    jsonStr += "\"productDescription\": \"" + temp.ProductDescription + "\",";
+                    jsonStr += "\"productId\": \"" + temp.ProductId + "\",";
+                    jsonStr += "\"productPrice\": \"" + temp.ProductPrice + "\"";
+                    jsonStr += "}";
+
+                    if (i < relatedProduct.Count - 1)
+                    {
+                        jsonStr += ",";
+                    }
+                }
+                jsonStr += "]";
+
+                /*jsonStr += "\"listItem\": [";
+                for (int i = 0; i < orderList.Count; i++)
+                {
+                    OrderDetails currentOrderDetail = orderList[i];
+                    totalPrice += currentOrderDetail.TotalPrice;
+                    jsonStr += "{";
+                    jsonStr += "\"imageUrl\":\"" + currentOrderDetail.OrderDetailProduct.ProductImageURL + "\",";
+                    jsonStr += "\"productId\":\"" + currentOrderDetail.OrderDetailProduct.ProductId + "\",";
+                    jsonStr += "\"productName\":\"" + currentOrderDetail.OrderDetailProduct.ProductName + "\",";
+                    jsonStr += "\"productPrice\":\"" + currentOrderDetail.OrderDetailProduct.ProductPrice.ToString() + "\",";
+                    jsonStr += "\"inStock\":\"" + currentOrderDetail.OrderDetailProduct.ProductInStock.ToString() + "\",";
+                    jsonStr += "\"quantity\":\"" + currentOrderDetail.Quantity + "\"";
+                    jsonStr += "}";
+
+                    if (i < orderList.Count - 1)
+                    {
+                        jsonStr += ",";
+                    }
+                }
+                jsonStr += "],";*/
+                jsonStr += "}";
+
+                return jsonStr;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 

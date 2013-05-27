@@ -56,14 +56,5 @@ namespace eProject_SEM3_G1.Master_Page {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::eProject_SEM3_G1.Master_Page.UserControl.Footer footerContent;
-        
-        /// <summary>
-        /// cartLoader control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cartLoader;
     }
 }
