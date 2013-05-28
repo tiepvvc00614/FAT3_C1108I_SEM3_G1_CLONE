@@ -111,7 +111,7 @@
 									</div>
 									<div class="thumbSetting">
 										<div class="thumbTitle">
-											<a href="#" class="invarseColor">
+											<a href="/ProductDetail.aspx?productId=${productId}" class="invarseColor">
 												${productName}
 											</a>
 										</div>

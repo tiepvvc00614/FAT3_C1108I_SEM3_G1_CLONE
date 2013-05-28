@@ -17,7 +17,7 @@ namespace eProject_SEM3_G1.Utilities.Cryptography
             StringBuilder sbuider = new StringBuilder();
             foreach (byte b in bHash)
             {
-                sbuider.Append(String.Format("{0:x2}",b);
+                sbuider.Append(String.Format("{0:x2}",b));
             }
             return sbuider.ToString();
         }
