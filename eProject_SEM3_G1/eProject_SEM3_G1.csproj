@@ -1582,6 +1582,7 @@
     <Content Include="Ajax\GetProductInfo.aspx" />
     <Content Include="Ajax\ShoppingCartHandler.aspx" />
     <Content Include="Cart.aspx" />
+    <Content Include="Checkout.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="css\backgrounds\bgnoise_lg.css" />
     <Content Include="css\backgrounds\irongrip.css" />
@@ -1664,6 +1665,7 @@
     <Content Include="js\jquery.tweet.js" />
     <Content Include="js\jquery.tmpl.js" />
     <Content Include="js\product-loader.js" />
+    <Content Include="Login.aspx" />
     <Content Include="Master Page\UserControl\Cart.ascx" />
     <Content Include="Master Page\UserControl\Category.ascx" />
     <Content Include="Master Page\UserControl\Footer.ascx" />
@@ -1715,6 +1717,13 @@
     <Compile Include="Cart.aspx.designer.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Checkout.aspx.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Checkout.aspx.designer.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1728,6 +1737,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master Page\AdminPage.Master.cs">
       <DependentUpon>AdminPage.Master</DependentUpon>
