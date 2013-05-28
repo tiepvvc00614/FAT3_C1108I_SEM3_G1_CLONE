@@ -12,7 +12,7 @@ namespace eProject_SEM3_G1.Model.DataAccess
     {
         private Product productForAccess;
 
-        public ProductDAO(Product product) :base()
+        public ProductDAO(Product product) : base()
         {
             this.productForAccess = product;
         }

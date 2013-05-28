@@ -236,51 +236,6 @@ function rangePriceSlider() {
 }
 
 
-function resizeImage(maxWidth, maxHeight, imgToResize) {
-    var ratio = 0;
-    imgToResize.each(function (i) {
-        $(this).css({
-            width: maxWidth,
-            height: maxHeight
-        });
-        $(this).parent().parent().css({
-            width: maxWidth,
-            height: maxHeight
-        });
-    });
-    
-}
-
-
-function addToCart(productId, quantity) 
-{
-    $('#ajax-loader').show();
-    $.ajax({
-        url: "/Ajax/ShoppingCartHandler.aspx",
-        type: "POST",
-        data: {
-            quantity: quantity,
-            product: productId
-        },
-        success: function (msg) {
-            console.log(msg);
-            if (msg.message == "Added") {
-                $.get('./js/jquery.tmpl/cart_template.txt', function (data) {
-
-                    $('.cart').html($.tmpl(data, msg));
-                    $('#shoppingCartItemCount').trigger('click', function () {
-                        $('body').animate({ scrollTop: 0 }, 5000);
-                    });
-                   
-                });
-            }
-            else
-                alert(msg.message);
-            $('#ajax-loader').hide();
-        }
-    });
-}
-
 function preloaderShoppingCart() {
     $.ajax({
         url: "/Ajax/ShoppingCartHandler.aspx",
@@ -316,19 +271,6 @@ $(document).ready(function () {
 
 
     preloaderShoppingCart();
-
-    $("#add-to-cart-form").on("submit", function (evt) {
-        console.log("Okay");
-        evt.preventDefault();
-        var productId = $("#productID").val();
-        var quantitySelected = $("select[name=quantity]").val();
-        if (isNaN(productId) || isNaN(quantitySelected)) {
-            alert("Please choose quantity");
-            return false;
-        }
-        addToCart(productId, quantitySelected);
-    });
-
 
 
 });

@@ -35,11 +35,13 @@ $('document').ready(function () {
                 addToCart(productId, quantitySelected);
             });
 
-            $("#related-btn-add-to-cart").on('click', function (evt) {
-                console.log("Okay");
-                evt.preventDefault();
-                var productId = $(this).attr('productId');
-                addToCart(productId, 1);
+            $("#related-btn-add-to-cart").each(function (i) {
+                $(this).on('click', function (evt) {
+                    console.log("Okay");
+                    evt.preventDefault();
+                    var productId = $(this).attr('productId');
+                    addToCart(productId, 1);
+                });
             });
         });
     });
