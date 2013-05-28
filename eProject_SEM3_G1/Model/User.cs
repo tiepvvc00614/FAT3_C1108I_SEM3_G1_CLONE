@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using eProject_SEM3_G1.Model.DataAccess;
+using eProject_SEM3_G1.Utilities.Cryptography;
 
 namespace eProject_SEM3_G1.Model
 {
@@ -25,9 +26,9 @@ namespace eProject_SEM3_G1.Model
 
         public User(string username, string password)
         {
-
+            
             this.username = username;
-            this.password = password;
+            this.password = MD5Encrypt.GetMd5(password);
             this.status = STATUS_ACTIVE;
             this.dateRegister = DateTime.Now;
             this.userDataAccess = new UserDAO(this);
@@ -63,7 +64,7 @@ namespace eProject_SEM3_G1.Model
             {
                 if (this.password != value)
                 {
-                    this.password = value;
+                    this.password = MD5Encrypt.GetMd5(value);
                     this.userDataAccess.ChangePassword(value);
                 }
             }
