@@ -1579,6 +1579,7 @@
     <Content Include="admin\theme\skins\css\purple-wine.css" />
     <Content Include="admin\theme\skins\css\purple-wine.min.css" />
     <Content Include="admin\UserManagement.aspx" />
+    <Content Include="Ajax\CheckoutValidate.aspx" />
     <Content Include="Ajax\GetProductInfo.aspx" />
     <Content Include="Ajax\ShoppingCartHandler.aspx" />
     <Content Include="Cart.aspx" />
@@ -1701,6 +1702,13 @@
     </Compile>
     <Compile Include="admin\UserManagement.aspx.designer.cs">
       <DependentUpon>UserManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\CheckoutValidate.aspx.cs">
+      <DependentUpon>CheckoutValidate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\CheckoutValidate.aspx.designer.cs">
+      <DependentUpon>CheckoutValidate.aspx</DependentUpon>
     </Compile>
     <Compile Include="Ajax\GetProductInfo.aspx.cs">
       <DependentUpon>GetProductInfo.aspx</DependentUpon>

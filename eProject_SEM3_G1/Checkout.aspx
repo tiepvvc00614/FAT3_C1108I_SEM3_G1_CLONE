@@ -24,10 +24,13 @@
 		<div class="span12">
             <div id="wizard" class="wizard-default-style js">
 		        <ul class="steps">
-			        <li>1. Introduction</li>
-			        <li>2. Database Information</li>
-			        <li>3. Website Information</li>
-			        <li>4. Finish Installation</li>
+			        <li>1. Login | Register</li>
+			        <li>2. Billing Information</li>
+			        <li>3. Shipping Information</li>
+			        <li>4. Delivery method</li>
+                    <li>5. Payment Information</li>
+                    <li>6. Review Order</li>
+                    <li>7. Complete</li>
 		        </ul>
 		
 		        <div class="step_content">
@@ -96,7 +99,7 @@
 				
 				        <div class="column_two">
 					
-					        <form action="callback.php?step=2" class="defaultRequest" method="post">
+					        <form action="/Ajax/CheckoutValidate.aspx" class="defaultRequest" method="post">
 						        <fieldset>
 							        <p><label><a href="#help-dbname" class="show_helper"><span>(?)</span> Database Name</a></label>
 							        <input type="text" name="dbname" class="required" value="wordpress" /></p>
@@ -119,6 +122,7 @@
 		     				         <button type="submit"><span>Next Step</span></button></p>
 		    			        </fieldset>
 					        </form>
+                             <button class="prev"><span>Prev Step</span></button>
 
 				        </div>
 				
@@ -159,7 +163,7 @@
 				
 				        <div class="column_two">
 					
-					        <form action="callback.php?step=3" class="defaultRequest" method="post">
+					        <form action="/Ajax/CheckoutValidate.aspx" class="defaultRequest" method="post">
 						        <fieldset>
 							        <p><label>Site Title</label>
 							        <input type="text" name="sitetitle" class="required" value="" /></p>
@@ -201,6 +205,45 @@
 				
 			        </div>
 			        <!-- </Wizard - Step 4 -->
+                    <!-- Wizard - Step 5 -->
+			        <div id="step-5" class="step one_column">
+				
+				        <div class="column_one">
+					        <h3>Success!</h3>
+					
+					        <p>WordPress has been installed. Were you expecting more steps? Sorry to disappoint.</p>
+					
+					        <p><button><span>Log In</span></button></p>
+				        </div>
+				
+			        </div>
+			        <!-- </Wizard - Step 5 -->
+                    <!-- Wizard - Step 6 -->
+			        <div id="step-6" class="step one_column">
+				
+				        <div class="column_one">
+					        <h3>Success!</h3>
+					
+					        <p>WordPress has been installed. Were you expecting more steps? Sorry to disappoint.</p>
+					
+					        <p><button><span>Log In</span></button></p>
+				        </div>
+				
+			        </div>
+			        <!-- </Wizard - Step 6 -->
+                    <!-- Wizard - Step 7 -->
+			        <div id="step-7" class="step one_column">
+				
+				        <div class="column_one">
+					        <h3>Success!</h3>
+					
+					        <p>WordPress has been installed. Were you expecting more steps? Sorry to disappoint.</p>
+					
+					        <p><button><span>Log In</span></button></p>
+				        </div>
+				
+			        </div>
+			        <!-- </Wizard - Step 7 -->
 			
 		        </div>
 		
