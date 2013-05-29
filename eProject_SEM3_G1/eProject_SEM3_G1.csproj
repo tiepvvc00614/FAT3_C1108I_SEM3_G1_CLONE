@@ -1606,6 +1606,7 @@
     <Content Include="css\layout\Boxed.css" />
     <Content Include="css\layout\Wide.css" />
     <Content Include="css\style.css" />
+    <Content Include="css\wizardPro.css" />
     <Content Include="Default.aspx" />
     <Content Include="font\fontawesome-webfont.svg" />
     <Content Include="img\1.jpg" />
@@ -1654,10 +1655,13 @@
     <Content Include="js\fancybox\fancybox_sprite.png" />
     <Content Include="js\fancybox\jquery.fancybox.css" />
     <Content Include="js\fancybox\jquery.fancybox.js" />
+    <Content Include="js\hoverIntent.js" />
+    <Content Include="js\jquery.browser.js" />
     <Content Include="js\jquery.cookie.js" />
     <Content Include="js\jquery.cycle2.carousel.min.js" />
     <Content Include="js\jquery.cycle2.min.js" />
     <Content Include="js\jquery.flexslider-min.js" />
+    <Content Include="js\jquery.js" />
     <Content Include="js\jquery.placeholder.min.js" />
     <Content Include="js\jquery.tmpl\cart_detail_template.txt" />
     <Content Include="js\jquery.tmpl\cart_template.txt" />
@@ -1665,6 +1669,8 @@
     <Content Include="js\jquery.tweet.js" />
     <Content Include="js\jquery.tmpl.js" />
     <Content Include="js\product-loader.js" />
+    <Content Include="js\validate.js" />
+    <Content Include="js\wizardPro.min.js" />
     <Content Include="Login.aspx" />
     <Content Include="Master Page\UserControl\Cart.ascx" />
     <Content Include="Master Page\UserControl\Category.ascx" />
