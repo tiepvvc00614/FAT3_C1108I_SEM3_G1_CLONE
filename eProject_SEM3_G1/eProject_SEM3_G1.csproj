@@ -1664,6 +1664,7 @@
     <Content Include="js\jquery.flexslider-min.js" />
     <Content Include="js\jquery.js" />
     <Content Include="js\jquery.placeholder.min.js" />
+    <Content Include="js\jquery.tmpl\address_information_review_template.txt" />
     <Content Include="js\jquery.tmpl\cart_detail_template.txt" />
     <Content Include="js\jquery.tmpl\cart_template.txt" />
     <Content Include="js\jquery.tmpl\product_detail_template.txt" />

@@ -1,0 +1,73 @@
+{{if billingAddress}}
+<p class="span3"><b>Billing Information:<br /></b>
+	{{if billingAddress.firstName || billingAddress.lastName}}
+		${billingAddress.firstName} ${billingAddress.lastName}<br />
+	{{/if}}
+
+	{{if billingAddress.company}} 
+		${billingAddress.company}<br/> 
+	{{/if}}
+
+	{{if billingAddress.firstAddress || billingAddress.secondAddress}} 
+		${billingAddress.firstAddress} 
+		{{if billingAddress.secondAddress}}
+			, ${billingAddress.secondAddress} 
+		{{/if}} 
+	{{/if}} 
+	{{if billingAddress.city}}
+		, ${billingAddress.city} 
+	{{/if}}
+	{{if billingAddress.region != "-- Select Region --"}}
+		, ${billingAddress.region}
+	{{/if}}
+	{{if billingAddress.postCode}}
+		{{if billingAddress.region}}
+		 ${billingAddress.postCode}
+		{{else}}
+		, ${billingAddress.postCode}
+		{{/if}}
+	{{/if}} 
+	{{if billingAddress.country != "-- Select Country --"}}
+		${billingAddress.country}<br/>
+	{{/if}}
+	{{if billingAddress.phone}}
+		${billingAddress.phone}<br/>
+	{{/if}}
+{{/if}}
+
+{{if shippingAddress}}
+<p class="span3"><b>Shipping Information:<br /></b>
+	{{if shippingAddress.firstName || shippingAddress.lastName}}
+		${shippingAddress.firstName} ${shippingAddress.lastName}<br />
+	{{/if}}
+
+	{{if shippingAddress.company}} 
+		${shippingAddress.company}<br/> 
+	{{/if}}
+
+	{{if shippingAddress.firstAddress || shippingAddress.secondAddress}} 
+		${shippingAddress.firstAddress} 
+		{{if shippingAddress.secondAddress}}
+			, ${shippingAddress.secondAddress} 
+		{{/if}} 
+	{{/if}} 
+	{{if shippingAddress.city}}
+		, ${shippingAddress.city} 
+	{{/if}}
+	{{if shippingAddress.region != "-- Select Region --"}}
+		, ${shippingAddress.region}
+	{{/if}}
+	{{if shippingAddress.postCode}}
+		{{if shippingAddress.region}}
+		 ${shippingAddress.postCode} 
+		{{else}}
+		, ${shippingAddress.postCode}
+		{{/if}}
+	{{/if}} 
+	{{if shippingAddress.country != "-- Select Country --"}}
+		${shippingAddress.country}<br/>
+	{{/if}}
+	{{if shippingAddress.phone}}
+		${shippingAddress.phone}<br/>
+	{{/if}}
+{{/if}}

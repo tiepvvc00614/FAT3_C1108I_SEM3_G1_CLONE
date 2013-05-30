@@ -251,7 +251,61 @@ function preloaderShoppingCart() {
 }
 
 
+function addressDidChange() {
+    var billingFirstName = $("#first-name-billing");
+    var billingLastName = $("#last-name-billing");
+    var billingCompany = $("#company-billing");
+    var billingFirstAddress = $("#first-address-billing");
+    var billingSecondAddress = $("#second-address-billing");
+    var billingCity = $("#city-billing");
+    var billingPostcode = $("#post-code-billing");
+    var billingCountry = $("select[name=country-billing]");
+    var billingRegion = $("select[name=region-billing]");
+    var billingPhone = $("#phone-billing");
 
+    var shippingFirstName = $("#first-name-shipping");
+    var shippingLastName = $("#last-name-shipping");
+    var shippingCompany = $("#company-shipping");
+    var shippingFirstAddress = $("#first-address-shipping");
+    var shippingSecondAddress = $("#second-address-shipping");
+    var shippingCity = $("#city-shipping");
+    var shippingPostcode = $("#post-code-shipping");
+    var shippingCountry = $("select[name=country-shipping]");
+    var shippingRegion = $("select[name=region-shipping]");
+    var shippingPhone = $("#phone-shipping");
+
+    var json2Template = {
+        billingAddress:
+        {
+            firstName: billingFirstName.val(),
+            lastName: billingLastName.val(),
+            company: billingCompany.val(),
+            firstAddress: billingFirstAddress.val(),
+            secondAddress: billingSecondAddress.val(),
+            city: billingCity.val(),
+            postCode: billingPostcode.val(),
+            country: billingCountry.val(),
+            region: billingRegion.val(),
+            phone: billingPhone.val()
+        },
+        shippingAddress:
+        {
+            firstName: shippingFirstName.val(),
+            lastName: shippingLastName.val(),
+            company: shippingCompany.val(),
+            firstAddress: shippingFirstAddress.val(),
+            secondAddress: shippingSecondAddress.val(),
+            city: shippingCity.val(),
+            postCode: shippingPostcode.val(),
+            country: shippingCountry.val(),
+            region: shippingRegion.val(),
+            phone: shippingPhone.val()
+        }
+    };
+    $.get('/js/jquery.tmpl/address_information_review_template.txt', function (data) {
+        $('#review-address').html($.tmpl(data, json2Template));
+    });
+}
 
 $(document).ready(function () {
     topNavToSelect();
@@ -271,6 +325,12 @@ $(document).ready(function () {
 
 
     preloaderShoppingCart();
+    $("#checkout-address-validate input").on("keyup", function () {
+        addressDidChange();
+    });
+    $("#checkout-address-validate select").on("change", function () {
+        addressDidChange();
+    });
 
 
 });

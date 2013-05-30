@@ -196,7 +196,7 @@
 						color: #1696df;
 					}
 			
-			/* Form styling */
+			/* Form styling 
 			.wizard-default-style form.defaultRequest{
 			
 			}
@@ -271,16 +271,16 @@
 			
 			/* Thanks to Filament Group (http://bit.ly/TIxFT) */	
 					
-			.wizard-default-style button { 
+			/*.wizard-default-style button { 
 				position: relative;
 				border: 0; 
 				padding: 0;
 				cursor: pointer;
-				overflow: visible; /* removes extra side padding in IE */
+				overflow: visible; /* removes extra side padding in IE 
 			}
 			
 			.wizard-default-style button::-moz-focus-inner {
-				border: none;  /* overrides extra padding in Firefox */
+				border: none;  /* overrides extra padding in Firefox 
 			}
 			
 			.wizard-default-style button span { 
@@ -290,7 +290,7 @@
 			}
 			
 			@media screen and (-webkit-min-device-pixel-ratio:0) {
-				/* Safari and Google Chrome only - fix margins */
+				/* Safari and Google Chrome only - fix margins 
 				.wizard-default-style button span {
 					margin-top: -1px;
 				}
@@ -320,7 +320,7 @@
 				text-decoration: none;
 			}
 			
-			.wizard-default-style button:hover{ /* the redundant class is used to apply the hover state with a script */
+			.wizard-default-style button:hover{ /* the redundant class is used to apply the hover state with a script 
 				background-position: right -102px; 
 			}
 				
@@ -328,6 +328,6 @@
 				background-position: 0 -54px;
 				color:#5e5e5e;
 				text-shadow: 0 1px #FFF;
-			}
+			}*/
 
 

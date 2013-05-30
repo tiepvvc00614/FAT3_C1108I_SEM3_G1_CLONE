@@ -24,10 +24,9 @@
 		<div class="span12">
             <div id="wizard" class="wizard-default-style js">
 		        <ul class="steps">
-			        <li>1. Login | Register</li>
-			        <li>2. Billing Information</li>
-			        <li>3. Shipping Information</li>
-			        <li>4. Delivery method</li>
+			        <li>1. Login</li>
+			        <li>2. Address Information</li>
+			        <li>4. Delivery options</li>
                     <li>5. Payment Information</li>
                     <li>6. Review Order</li>
                     <li>7. Complete</li>
@@ -38,93 +37,258 @@
 			        <!-- Wizard - Step 1 -->
 			        <div id="step-1" class="step one_column">
 				
-				        <div class="column_one">
-					        <h3>Step 1 - Introduction</h3>
-					
-					        <p><strong>Welcome to WordPress. 
-					        Before getting started, we need some information on the database. 
-					        You will need to know the following items before proceeding.</strong></p>
-					
-					        <ol>
-						        <li>Database name</li>
-						        <li>Database username</li>
-						        <li>Database password</li>
-						        <li>Database host</li>
-						        <li>Table prefix (if you want to run more than one WordPress in a single database)</li>
-					        </ol>
-					
-					        <p>If for any reason this automatic file creation doesn't work, don't worry. 
-					        All this does is fill in the database information to a configuration file. 
-					        You may also simply open wp-config-sample.php in a text editor, fill in your information, 
-					        and save it as wp-config.php. </p>
-					
-					        <p>In all likelihood, these items were supplied to you by your Web Host. 
-					        If you do not have this information, then you will need to contact them before you can continue. 
-					        If you're all ready...</p>
-					        <button class="next"><span>Next Step</span></button>
-				        </div>
+				        <div class="checkout-content">
+							<div class="login">
+								<table>
+									<tr>
+										<td>
+											<h3>New Customer</h3>
+											<form method="post" action="page">
+												<label class="radio">
+												  <input type="radio" name="optionsRadios" value="1" checked>
+												  Registeration Account.
+												</label>
+												<label class="radio">
+												  <input type="radio" name="optionsRadios" value="0">
+												  Continue as guest account.
+												</label>
+											</form><!--end form-->
+											<p>By creating an account you will be able to shop faster, be up to date on an order's status, and keep track of the orders you have previously made.</p>
+											<a href="/Register.aspx" class="btn">Register</a>
+                                            <button class="btn next"><span>Next Step</span></button>
+										</td>
+
+										<td>
+											<h3>Returning Customer</h3>
+											<form method="post" action="page">
+												<div class="controls">
+													<label>Your E-Mail: <span class="text-error">*</span></label>
+													<input type="text" name="" value="" placeholder="example@example.com">
+												</div>
+												<div class="controls">
+													<label>Your Password: <span class="text-error">*</span></label>
+													<input type="password" name="" value="" placeholder="**************">
+												</div>
+												<div class="controls">
+													<label class="checkbox">
+												      <input type="checkbox"> Check me out
+												    </label>
+                                                    <input type="submit" name="btnLoginSubmit" value="Login" class="btn" />
+												</div>
+											</form><!--end form-->
+										</td>
+									</tr>
+								</table>
+							</div><!--end login-->
+						</div><!--end checkout-content-->
 				
 			        </div>
 			        <!-- </Wizard - Step 1 -->
 			
 			        <!-- Wizard - Step 2 -->
-			        <div id="step-2" class="step two_column">
-				
-				        <!-- Helper -->
-				        <div id="help-dbname" class="helper">
-					        <div class="text">
-						        <h3>Database Name</h3>
-						        <p>The name of the database you want to run WP in. </p>
-					        </div>
-				        </div>
-				        <!-- </Helper -->
-				
-				        <!-- Helper -->
-				        <div id="help-dbprefix" class="helper">
-					        <div class="text">
-						        <h3>Table Prefix</h3>
-						        <p>If you want to run multiple WordPress installations in a single database, change this.</p>
-					        </div>
-				        </div>
-				        <!-- </Helper -->
-				
+			        <div id="step-2" class="step one_column">
 				        <div class="column_one">
-					        <h3>Step 2 - Database Information</h3>
+                        <form action="/Ajax/CheckoutValidate.aspx" class="defaultRequest" method="post" id="checkout-address-validate">
+					        <div class="checkout-content">
+							<div class="login">
+								<table>
+									<tr>
+										<td>
+											<h3>Billing Information</h3>
+								                <div class="control-group">
+								                    <label class="control-label" for="inputFirstName">First Name: <span class="text-error">*</span></label>
+								                    <div class="controls">
+								                      <input type="text" id="first-name-billing" placeholder="John">
+								                    </div>
+								                </div><!--end control-group-->
 
-					        <p>On the right side you should enter your database connection details. 
-					        If you're not sure about these, contact your host. </p>
+								                <div class="control-group">
+								                    <label class="control-label" for="inputLastName">Last Name: <span class="text-error">*</span></label>
+								                    <div class="controls">
+								                      <input type="text" id="last-name-billing" placeholder="Doe">
+								                    </div>
+								                </div><!--end control-group-->
 
-					        <p style="color:red;"><strong>Change "root1" into "root" to continue</strong></p>
+								                <div class="control-group">
+								                    <label class="control-label" for="inputCompany">Company:</label>
+								                    <div class="controls">
+								                      <input type="text" id="company-billing" placeholder="Shopfine, INC">
+								                    </div>
+								                </div><!--end control-group-->
+
+								                <div class="control-group">
+								                    <label class="control-label" for="inputFirstAdd">First Address: <span class="text-error">*</span></label>
+								                    <div class="controls">
+								                      <input type="text" id="first-address-billing" placeholder="3st el-hakim">
+								                    </div>
+								                </div><!--end control-group-->
+
+								                <div class="control-group">
+								                    <label class="control-label" for="inputSecondAdd">Second Address:</label>
+								                    <div class="controls">
+								                      <input type="text" id="second-address-billing" placeholder="6st el-hakim">
+								                    </div>
+								                </div><!--end control-group-->
+
+								                <div class="control-group">
+								                    <label class="control-label" for="inputCity">City: <span class="text-error">*</span></label>
+								                    <div class="controls">
+								                      <input type="text" id="city-billing" placeholder="Ex: New York">
+								                    </div>
+								                </div><!--end control-group-->
+
+								                <div class="control-group">
+								                    <label class="control-label" for="inputPostCode">Post Code: <span class="text-error">*</span></label>
+								                    <div class="controls">
+								                      <input type="text" id="post-code-billing" placeholder="Ex: 55421">
+								                    </div>
+								                </div><!--end control-group-->
+                                                <div class="control-group">
+								                    <label class="control-label" for="inputPostCode">Phone Number: <span class="text-error">*</span></label>
+								                    <div class="controls">
+								                      <input type="text" id="phone-billing" placeholder="Ex: 55421">
+								                    </div>
+								                </div><!--end control-group-->
+
+								                <div class="control-group">
+								                    <div class="control-label">Country: <span class="text-error">*</span></div>
+								                    <div class="controls">
+								                      <select name="country-billing">
+								      	                <option>-- Select Country --</option>
+								      	                <option>Vietnam</option>
+								      	                <option>United State</option>
+								      	                <option>United Kingdom</option>
+								      	                <option>Australia</option>
+								                      </select>
+								                    </div>
+								                </div><!--end control-group-->
+
+								                <div class="control-group">
+								                    <div class="control-label">Region/Stats: <span class="text-error">*</span></div>
+								                    <div class="controls">
+								                      <select name="region-billing">
+								      	                <option>-- Select Region --</option>
+								      	                <option>New South Wales</option>
+								      	                <option>South Australia</option>
+								      	                <option>Victoria</option>
+								      	                <option>Queenlands</option>
+								      	                <option>Western Australia</option>
+								                      </select>
+								                    </div>
+								                </div><!--end control-group-->
+										</td>
+
+										<td>
+											<h3>Shipping Information</h3>
+
+								                <div class="control-group">
+								                    <label class="control-label" for="inputFirstName">First Name: <span class="text-error">*</span></label>
+								                    <div class="controls">
+								                      <input type="text" id="first-name-shipping" placeholder="John">
+								                    </div>
+								                </div><!--end control-group-->
+
+								                <div class="control-group">
+								                    <label class="control-label" for="inputLastName">Last Name: <span class="text-error">*</span></label>
+								                    <div class="controls">
+								                      <input type="text" id="last-name-shipping" placeholder="Doe">
+								                    </div>
+								                </div><!--end control-group-->
+
+								                <div class="control-group">
+								                    <label class="control-label" for="inputCompany">Company:</label>
+								                    <div class="controls">
+								                      <input type="text" id="company-shipping" placeholder="Shopfine, INC">
+								                    </div>
+								                </div><!--end control-group-->
+
+								                <div class="control-group">
+								                    <label class="control-label" for="inputFirstAdd">First Address: <span class="text-error">*</span></label>
+								                    <div class="controls">
+								                      <input type="text" id="first-address-shipping" placeholder="3st el-hakim">
+								                    </div>
+								                </div><!--end control-group-->
+
+								                <div class="control-group">
+								                    <label class="control-label" for="inputSecondAdd">Second Address:</label>
+								                    <div class="controls">
+								                      <input type="text" id="second-address-shipping" placeholder="6st el-hakim">
+								                    </div>
+								                </div><!--end control-group-->
+
+								                <div class="control-group">
+								                    <label class="control-label" for="inputCity">City: <span class="text-error">*</span></label>
+								                    <div class="controls">
+								                      <input type="text" id="city-shipping" placeholder="Cairo">
+								                    </div>
+								                </div><!--end control-group-->
+
+								                <div class="control-group">
+								                    <label class="control-label" for="inputPostCode">Post Code: <span class="text-error">*</span></label>
+								                    <div class="controls">
+								                      <input type="text" id="post-code-shipping" placeholder="12345">
+								                    </div>
+								                </div><!--end control-group-->
+                                                <div class="control-group">
+								                    <label class="control-label" for="inputPostCode">Phone Number: <span class="text-error">*</span></label>
+								                    <div class="controls">
+								                      <input type="text" id="phone-shipping" placeholder="Ex: 55421">
+								                    </div>
+								                </div><!--end control-group-->
+
+								                <div class="control-group">
+								                    <div class="control-label">Country: <span class="text-error">*</span></div>
+								                    <div class="controls">
+								                      <select name="country-shipping">
+								      	                <option>-- Select Country --</option>
+								      	                <option>Vietnam</option>
+								      	                <option>United State</option>
+								      	                <option>United Kingdom</option>
+								      	                <option>Australia</option>
+								                      </select>
+								                    </div>
+								                </div><!--end control-group-->
+
+								                <div class="control-group">
+								                    <div class="control-label">Region/Stats: <span class="text-error">*</span></div>
+								                    <div class="controls">
+								                      <select name="region-shipping">
+								      	                <option>-- Select Region --</option>
+								      	                <option>New South Wales</option>
+								      	                <option>South Australia</option>
+								      	                <option>Victoria</option>
+								      	                <option>Queenlands</option>
+								      	                <option>Western Australia</option>
+								                      </select>
+								                    </div>
+								                </div><!--end control-group-->
+							               <!--end form-->
+										</td>
+                                        <td>
+											<h3>Review Information</h3>
+
+								                <div class="control-group">
+								                    <div class="controls" id="review-address">
+								                      <p class="span3"><b>Shipping Information:<br /></b>John Doe<br />
+                                                      29039 Orange Ave. Escalon, CA 95320
+                                                      United State</p>
+                                                      <p class="span3"><b>Billing Information:<br /></b>John Doe<br />
+                                                      308 Corona Dr Lafayette, LA 70503
+                                                      United State</p>
+								                    </div>
+								                </div><!--end control-group-->
+                                                <button type="submit" class="btn btn-primary">Continue</button>
+										</td>
+                                        
+                                        </form>
+									</tr>
+								</table>
+							</div><!--end login-->
+
+						</div><!--end checkout-content-->
+                        
 				        </div>
-				
-				        <div class="column_two">
-					
-					        <form action="/Ajax/CheckoutValidate.aspx" class="defaultRequest" method="post">
-						        <fieldset>
-							        <p><label><a href="#help-dbname" class="show_helper"><span>(?)</span> Database Name</a></label>
-							        <input type="text" name="dbname" class="required" value="wordpress" /></p>
-							
-							        <p><label>User Name</label>
-							        <input type="text" name="dbuser" value="root" /></p>
-							
-							        <p><label>Password</label>
-							        <input type="text" name="dbpass" value="root1" /></p>
-							
-							        <p><label>Database Host</label>
-							        <input type="text" name="dbhost" value="localhost" /></p>
-							
-							        <p><label><a href="#help-dbprefix" class="show_helper"><span>(?)</span> Table Prefix</a></label>
-							        <input type="text" name="dbprefix" value="wp_" /></p>
-						        </fieldset>
-						
-						        <fieldset>
-		     				         <p><label>&nbsp;</label>
-		     				         <button type="submit"><span>Next Step</span></button></p>
-		    			        </fieldset>
-					        </form>
-                             <button class="prev"><span>Prev Step</span></button>
 
-				        </div>
 				
 			        </div>
 			        <!-- </Wizard - Step 2 -->
