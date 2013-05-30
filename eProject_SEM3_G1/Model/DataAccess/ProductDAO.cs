@@ -8,8 +8,11 @@ using System.Data;
 
 namespace eProject_SEM3_G1.Model.DataAccess
 {
+    
     public class ProductDAO : DataAccessObject
     {
+        public static int PRODUCT_STATISTIC_PAGE_SIZE = 20;
+
         private Product productForAccess;
 
         public ProductDAO(Product product) : base()
@@ -193,6 +196,20 @@ namespace eProject_SEM3_G1.Model.DataAccess
             catch (Exception ex)
             {
                 throw ex;
+            }
+        }
+
+        public static List<ProductStatistic> GetProductStatisticByPage(int page)
+        {
+            try
+            {
+                int totalResult = page * PRODUCT_STATISTIC_PAGE_SIZE;
+                return null;
+            }
+            catch (Exception)
+            {
+                
+                throw;
             }
         }
     }
