@@ -199,18 +199,5 @@ namespace eProject_SEM3_G1.Model.DataAccess
             }
         }
 
-        public static List<ProductStatistic> GetProductStatisticByPage(int page)
-        {
-            try
-            {
-                int totalResult = page * PRODUCT_STATISTIC_PAGE_SIZE;
-                return null;
-            }
-            catch (Exception)
-            {
-                
-                throw;
-            }
-        }
     }
 }

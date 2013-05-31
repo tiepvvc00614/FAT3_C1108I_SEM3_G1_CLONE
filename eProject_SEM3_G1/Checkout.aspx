@@ -26,10 +26,10 @@
 		        <ul class="steps">
 			        <li>1. Login</li>
 			        <li>2. Address Information</li>
-			        <li>4. Delivery options</li>
-                    <li>5. Payment Information</li>
-                    <li>6. Review Order</li>
-                    <li>7. Complete</li>
+			        <li>3. Delivery options</li>
+                    <li>4. Payment Information</li>
+                    <li>5. Review Order</li>
+                    <li>6. Complete</li>
 		        </ul>
 		
 		        <div class="step_content">
@@ -269,12 +269,8 @@
 
 								                <div class="control-group">
 								                    <div class="controls" id="review-address">
-								                      <p class="span3"><b>Shipping Information:<br /></b>John Doe<br />
-                                                      29039 Orange Ave. Escalon, CA 95320
-                                                      United State</p>
-                                                      <p class="span3"><b>Billing Information:<br /></b>John Doe<br />
-                                                      308 Corona Dr Lafayette, LA 70503
-                                                      United State</p>
+								                      <p class="span3"><b>Shipping Information:<br /></b></p>
+                                                      <p class="span3"><b>Billing Information:<br /></b></p>
 								                    </div>
 								                </div><!--end control-group-->
                                                 <button type="submit" class="btn btn-primary">Continue</button>

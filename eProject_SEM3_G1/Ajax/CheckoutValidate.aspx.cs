@@ -11,6 +11,7 @@ namespace eProject_SEM3_G1.Ajax
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            System.Threading.Thread.Sleep(5000);
             Response.ContentType = "application/json";
             Response.Write("{\"response\": \"true\"}");
         }
