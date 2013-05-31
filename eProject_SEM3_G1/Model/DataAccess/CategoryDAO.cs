@@ -22,40 +22,80 @@ namespace eProject_SEM3_G1.Model.DataAccess
 
         }
 
-        public static HashSet<Category> GetAllCategory() {
-            
+        public static Dictionary<string, Category> GetAllCategory()
+        {
             SqlConnection con = DatabaseFactory.GetConnection(DatabaseFactory.SQL_TYPE_MSSQL).GetConnection();
             SqlCommand command = new SqlCommand();
             command.CommandText = "LoadCategories";
             command.CommandType = System.Data.CommandType.StoredProcedure;
             command.Connection = con;
             SqlDataReader reader = command.ExecuteReader();
-            HashSet<Category> hsReturn = new HashSet<Category>(new CategoryComparer());
+            Dictionary<string, Category> hsReturn = new Dictionary<string, Category>();
 
             Category tmpCate = new Category();
 
             while (reader.Read())
             {
-                
-                Category cateTmp = new Category();
-                cateTmp.CategoryId = reader.GetInt32(0);
-                cateTmp.CategoryName = reader.GetString(1);
-                if (!tmpCate.Equals(cateTmp))
+
+                Category parentNode = new Category();
+                Category firstChildNode = null;
+                Category secondChildNode = null;
+
+                parentNode.CategoryId = reader.GetInt32(0);
+                parentNode.CategoryName = reader.GetString(1);
+
+                System.Data.SqlTypes.SqlInt32 firstChildVal = (System.Data.SqlTypes.SqlInt32)reader.GetSqlValue(2);
+                if (!firstChildVal.IsNull)
                 {
-                    tmpCate = cateTmp;
-                    hsReturn.Add(cateTmp);
+                    firstChildNode = new Category();
+                    firstChildNode.CategoryId = reader.GetInt32(2);
+                    firstChildNode.CategoryName = reader.GetString(3);
                 }
-                HashSet<Category> listSubCate = tmpCate.ChildrenCategory;
-                Category subCatTmp1 = new Category();
-                subCatTmp1.CategoryId = reader.GetInt32(2);
-                subCatTmp1.CategoryName = reader.GetString(3);
 
-                listSubCate.Add(subCatTmp1)
+                System.Data.SqlTypes.SqlInt32 secondChildVal = (System.Data.SqlTypes.SqlInt32)reader.GetSqlValue(4);
+                if (!secondChildVal.IsNull)
+                {
 
+                    secondChildNode = new Category();
+                    secondChildNode.CategoryId = reader.GetInt32(4);
+                    secondChildNode.CategoryName = reader.GetString(5);
+                }
+
+                List<Category> listChildNode = new List<Category>();
+
+                if (firstChildNode != null)
+                {
+                    if (secondChildNode != null)
+                    {
+                        List<Category> listChildSecond = new List<Category>();
+                        listChildSecond.Add(secondChildNode);
+                        firstChildNode.ChildrenCategory = listChildSecond;
+                    }
+                    firstChildNode.ChildrenCategory = listChildNode;
+                    listChildNode.Add(firstChildNode);
+                }
+
+
+                parentNode.ChildrenCategory = listChildNode;
+
+                FillDictionary(hsReturn, parentNode);
                 
             }
 
-            return ;
+            return hsReturn ;
+        }
+        private static void FillDictionary(Dictionary<string, Category> dictionary, Category node)
+        {
+            if (dictionary.ContainsKey(node.CategoryName))
+            {
+                return;
+            }
+            dictionary.Add(node.CategoryName, node);
+
+            foreach (Category child in node.ChildrenCategory)
+            {
+                FillDictionary(dictionary, child);
+            }
         }
     }
 }

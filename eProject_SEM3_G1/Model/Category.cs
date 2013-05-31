@@ -22,9 +22,9 @@ namespace eProject_SEM3_G1.Model
             get { return categoryName; }
             set { categoryName = value; }
         }
-        private HashSet<Category> childrenCategory;
+        private List<Category> childrenCategory;
 
-        public HashSet<Category> ChildrenCategory
+        public List<Category> ChildrenCategory
         {
             get { return childrenCategory; }
             set { childrenCategory = value; }
