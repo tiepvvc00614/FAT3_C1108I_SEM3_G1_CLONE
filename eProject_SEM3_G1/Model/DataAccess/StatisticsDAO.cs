@@ -21,7 +21,7 @@ namespace eProject_SEM3_G1.Model.DataAccess
         {
 
         }
-        public static List<IncomeStatistics> GetOrderByPeriod(DateTime start, DateTime end)
+        public static List<IncomeStatistics> GetIncomeByPeriod(DateTime start, DateTime end)
         {
             try
             {
@@ -51,12 +51,12 @@ namespace eProject_SEM3_G1.Model.DataAccess
             }
         }
 
-        public static List<ProductStatistics> GetHotProduct(int currentPage)
+        public static List<ProductStatistic> GetHotProduct(int currentPage)
         {
             try
             {
                 SqlConnection con = DatabaseFactory.GetConnection(DatabaseFactory.SQL_TYPE_MSSQL).GetConnection();
-                List<ProductStatistics> listProductReturn = new List<ProductStatistics>();
+                List<ProductStatistic> listProductReturn = new List<ProductStatistic>();
                 SqlCommand command = new SqlCommand();
                 command.Connection = con;
                 command.CommandText = "Statistics_hotproduct";
@@ -65,10 +65,9 @@ namespace eProject_SEM3_G1.Model.DataAccess
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    ProductStatistics product = new ProductStatistics();
+                    ProductStatistic product = new ProductStatistic(reader.GetInt32(2));
                     product.ProductName = reader.GetString(0);
                     product.ProductId = reader.GetInt32(1);
-                    product.CountOrder = reader.GetInt32(2);
                     listProductReturn.Add(product);
                 }
                 return listProductReturn;
