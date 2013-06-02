@@ -84,6 +84,7 @@
     <Content Include="admin\bootstrap\js\bootstrap.js" />
     <Content Include="admin\bootstrap\js\bootstrap.min.js" />
     <Content Include="admin\Default.aspx" />
+    <Content Include="admin\IncomeStatistic.aspx" />
     <Content Include="admin\theme\css\glyphicons.css" />
     <Content Include="admin\theme\css\style.css" />
     <Content Include="admin\theme\css\style.min.css" />
@@ -606,6 +607,7 @@
     <Content Include="admin\theme\scripts\flot\jquery.flot.symbol.min.js" />
     <Content Include="admin\theme\scripts\flot\jquery.flot.threshold.js" />
     <Content Include="admin\theme\scripts\flot\jquery.flot.threshold.min.js" />
+    <Content Include="admin\theme\scripts\flot\jquery.flot.time.js" />
     <Content Include="admin\theme\scripts\flot\jquery.flot.tooltip.js" />
     <Content Include="admin\theme\scripts\flot\jquery.flot.tooltip.min.js" />
     <Content Include="admin\theme\scripts\flot\jquery.js" />
@@ -1696,6 +1698,13 @@
     </Compile>
     <Compile Include="admin\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\IncomeStatistic.aspx.cs">
+      <DependentUpon>IncomeStatistic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\IncomeStatistic.aspx.designer.cs">
+      <DependentUpon>IncomeStatistic.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\UserManagement.aspx.cs">
       <DependentUpon>UserManagement.aspx</DependentUpon>
