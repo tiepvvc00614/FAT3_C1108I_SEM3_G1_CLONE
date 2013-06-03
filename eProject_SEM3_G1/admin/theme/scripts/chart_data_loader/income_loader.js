@@ -10,7 +10,6 @@
                 toDate: $("#dateRangeTo").val()
             },
             success: function (msg) {
-                console.log(msg);
                 showIncome(msg);
             }
         });
@@ -132,6 +131,18 @@ function showIncome(dataDownloaded)
 		}
     };
     charts.init();
+    $.get('/js/jquery.tmpl/income_statistic_overview_table_template.txt', function (data) {
+        
+        /**============BEGIN CONVERT FROM TICK TO DATE STRING===============**/
+        for (var i = 0, length = dataDownloaded.data.length; i < length; i++) {
+            dateTemp = new Date(dataDownloaded.data[i][0]);
+            dataDownloaded.data[i][2] = dateTemp.getDate() + "/" + dateTemp.getMonth() + "/" + (dateTemp.getYear() + 1900) ;
+        }
+        /**============END CONVERT FROM TICK TO DATE STRING===============**/
+
+        $('#tableOverViewIncomeByPeriod').html($.tmpl(data, dataDownloaded));
+    });
+
 
 }
 

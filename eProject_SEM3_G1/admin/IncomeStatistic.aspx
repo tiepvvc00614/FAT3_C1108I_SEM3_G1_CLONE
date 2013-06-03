@@ -12,9 +12,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 <div class="innerLR">
 	<div class="widget widget-gray widget-body-white">
-		<div class="widget-head">
-			<h4 class="heading">Income statistic</h4>
-		</div>
         <div class="widget-body" style="padding: 10px 0 0;">
             <form id="show-income">
                 <div class="row-fluid">
@@ -33,7 +30,7 @@
 			        <div class="span6">
 			
 			        <div class="widget widget-4 row-fluid">
-				        <div class="widget-head"><h4 class="heading">From date</h4></div>
+				        <div class="widget-head"><h4 class="heading">To date</h4></div>
 				        <div class="separator"></div>
 				        <div class="row-fluid">
                         <div class="input-append">
@@ -43,12 +40,25 @@
 				
 			            </div>
                     </div>
-			
+			        
 			        </div>
 			        </div>
+                    <div class="widget-head">
+			            <h4 class="heading">Overview</h4>
+		            </div><br />
                     <div id="chart_lines_fill_nopoints" style="height: 250px;">
                         <img src="theme/images/ajax-loader.gif" align="center" style="display: block;margin-left: auto; margin-right: auto; margin-top:auto; margin-bottom:auto;" />
-                    </div>
+                    </div><br /><br />
+
+                    <div class="widget-head">
+			            <h4 class="heading">Income statistic</h4>
+		            </div><br />
+                    <div id="tableOverViewIncomeByPeriod">
+                        <img src="theme/images/ajax-loader.gif" align="center" style="display: block;margin-left: auto; margin-right: auto; margin-top:auto; margin-bottom:auto;" />
+                    </div><br />
+
+
+                    
             </form>
 			
 		</div>

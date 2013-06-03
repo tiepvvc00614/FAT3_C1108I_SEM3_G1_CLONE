@@ -45,6 +45,7 @@
 
 	<!-- JQuery v1.8.2 -->
 	<script src="/admin/theme/scripts/jquery-1.8.2.min.js"></script>
+    <script src="/js/jquery.tmpl.js"></script>
 	
 	<!-- Modernizr -->
 	<script src="/admin/theme/scripts/modernizr.custom.76094.js"></script>

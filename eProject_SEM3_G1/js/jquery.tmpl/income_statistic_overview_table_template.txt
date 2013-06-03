@@ -1,0 +1,23 @@
+<table class="table table-bordered table-condensed table-striped table-primary table-vertical-center checkboxs">
+	<thead>
+		<tr>
+			<th class="center">Date</th>
+			<th class="center">Total income</th>
+			<th class="center" style="width: 90px;">Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		{{if data.length > 0}}
+			{{each(idx,val) data}}
+				<tr class="selectable">
+					<td class="center">${val[2]}</td>
+					<td class="center">$${val[1]}</td>
+					<td class="center">
+						<a href="ViewIncomeByDay?dateInput=${val[0]}" class="btn-action glyphicons eye_open btn-info"><i></i></a>
+					</td>
+				</tr>
+			{{/each}}
+
+		{{/if}}
+	</tbody>
+</table>
