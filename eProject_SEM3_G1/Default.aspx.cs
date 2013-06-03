@@ -11,7 +11,17 @@ namespace eProject_SEM3_G1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            try
+            {
+                List<Model.IncomeStatistics> listIncome = Model.DataAccess.StatisticsDAO.GetIncomeByPeriod(new DateTime(2013, 5, 26), new DateTime(2013, 5, 30));
+                Response.Write(listIncome.Count.ToString());
+            }
+            catch (Exception ex)
+            {
 
+                Response.Write(ex.Message);
+            }
+            
         }
     }
 }

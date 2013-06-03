@@ -1,6 +1,7 @@
 ﻿$(document).ready(function () {
     $("#show-income").on('submit', function (evt) {
         evt.preventDefault();
+
         $.ajax({
             url: "Ajax/IncomeLoader.aspx",
             type: "GET",
@@ -9,20 +10,21 @@
                 toDate: $("#dateRangeTo").val()
             },
             success: function (msg) {
+                console.log(msg);
                 showIncome(msg);
             }
         });
     });
-    
+
     /** ============= INIT CHART WHEN LOAD ============= **/
     $.ajax({
         url: "Ajax/IncomeLoader.aspx",
         type: "GET",
         data: {
-    },
-    success: function (msg) {
-        showIncome(msg);
-    }
+        },
+        success: function (msg) {
+            showIncome(msg);
+        }
     });
 });
 

@@ -31,11 +31,12 @@ namespace eProject_SEM3_G1.Model.DataAccess
                 command.Connection = con;
                 command.CommandText = "Statistics_income";
                 command.CommandType = System.Data.CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@date_from", start);
-                command.Parameters.AddWithValue("@date_to", end);
+                command.Parameters.AddWithValue("@date_from", new System.Data.SqlTypes.SqlDateTime(start));
+                command.Parameters.AddWithValue("@date_to", new System.Data.SqlTypes.SqlDateTime(end));
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
+                    //throw new Exception(reader.GetType().ToString());
                     IncomeStatistics incs = new IncomeStatistics();
                     incs.OrderDate = reader.GetDateTime(0);
                     incs.DetailTotal = float.Parse(reader.GetValue(1).ToString());

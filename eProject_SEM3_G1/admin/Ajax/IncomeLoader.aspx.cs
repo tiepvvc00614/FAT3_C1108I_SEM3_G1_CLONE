@@ -20,6 +20,9 @@ namespace eProject_SEM3_G1.admin.Ajax
                     DateTime fromDate = DateTime.Parse(Request.Params["fromDate"].ToString());
                     DateTime toDate = DateTime.Parse(Request.Params["toDate"].ToString());
 
+                    List<Model.IncomeStatistics> listIncome = Model.DataAccess.StatisticsDAO.GetIncomeByPeriod(fromDate, toDate);
+
+                    Response.Write(Model.IncomeStatistics.ToJSONString(listIncome));
 
 
                 }
