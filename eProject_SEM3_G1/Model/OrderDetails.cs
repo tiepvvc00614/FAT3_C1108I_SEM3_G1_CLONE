@@ -34,6 +34,7 @@ namespace eProject_SEM3_G1.Model
         {
             get
             {
+
                 float priceProduct = this.orderDetailProduct.ProductPrice;
                 return (priceProduct * this.orderDetailQuantity) - (((priceProduct * this.orderDetailQuantity) / 100) * this.orderDetailProduct.ProductDiscount);
             }

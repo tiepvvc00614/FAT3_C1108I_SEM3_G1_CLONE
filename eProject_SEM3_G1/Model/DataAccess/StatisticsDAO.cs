@@ -71,6 +71,7 @@ namespace eProject_SEM3_G1.Model.DataAccess
                     product.ProductId = reader.GetInt32(1);
                     listProductReturn.Add(product);
                 }
+                reader.Close();
                 return listProductReturn;
             }
             catch (Exception ex)
@@ -90,14 +91,74 @@ namespace eProject_SEM3_G1.Model.DataAccess
                 command.Connection = con;
                 command.CommandText = "Statistics_order";
                 command.CommandType = System.Data.CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@date_from", start);
-                command.Parameters.AddWithValue("@date_to", end);
+                command.Parameters.AddWithValue("@date_from", new System.Data.SqlTypes.SqlDateTime(start));
+                command.Parameters.AddWithValue("@date_to", new System.Data.SqlTypes.SqlDateTime(end));
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
                     OrderStatistics order = new OrderStatistics();
                     order.OrderDate = reader.GetDateTime(0);
                     order.CountOrder = reader.GetInt32(1);
+                    listOrderReturn.Add(order);
+                }
+                reader.Close();
+                return listOrderReturn;
+            }
+            catch (Exception ex)
+            {
+                
+                throw ex;
+            }
+        }
+
+        public static List<Order> GetOrder(DateTime start, DateTime end)
+        {
+            try
+            {
+                List<Order> listOrderReturn = new List<Order>();
+                SqlConnection con = DatabaseFactory.GetConnection(DatabaseFactory.SQL_TYPE_MSSQL).GetConnection();
+                SqlCommand command = new SqlCommand();
+                command.Connection = con;
+                command.CommandText = "GetOrder";
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@date_from", new System.Data.SqlTypes.SqlDateTime(start));
+                command.Parameters.AddWithValue("@date_to", new System.Data.SqlTypes.SqlDateTime(end));
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    Order order = new Order();
+                    order.OrderId = reader.GetInt32(0);
+                    order.Billing.Firstname = reader.GetString(1);
+                    order.Billing.Lastname = reader.GetString(2);
+                    listOrderReturn.Add(order);
+                }
+                return listOrderReturn;
+            }
+            catch (Exception ex)
+            {
+                
+                throw ex;
+            }
+        }
+
+        public static List<Order> GetOrderByDay(DateTime day)
+        {
+            try
+            {
+                List<Order> listOrderReturn = new List<Order>();
+                SqlConnection con = DatabaseFactory.GetConnection(DatabaseFactory.SQL_TYPE_MSSQL).GetConnection();
+                SqlCommand command = new SqlCommand();
+                command.Connection = con;
+                command.CommandText = "GetOrderByDay";
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@day", new System.Data.SqlTypes.SqlDateTime(day));
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    Order order = new Order();
+                    order.OrderId = reader.GetInt32(0);
+                    order.Billing.Firstname = reader.GetString(1);
+                    order.Billing.Lastname = reader.GetString(2);
                     listOrderReturn.Add(order);
                 }
                 return listOrderReturn;

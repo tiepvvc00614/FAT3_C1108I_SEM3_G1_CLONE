@@ -1,0 +1,57 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Data.SqlClient;
+using eProject_SEM3_G1.Utilities.DatabaseConnection;
+
+namespace eProject_SEM3_G1.Model.DataAccess
+{
+    public class OrderDAO : DataAccessObject
+    {
+        public override void Delete()
+        {
+            
+        }
+
+        public override void Update()
+        {
+            
+        }
+
+        public override void Add()
+        {
+            
+        }
+
+        public static Order GetOrderByOrderId(int orderid)
+        {
+            try
+            {
+                Order orderReturn = null;
+                SqlConnection con = DatabaseFactory.GetConnection(DatabaseFactory.SQL_TYPE_MSSQL).GetConnection();
+                SqlCommand command = new SqlCommand();
+                command.Connection = con;
+                command.CommandText = "GetOrderByOrderId";
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@orderid", orderid);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    orderReturn = new Order();
+                    orderReturn.OrderId = reader.GetInt32(0);
+                    orderReturn.Billing.Firstname = reader.GetString(1);
+                    orderReturn.Billing.Lastname = reader.GetString(2);
+                    reader.Close();
+                }
+                return orderReturn;
+                
+            }
+            catch (Exception ex)
+            {
+                
+                throw ex;
+            }
+        }
+    }
+}
