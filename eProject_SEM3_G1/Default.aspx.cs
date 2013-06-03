@@ -13,7 +13,7 @@ namespace eProject_SEM3_G1
         {
             try
             {
-                List<Model.IncomeStatistics> listIncome = Model.DataAccess.StatisticsDAO.GetIncomeByPeriod(new DateTime(2013, 5, 26), new DateTime(2013, 5, 30));
+                List<Model.OrderStatistics> listIncome = Model.DataAccess.StatisticsDAO.GetOrderByPeriod(new DateTime(2013, 5, 26), new DateTime(2013, 5, 30));
                 Response.Write(listIncome.Count.ToString());
             }
             catch (Exception ex)
