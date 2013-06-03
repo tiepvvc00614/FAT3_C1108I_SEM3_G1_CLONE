@@ -136,7 +136,7 @@ function showIncome(dataDownloaded)
         /**============BEGIN CONVERT FROM TICK TO DATE STRING===============**/
         for (var i = 0, length = dataDownloaded.data.length; i < length; i++) {
             dateTemp = new Date(dataDownloaded.data[i][0]);
-            dataDownloaded.data[i][2] = dateTemp.getDate() + "/" + dateTemp.getMonth() + "/" + (dateTemp.getYear() + 1900) ;
+            dataDownloaded.data[i][2] = dateTemp.getDate() + "/" + (dateTemp.getMonth()+1) + "/" + (dateTemp.getYear() + 1900) ;
         }
         /**============END CONVERT FROM TICK TO DATE STRING===============**/
 

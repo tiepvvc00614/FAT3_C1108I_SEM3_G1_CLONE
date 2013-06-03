@@ -29,11 +29,11 @@ namespace eProject_SEM3_G1.admin.Ajax
                 else
                 {
 
-                    /*DateTime toDate = DateTime.Now;
-                    DateTime fromDate = DateTime.Now.AddDays(-7);
+                    DateTime toDate = DateTime.Now;
+                    DateTime fromDate = DateTime.Now.AddDays(-8);
                     List<Model.IncomeStatistics> listIncome = Model.DataAccess.StatisticsDAO.GetIncomeByPeriod(fromDate, toDate);
-                    Response.Write(Model.IncomeStatistics.ToJSONString(listIncome));*/
-                    string dateString = "4/1/2008 8:30:52 AM";
+                    Response.Write(Model.IncomeStatistics.ToJSONString(listIncome));
+                    /*string dateString = "4/1/2008 8:30:52 AM";
                     DateTime date1 = DateTime.Parse(dateString,
                                               System.Globalization.CultureInfo.InvariantCulture);
                     dateString = "4/2/2008 8:30:52 AM";
@@ -108,7 +108,7 @@ namespace eProject_SEM3_G1.admin.Ajax
                     listIncome.Add(i8);
                     listIncome.Add(i9);
 
-                    Response.Write(Model.IncomeStatistics.ToJSONString(listIncome));
+                    Response.Write(Model.IncomeStatistics.ToJSONString(listIncome));*/
                 }
 
 
