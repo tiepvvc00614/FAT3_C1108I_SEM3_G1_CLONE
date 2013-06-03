@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using eProject_SEM3_G1.Utilities;
 
 namespace eProject_SEM3_G1.Model
 {
@@ -32,7 +33,16 @@ namespace eProject_SEM3_G1.Model
                 jsonStr += "\"data\": [";
                 for (int i = 0, lenght = listData.Count; i < lenght; i++)
                 {
+                    jsonStr += "[";
 
+                    long ticks = JSONUtilities.GetJavascriptTimestamp(listData[i].OrderDate);
+                    jsonStr += ticks + ", ";
+                    jsonStr += listData[i].DetailTotal.ToString();
+                    jsonStr += "]";
+                    if (i < lenght - 1)
+                    {
+                        jsonStr += ", ";
+                    }
                 }
 
 

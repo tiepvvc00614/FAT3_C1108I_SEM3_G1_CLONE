@@ -13,6 +13,7 @@ namespace eProject_SEM3_G1.admin.Ajax
         {
             try
             {
+                Response.ContentType = "application/json";
                 if (Request.Params["fromDate"] != null &&
                     Request.Params["toDate"] != null)
                 {
@@ -99,7 +100,7 @@ namespace eProject_SEM3_G1.admin.Ajax
                     listIncome.Add(i8);
                     listIncome.Add(i9);
 
-
+                    Response.Write(Model.IncomeStatistics.ToJSONString(listIncome));
                 }
 
 

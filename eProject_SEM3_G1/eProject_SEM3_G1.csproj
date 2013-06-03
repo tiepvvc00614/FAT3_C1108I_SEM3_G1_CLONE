@@ -1854,6 +1854,7 @@
       <DependentUpon>ProductDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\JSONUtilities.cs" />
     <Compile Include="Utilities\Cryptography\MD5Encrypt.cs" />
     <Compile Include="Utilities\DatabaseConnection\DatabaseFactory.cs" />
     <Compile Include="Utilities\DatabaseConnection\MSSQLConnection.cs" />
