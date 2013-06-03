@@ -48,6 +48,7 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="admin\Ajax\IncomeLoader.aspx" />
     <Content Include="admin\bootstrap\css\bootstrap-responsive.css" />
     <Content Include="admin\bootstrap\css\bootstrap-responsive.min.css" />
     <Content Include="admin\bootstrap\css\bootstrap.css" />
@@ -96,6 +97,7 @@
     <Content Include="admin\theme\images\lang\ro.png" />
     <Content Include="admin\theme\images\pattern1.png" />
     <Content Include="admin\theme\images\pattern2.png" />
+    <Content Include="admin\theme\scripts\chart_data_loader\income_loader.js" />
     <Content Include="admin\theme\scripts\DataTables\docs\34cdb56b2c.html" />
     <Content Include="admin\theme\scripts\DataTables\docs\DataTable.defaults.columns.html" />
     <Content Include="admin\theme\scripts\DataTables\docs\DataTable.defaults.html" />
@@ -1692,6 +1694,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="admin\Ajax\IncomeLoader.aspx.cs">
+      <DependentUpon>IncomeLoader.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Ajax\IncomeLoader.aspx.designer.cs">
+      <DependentUpon>IncomeLoader.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1820,12 +1829,16 @@
     <Compile Include="Model\DataAccess\CategoryDAO.cs" />
     <Compile Include="Model\DataAccess\DataAccessObject.cs" />
     <Compile Include="Model\DataAccess\ProductDAO.cs" />
+    <Compile Include="Model\DataAccess\StatisticsDAO.cs" />
     <Compile Include="Model\DataAccess\UserDAO.cs" />
     <Compile Include="Model\Guest.cs" />
     <Compile Include="Model\IAddress.cs" />
+    <Compile Include="Model\IncomeStatistics.cs" />
     <Compile Include="Model\Order.cs" />
     <Compile Include="Model\OrderDetails.cs" />
+    <Compile Include="Model\OrderStatistics.cs" />
     <Compile Include="Model\Product.cs" />
+    <Compile Include="Model\ProductStatistic.cs" />
     <Compile Include="Model\Region.cs" />
     <Compile Include="Model\ShippingAddress.cs" />
     <Compile Include="Model\ShippingPrice.cs" />

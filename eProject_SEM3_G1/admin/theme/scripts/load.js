@@ -220,12 +220,9 @@ $(function()
 		$('#colorpicker').farbtastic('#colorpickerColor');
 	}
 	// datepicker
-	if ($('#datepicker').length) 
-	{
-		$("#datepicker").datepicker({
-			showOtherMonths:true
-		});
-	}
+	$("#datepicker").datepicker({
+	    showOtherMonths: true
+	});
 	if ($('#datepicker-inline').length)
 	{
 		$('#datepicker-inline').datepicker({

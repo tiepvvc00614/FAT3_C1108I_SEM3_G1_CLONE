@@ -20,5 +20,33 @@ namespace eProject_SEM3_G1.Model
             get { return detailTotal; }
             set { detailTotal = value; }
         }
+
+        public static string ToJSONString(List<IncomeStatistics> listData)
+        {
+            try
+            {
+                string jsonStr = "";
+
+                jsonStr += "{";
+                jsonStr += "\"message\": \"Okay\",";
+                jsonStr += "\"data\": [";
+                for (int i = 0, lenght = listData.Count; i < lenght; i++)
+                {
+
+                }
+
+
+                    jsonStr += "]";
+
+                jsonStr += "}";
+
+                return jsonStr;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+      
+        }
     }
 }

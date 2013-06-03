@@ -14,28 +14,28 @@ namespace eProject_SEM3_G1.Master_Page
             string dateString = "4/1/2008 8:30:52 AM";
             DateTime date1 = DateTime.Parse(dateString,
                                       System.Globalization.CultureInfo.InvariantCulture);
-            dateString = "5/1/2008 8:30:52 AM";
+            dateString = "4/2/2008 8:30:52 AM";
             DateTime date2 = DateTime.Parse(dateString,
                                       System.Globalization.CultureInfo.InvariantCulture);
-            dateString = "6/1/2008 8:30:52 AM";
+            dateString = "4/3/2008 8:30:52 AM";
             DateTime date3 = DateTime.Parse(dateString,
                                       System.Globalization.CultureInfo.InvariantCulture);
-            dateString = "7/1/2008 8:30:52 AM";
+            dateString = "4/4/2008 8:30:52 AM";
             DateTime date4 = DateTime.Parse(dateString,
                                       System.Globalization.CultureInfo.InvariantCulture);
-            dateString = "8/1/2008 8:30:52 AM";
+            dateString = "4/5/2008 8:30:52 AM";
             DateTime date5 = DateTime.Parse(dateString,
                                       System.Globalization.CultureInfo.InvariantCulture);
-            dateString = "9/1/2008 8:30:52 AM";
+            dateString = "4/6/2008 8:30:52 AM";
             DateTime date6 = DateTime.Parse(dateString,
                                       System.Globalization.CultureInfo.InvariantCulture);
-            dateString = "10/1/2008 8:30:52 AM";
+            dateString = "4/7/2008 8:30:52 AM";
             DateTime date7 = DateTime.Parse(dateString,
                                       System.Globalization.CultureInfo.InvariantCulture);
-            dateString = "11/1/2008 8:30:52 AM";
+            dateString = "4/8/2008 8:30:52 AM";
             DateTime date8 = DateTime.Parse(dateString,
                                       System.Globalization.CultureInfo.InvariantCulture);
-            dateString = "12/1/2008 8:30:52 AM";
+            dateString = "4/9/2008 8:30:52 AM";
             DateTime date9 = DateTime.Parse(dateString,
                                       System.Globalization.CultureInfo.InvariantCulture);
             Response.Write("<script>console.log('" + GetJavascriptTimestamp(date1) + "');</script>");
