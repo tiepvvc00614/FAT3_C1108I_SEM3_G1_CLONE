@@ -6,10 +6,8 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
 <div class="container">
-
 			<div class="row">
-
-				<div class="span9">
+				<div class="span12">
 					<div class="login">
 						<table>
 							<tr>
@@ -21,18 +19,20 @@
 
 								<td>
 									<h3>Returning Customer</h3>
-									<form method="post" action="page">
+									<form id="loginForm">
 										<div class="controls">
 											<label>Your E-Mail: <span class="text-error">*</span></label>
-											<input type="text" name="" value="" placeholder="example@example.com">
+											<input type="text" typeValid="email" id="emailLogin" placeholder="example@example.com">
+                                            <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 										</div>
 										<div class="controls">
 											<label>Your Password: <span class="text-error">*</span></label>
-											<input type="password" name="" value="" placeholder="**************">
+											<input type="password" id="passwordLogin" placeholder="**************">
+                                            <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 										</div>
 										<div class="controls">
 											<label class="checkbox">
-										      <input type="checkbox"> Check me out
+										      <input type="checkbox" id="rememberLogin"> Remember me?
 										    </label>
 										    <button type="submit" class="btn btn-primary">Login</button>
 										</div>
@@ -42,25 +42,6 @@
 						</table>
 					</div><!--end login-->
 				</div><!--end span9-->
-
-
-				<div class="span3">
-					<div class="titleHeader clearfix">
-						<h3>Categories</h3>
-					</div><!--end titleHeader-->
-					<ul class="unstyled my-account">
-						<li><a class="invarseColor" href="#"><i class="icon-caret-right"></i> Login or Register</a></li>
-						<li><a class="invarseColor" href="#"><i class="icon-caret-right"></i> Forget my Password</a></li>
-						<li><a class="invarseColor" href="#"><i class="icon-caret-right"></i> My Account</a></li>
-						<li><a class="invarseColor" href="#"><i class="icon-caret-right"></i> My wishlist</a></li>
-						<li><a class="invarseColor" href="#"><i class="icon-caret-right"></i> Order History</a></li>
-						<li><a class="invarseColor" href="#"><i class="icon-caret-right"></i> Downloads</a></li>
-						<li><a class="invarseColor" href="#"><i class="icon-caret-right"></i> Returns</a></li>
-						<li><a class="invarseColor" href="#"><i class="icon-caret-right"></i> TRANSACTIONS</a></li>
-						<li><a class="invarseColor" href="#"><i class="icon-caret-right"></i> Newlatters</a></li>
-					</ul>
-				</div><!--end span3-->
-
 			</div><!--end row-->
 
 		</div><!--end conatiner-->

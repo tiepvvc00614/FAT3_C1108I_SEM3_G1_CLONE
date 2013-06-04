@@ -323,7 +323,6 @@ $(document).ready(function () {
     changeColorStyle();
     rangePriceSlider();
 
-
     preloaderShoppingCart();
     $("#checkout-address-validate input").on("keyup", function () {
         addressDidChange();
@@ -333,4 +332,147 @@ $(document).ready(function () {
     });
 
 
+    /**=============BEGIN LOGIN AJAX=================**/
+    $("#loginForm").on("submit", function (evt) {
+        evt.preventDefault();
+        var isRemember = $("#rememberLogin").is(":checked") ? 1 : 0;
+        var emailLogin = $("#emailLogin");
+        var passwordLogin = $("#passwordLogin");
+        var validateArray = [emailLogin, passwordLogin];
+
+        var isValid = validateInformation(validateArray, validateLoginCallbackFunction);
+        if (isValid) {
+            //console.log("Valid");
+            //calling ajax
+        }
+    });
+    /**=============END LOGIN AJAX=================**/
+
+
+
+
+    /**=============BEGIN REGISTER AJAX=================**/
+
+    $("#registerForm").on("submit", function (evt) {
+        evt.preventDefault();
+        var firstNameRegister = $("#inputFirstName");
+        var lastNameRegister = $("#inputLastName");
+        var emailRegister = $("#inputEMAdd");
+        var phoneRegister = $("#inputTele");
+        var faxRegister = $("#inputFAX");
+        var companyRegister = $("#inputCompany");
+        var firstAddressRegister = $("#inputFirstAdd");
+        var secondAddressRegister = $("#inputSecondAdd");
+        var cityRegister = $("#inputCity");
+        var postCodeRegister = $("#inputPostCode");
+        var countryRegister = $("#inputCountry");
+        var regionRegister = $("#inputRegion");
+        var passwordRegister = $("#inputPass");
+        var repasswordRegister = $("#inputConPass");
+        var agreeWithTermRegister = $("#inputAgreeTerm");
+
+        var validateArray = [firstNameRegister, lastNameRegister, emailRegister, phoneRegister, firstAddressRegister, cityRegister, postCodeRegister, countryRegister, regionRegister, [passwordRegister, repasswordRegister]];
+
+        var isValid = validateInformation(validateArray, validateRegisterCallbackFunction);
+        isValid = (isValid && agreeWithTermRegister.is(":checked"));
+        if (isValid) {
+            console.log("Valid");
+        }
+    });
+
+    /**=============BEGIN REGISTER AJAX=================**/
 });
+
+
+
+function validateLoginCallbackFunction(message, index, val, isValid) {
+
+    if (!isValid) {
+        val.next('span').html("<i class='icon-remove'></i> " + message + "");
+        val.parent().attr("class", "control-group error");
+        val.next('span').show('fast');
+    } else {
+        val.parent().attr("class", "control-group success");
+        val.next('span').html("<i class='icon-ok'></i> " + message + "");
+        val.next('span').show('fast');
+    }
+
+}
+
+function validateRegisterCallbackFunction(message, index, val, isValid) {
+    if (!isValid) {
+        val.next('span').html("<i class='icon-remove'></i> "+ message +"");
+        val.parent().parent().removeClass("success");
+        val.parent().parent().addClass("error");
+        val.next('span').show('fast');
+    } else {
+        val.parent().parent().removeClass("error");
+        val.parent().parent().addClass("success");
+        val.next('span').html("<i class='icon-ok'></i> " + message + "");
+        val.next('span').show('fast');
+    }
+}
+
+
+function validateInformation(listInputObject, callBackFunction) {
+    var isValid = true;
+    $.each(listInputObject, function (index, val) {
+        if (!(val.length > 1)) {
+            val.focusout(function () {
+                var arrTmp = [val];
+                validateInformation(arrTmp, callBackFunction);
+            });
+        }
+
+
+        if (val.length > 1) {
+            if (validateInformation(val, callBackFunction)) {
+                if (val[0].val() != val[1].val()) {
+                    callBackFunction('Please confirm that', index, val[0], false);
+                    callBackFunction('Please confirm that', index, val[1], false);
+                    isValid = false;
+                }
+            }
+
+        } else if (val.val() == "") {
+            callBackFunction("This field can't be blank", index, val, false);
+            isValid = false;
+        } else {
+            var typeValid = val.attr('typeValid');
+            if (typeValid == "email") {
+                var pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+                if (!pattern.test(val.val())) {
+                    callBackFunction('Invalid email format', index, val);
+                    isValid = false;
+                } else {
+                    callBackFunction('Valid', index, val, true);
+                }
+            } else if (typeValid == "phone") {
+                var pattern = /\d{10,12}$/;
+                if (!pattern.test(val.val())) {
+                    callBackFunction('Invalid phone format', index, val);
+                    isValid = false;
+                } else {
+                    callBackFunction('Valid', index, val, true);
+                }
+            } else if (val.is("input") && val.attr("type") == "checkbox") {
+                if (val.is(":checked")) {
+                    callBackFunction('Valid', index, val, true);
+                } else {
+                    callBackFunction('Please tick that', index, val, false);
+                    isValid = false;
+                }
+            } else if (val.is("select")) {
+                if (val.val() == val.children("option:first").val()) {
+                    callBackFunction('Please choose', index, val, false);
+                    isValid = false;
+                } else {
+                    callBackFunction('Valid', index, val, true);
+                }
+            } else {
+                callBackFunction('Valid', index, val, true);
+            }
+        }
+    });
+    return isValid;
+}
