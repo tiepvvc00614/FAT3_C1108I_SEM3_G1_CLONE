@@ -198,6 +198,47 @@ namespace eProject_SEM3_G1.Model.DataAccess
                 throw ex;
             }
         }
+        public static List<Product> GetListProductByCategoryId(int categoryId, int currentPage)
+        {
+            try
+            {
+                SqlConnection con = DatabaseFactory.GetConnection(DatabaseFactory.SQL_TYPE_MSSQL).GetConnection();
+                List<Product> listProductReturn = new List<Product>();
+                SqlCommand command = new SqlCommand();
+                command.Connection = con;
+                command.CommandText = "GetListProductByCategoryID";
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@category_id", categoryId);
+                command.Parameters.AddWithValue("@current_page", currentPage);
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    Product product = new Product();
+                    product = new Product();
+                    product.ProductId = reader.GetInt32(0);
+                    product.ProductName = reader.GetString(1);
+                    product.ProductPrice = float.Parse(reader.GetValue(2).ToString());
+                    System.Data.SqlTypes.SqlString desc = (System.Data.SqlTypes.SqlString)reader.GetSqlValue(3);
+                    if (desc.IsNull) product.ProductDescription = "N/A";
+                    else product.ProductDescription = String.Format(desc.Value);
+
+                    System.Data.SqlTypes.SqlInt32 disc = (System.Data.SqlTypes.SqlInt32)reader.GetSqlValue(4);
+                    if (disc.IsNull) product.ProductDiscount = 0;
+                    else product.ProductDiscount = disc.Value;
+
+                    product.ProductImageURL = reader.GetString(5);
+                    product.ProductInStock = reader.GetInt32(6);
+                    listProductReturn.Add(product);
+                }
+                reader.Close();
+                return listProductReturn;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
 
     }
 }
