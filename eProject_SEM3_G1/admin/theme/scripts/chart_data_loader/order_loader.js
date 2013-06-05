@@ -1,31 +1,23 @@
 ﻿$(document).ready(function () {
-    var fromDate = $.urlParam('fromDate');
-    var toDate = $.urlParam('toDate');
-    var filter = $.urlParam('filterBy');
+    var fromDate = getURLParameter('fromDate');
+    var toDate = getURLParameter('toDate');
+    var filterBy = getURLParameter('filterBy');
+
+    console.log(fromDate);
 
     var dataAjax = {};
 
-    if (fromDate != null && toDate != null) {
-        dataAjax.fromDate = fromDate;
-        dataAjax.toDate = toDate;
-    }
+    if (fromDate != null && fromDate != "" && fromDate != "null") dataAjax.fromDate = fromDate;
+    if (toDate != null && toDate != "" && toDate != "null") dataAjax.toDate = toDate;
+    if (filterBy != null && filterBy != "" && filterBy != "null") dataAjax.filterBy = filterBy;
 
-    if (filter != null) {
-        dataAjax.filter = filter;
-    }
-
-    console.log(dataAjax);
-
-    if (fromDate != null && fromDate != "" && !isNaN(fromDate) && toDate != null && toDate != "" && !isNaN(toDate)) {
-        /*$.ajax({
+    $.ajax({
         url: "/admin/Ajax/OrderLoader.aspx",
         type: "GET",
         data: dataAjax,
         success: function (msg) {
-
+            
         }
-        });*/
-    } else {
-
-    }
+    });
 });
+

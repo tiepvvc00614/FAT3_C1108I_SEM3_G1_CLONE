@@ -47,13 +47,12 @@
 	</div>
 	<div class="widget-body">
 		<div class="separator bottom form-inline small">
-			total_bookings: 26
 			<span class="pull-right">
 				<label class="strong">Sort by:</label>
 				<select class="selectpicker" data-style="btn-default btn-small">
-					<option>Option</option>
-					<option>Option</option>
-					<option>Option</option>
+					<option>Date</option>
+					<option>Status</option>
+					<option>Amount</option>
 				</select>
 			</span>
 		</div>
@@ -61,73 +60,27 @@
 			<thead>
 				<tr>
 					<th style="width: 1%;" class="uniformjs"><input type="checkbox" /></th>
-					<th class="center">No.</th>
+					<th class="center">Order Id</th>
 					<th class="center">Time</th>
-					<th>Client</th>
-					<th class="center">Phone</th>
+					<th class="center">Customer name</th>
 					<th class="center">Amount</th>
-					<th class="center">Heard from</th>
 					<th class="center" style="width: 90px;">Actions</th>
 				</tr>
 			</thead>
 			<tbody>
-																<tr class="selectable">
+			<tr class="selectable">
 					<td class="center uniformjs"><input type="checkbox" /></td>
 					<td class="center">1</td>
 					<td class="center">11:00</td>
-					<td><strong>Lorem Ipsum</strong><br/><small>Location: Miami</small></td>
-					<td class="center">0740000000</td>
-					<td class="center">&euro;30</td>
-					<td class="center">Friend</td>
+					<td><strong>David Beckham</strong></td>
+					<td class="center">$1438</td>
 					<td class="center">
 						<a href="#" class="btn-action glyphicons eye_open btn-info"><i></i></a>
 						<a href="#" class="btn-action glyphicons pencil btn-success"><i></i></a>
 						<a href="#" class="btn-action glyphicons remove_2 btn-danger"><i></i></a>
 					</td>
 				</tr>
-								<tr class="selectable selected">
-					<td class="center uniformjs"><input type="checkbox" checked="checked" /></td>
-					<td class="center">2</td>
-					<td class="center">12:00</td>
-					<td><strong>Lorem Ipsum</strong><br/><small>Location: Hollywood</small></td>
-					<td class="center">0740000000</td>
-					<td class="center">&euro;39</td>
-					<td class="center">Friend</td>
-					<td class="center">
-						<a href="#" class="btn-action glyphicons eye_open btn-info"><i></i></a>
-						<a href="#" class="btn-action glyphicons pencil btn-success"><i></i></a>
-						<a href="#" class="btn-action glyphicons remove_2 btn-danger"><i></i></a>
-					</td>
-				</tr>
-								<tr class="selectable">
-					<td class="center uniformjs"><input type="checkbox" /></td>
-					<td class="center">3</td>
-					<td class="center">13:00</td>
-					<td><strong>Lorem Ipsum</strong><br/><small>Location: Miami</small></td>
-					<td class="center">0740000000</td>
-					<td class="center">&euro;31</td>
-					<td class="center">Google Search</td>
-					<td class="center">
-						<a href="#" class="btn-action glyphicons eye_open btn-info"><i></i></a>
-						<a href="#" class="btn-action glyphicons pencil btn-success"><i></i></a>
-						<a href="#" class="btn-action glyphicons remove_2 btn-danger"><i></i></a>
-					</td>
-				</tr>
-								<tr class="selectable">
-					<td class="center uniformjs"><input type="checkbox" /></td>
-					<td class="center">4</td>
-					<td class="center">14:00</td>
-					<td><strong>Lorem Ipsum</strong><br/><small>Location: Miami</small></td>
-					<td class="center">0740000000</td>
-					<td class="center">&euro;43</td>
-					<td class="center">Google Search</td>
-					<td class="center">
-						<a href="#" class="btn-action glyphicons eye_open btn-info"><i></i></a>
-						<a href="#" class="btn-action glyphicons pencil btn-success"><i></i></a>
-						<a href="#" class="btn-action glyphicons remove_2 btn-danger"><i></i></a>
-					</td>
-				</tr>
-							</tbody>
+			</tbody>
 		</table>
 		<div class="separator top form-inline small">
 			<div class="pull-left checkboxs_actions hide">

@@ -15,12 +15,17 @@ namespace eProject_SEM3_G1.admin.Ajax
 
             try
             {
+                string sortBy = null;
+                if (Request.Params["filterBy"] != null)
+                {
+                    sortBy = Request.Params["filterBy"].ToString();
+                }
+
+
                 if (Request.Params["fromDate"] != null && Request.Params["toDate"] != null)
                 {
                     DateTime dateFrom = DateTime.Parse(Request.Params["fromDate"].ToString());
                     DateTime dateTo = DateTime.Parse(Request.Params["toDate"].ToString());
-
-
                 }
                 else
                 {
