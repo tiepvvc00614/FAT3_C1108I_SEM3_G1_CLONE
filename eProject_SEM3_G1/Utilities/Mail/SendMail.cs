@@ -8,23 +8,32 @@ namespace eProject_SEM3_G1.Utilities.SendMail
 {
     public class SendMail
     {
-        public static bool SendMails(string sender, string receipents, string mailBody, string subject, string mailCC = null, string mailBcc = null, bool IsBodyHtml = false, string LnkSrc = null, string Attachment = null)
+        public static bool SendMails(string sender, string receipents, string mailBody, string subject)
         {
-            MailMessage email = new MailMessage();
-            email.To.Add(receipents);
-            email.Subject = subject;
-            email.Body = mailBody;
-            Attachment attach = new Attachment(Attachment);
-            email.Attachments.Add(attach);
+            try
+            {
+                MailMessage email = new MailMessage();
+                email.To.Add(receipents);
+                email.From = new MailAddress(sender);
+                email.Body = mailBody;
+                email.Subject = subject;
 
-            SmtpClient smtp = new SmtpClient();
-            smtp.Host = "smtp.gmail.com";
-            smtp.Port = 587;
-            smtp.UseDefaultCredentials = false;
-            smtp.Credentials = new System.Net.NetworkCredential("ggk8888@gmail.com", "2Uf2RE=j2h");
-            smtp.EnableSsl = true;
-            smtp.Send(email);
-            return true;
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = "smtp.gmail.com";
+                smtp.Port = 587;
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new System.Net.NetworkCredential("ggk0210@gmail.com", "02101990");
+                smtp.EnableSsl = true;
+                smtp.Send(email);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
         }
     }
 }

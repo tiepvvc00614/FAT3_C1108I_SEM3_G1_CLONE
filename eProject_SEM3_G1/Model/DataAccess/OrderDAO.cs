@@ -40,8 +40,9 @@ namespace eProject_SEM3_G1.Model.DataAccess
                 {
                     orderReturn = new Order();
                     orderReturn.OrderId = reader.GetInt32(0);
-                    orderReturn.Billing.Firstname = reader.GetString(1);
-                    orderReturn.Billing.Lastname = reader.GetString(2);
+                    orderReturn.Email = reader.GetString(1);
+                    orderReturn.Status = reader.GetInt32(2);
+                    orderReturn.DateOrder = reader.GetDateTime(3);
                     reader.Close();
                 }
                 return orderReturn;

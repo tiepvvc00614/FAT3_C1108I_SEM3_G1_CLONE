@@ -206,10 +206,11 @@ namespace eProject_SEM3_G1.Model.DataAccess
                 List<Product> listProductReturn = new List<Product>();
                 SqlCommand command = new SqlCommand();
                 command.Connection = con;
-                command.CommandText = "GetListProductByCategoryID";
+                command.CommandText = "GetPageProductByCategory";
                 command.CommandType = System.Data.CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@category_id", categoryId);
-                command.Parameters.AddWithValue("@current_page", currentPage);
+                command.Parameters.AddWithValue("@categoryId", categoryId);
+                command.Parameters.AddWithValue("@currPage", currentPage);
+                command.Parameters.AddWithValue("@recodperpage", PRODUCT_STATISTIC_PAGE_SIZE);
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
