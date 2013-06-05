@@ -39,7 +39,7 @@ namespace eProject_SEM3_G1.Model.DataAccess
                 if (reader.Read())
                 {
                     orderReturn = new Order();
-                    orderReturn.OrderId = reader.GetInt32(0);
+                    orderReturn.OrderId = reader.GetInt32(0);                    
                     orderReturn.Email = reader.GetString(1);
                     orderReturn.Status = reader.GetInt32(2);
                     orderReturn.DateOrder = reader.GetDateTime(3);
