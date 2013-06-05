@@ -11,6 +11,10 @@ namespace eProject_SEM3_G1.Model
         private int orderDetailQuantity;
         private Product orderDetailProduct;
 
+        public OrderDetails()
+        {
+
+        }
 
         public OrderDetails(Product pro, int quan)
         {
@@ -34,9 +38,13 @@ namespace eProject_SEM3_G1.Model
         {
             get
             {
+                int randInt = new Random().Next(100, 1000);
+                double doubleVal = new Random().NextDouble();
 
-                float priceProduct = this.orderDetailProduct.ProductPrice;
-                return (priceProduct * this.orderDetailQuantity) - (((priceProduct * this.orderDetailQuantity) / 100) * this.orderDetailProduct.ProductDiscount);
+                return (float)(randInt + doubleVal);
+
+                /*float priceProduct = this.orderDetailProduct.ProductPrice;
+                return (priceProduct * this.orderDetailQuantity) - (((priceProduct * this.orderDetailQuantity) / 100) * this.orderDetailProduct.ProductDiscount);*/
             }
         }
 

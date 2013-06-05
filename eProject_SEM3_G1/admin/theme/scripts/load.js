@@ -253,7 +253,7 @@ $(function()
 		}).datepicker( "option", "minDate", $('#dateRangeFrom').val() );
 	}
 	
-	$('.checkboxs thead :checkbox').change(function(){
+	$('.checkboxs thead :checkbox').live('change', function(){
 		if ($(this).is(':checked'))
 		{
 			$('.checkboxs tbody :checkbox').prop('checked', true).parent().addClass('checked');

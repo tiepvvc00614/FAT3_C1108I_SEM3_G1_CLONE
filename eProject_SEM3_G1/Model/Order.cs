@@ -86,8 +86,14 @@ namespace eProject_SEM3_G1.Model
         
         private ShippingService deliveryMethod;
 
-        
-        List<OrderDetails> orderDetails;
+
+        private List<OrderDetails> orderDetails;
+
+        public List<OrderDetails> OrderDetails
+        {
+            get { return orderDetails; }
+            set { orderDetails = value; }
+        }
         
 
 

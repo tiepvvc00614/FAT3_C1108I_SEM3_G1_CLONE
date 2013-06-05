@@ -3,8 +3,6 @@
     var toDate = getURLParameter('toDate');
     var filterBy = getURLParameter('filterBy');
 
-    console.log(fromDate);
-
     var dataAjax = {};
 
     if (fromDate != null && fromDate != "" && fromDate != "null") dataAjax.fromDate = fromDate;
@@ -16,7 +14,13 @@
         type: "GET",
         data: dataAjax,
         success: function (msg) {
-            
+            msg.dateFrom = new Date(msg.dateFrom);
+            msg.dateTo = new Date(msg.dateTo);
+            msg.dateFrom = msg.dateFrom.getDate() + "/" + (msg.dateFrom.getMonth() + 1) + "/" + msg.dateFrom.getFullYear();
+            msg.dateTo = msg.dateTo.getDate() + "/" + (msg.dateTo.getMonth() + 1) + "/" + msg.dateTo.getFullYear();
+            $.get('/js/jquery.tmpl/order_statistic_table_template.txt', function (data) {
+                $('.order-statistic-content').html($.tmpl(data, msg));
+            });
         }
     });
 });

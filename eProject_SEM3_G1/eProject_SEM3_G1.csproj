@@ -1675,6 +1675,7 @@
     <Content Include="js\jquery.tmpl\cart_detail_template.txt" />
     <Content Include="js\jquery.tmpl\cart_template.txt" />
     <Content Include="js\jquery.tmpl\income_statistic_overview_table_template.txt" />
+    <Content Include="js\jquery.tmpl\order_statistic_table_template.txt" />
     <Content Include="js\jquery.tmpl\product_detail_template.txt" />
     <Content Include="js\jquery.tweet.js" />
     <Content Include="js\jquery.tmpl.js" />
