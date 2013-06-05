@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="admin\Ajax\IncomeLoader.aspx" />
+    <Content Include="admin\Ajax\OrderLoader.aspx" />
     <Content Include="admin\bootstrap\css\bootstrap-responsive.css" />
     <Content Include="admin\bootstrap\css\bootstrap-responsive.min.css" />
     <Content Include="admin\bootstrap\css\bootstrap.css" />
@@ -86,6 +87,7 @@
     <Content Include="admin\bootstrap\js\bootstrap.min.js" />
     <Content Include="admin\Default.aspx" />
     <Content Include="admin\IncomeStatistic.aspx" />
+    <Content Include="admin\OrderStatistic.aspx" />
     <Content Include="admin\theme\css\glyphicons.css" />
     <Content Include="admin\theme\css\style.css" />
     <Content Include="admin\theme\css\style.min.css" />
@@ -98,6 +100,7 @@
     <Content Include="admin\theme\images\pattern1.png" />
     <Content Include="admin\theme\images\pattern2.png" />
     <Content Include="admin\theme\scripts\chart_data_loader\income_loader.js" />
+    <Content Include="admin\theme\scripts\chart_data_loader\order_loader.js" />
     <Content Include="admin\theme\scripts\DataTables\docs\34cdb56b2c.html" />
     <Content Include="admin\theme\scripts\DataTables\docs\DataTable.defaults.columns.html" />
     <Content Include="admin\theme\scripts\DataTables\docs\DataTable.defaults.html" />
@@ -1676,6 +1679,7 @@
     <Content Include="js\jquery.tweet.js" />
     <Content Include="js\jquery.tmpl.js" />
     <Content Include="js\product-loader.js" />
+    <Content Include="js\utilities.js" />
     <Content Include="js\validate.js" />
     <Content Include="js\wizardPro.min.js" />
     <Content Include="Login.aspx" />
@@ -1703,6 +1707,13 @@
     <Compile Include="admin\Ajax\IncomeLoader.aspx.designer.cs">
       <DependentUpon>IncomeLoader.aspx</DependentUpon>
     </Compile>
+    <Compile Include="admin\Ajax\OrderLoader.aspx.cs">
+      <DependentUpon>OrderLoader.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Ajax\OrderLoader.aspx.designer.cs">
+      <DependentUpon>OrderLoader.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1716,6 +1727,13 @@
     </Compile>
     <Compile Include="admin\IncomeStatistic.aspx.designer.cs">
       <DependentUpon>IncomeStatistic.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\OrderStatistic.aspx.cs">
+      <DependentUpon>OrderStatistic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\OrderStatistic.aspx.designer.cs">
+      <DependentUpon>OrderStatistic.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\UserManagement.aspx.cs">
       <DependentUpon>UserManagement.aspx</DependentUpon>

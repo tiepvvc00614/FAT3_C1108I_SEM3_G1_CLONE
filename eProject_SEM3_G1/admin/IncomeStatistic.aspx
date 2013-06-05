@@ -10,6 +10,11 @@
 <script src="theme/scripts/chart_data_loader/income_loader.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<div class="heading-buttons">
+	<h3 class="glyphicons adress_book"><i></i> Income statistic</h3>
+	<div class="clearfix"></div>
+    </div>
+<div class="separator" style="height: 5px;">&nbsp;</div>
 <div class="innerLR">
 	<div class="widget widget-gray widget-body-white">
         <div class="widget-body" style="padding: 10px 0 0;">

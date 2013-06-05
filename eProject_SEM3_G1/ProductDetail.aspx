@@ -3,7 +3,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeaderAppend" runat="server">
 <script src="js/product-loader.js" type="text/javascript"></script>
-
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
 <div class="container" ID="content_place" runat="server">

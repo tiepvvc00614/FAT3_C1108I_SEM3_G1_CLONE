@@ -13,7 +13,7 @@
 					<td class="center">${val[2]}</td>
 					<td class="center">$${val[1]}</td>
 					<td class="center">
-						<a href="ViewIncomeByDay?dateInput=${val[0]}" class="btn-action glyphicons eye_open btn-info"><i></i></a>
+						<a href="/admin/OrderStatistic.aspx?fromDate=${val[0]}&toDate=${val[0]}" class="btn-action glyphicons eye_open btn-info"><i></i></a>
 					</td>
 				</tr>
 			{{/each}}
