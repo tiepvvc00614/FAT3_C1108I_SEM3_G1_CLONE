@@ -8,7 +8,7 @@ namespace eProject_SEM3_G1.Utilities.SendMail
 {
     public class SendMail
     {
-        public static bool SendMail(string sender, string receipents, string mailBody, string subject, string mailCC = null, string mailBcc = null, bool IsBodyHtml = false, string LnkSrc = null, string Attachment = null)
+        public static bool SendMails(string sender, string receipents, string mailBody, string subject, string mailCC = null, string mailBcc = null, bool IsBodyHtml = false, string LnkSrc = null, string Attachment = null)
         {
             MailMessage email = new MailMessage();
             email.To.Add(receipents);
