@@ -331,6 +331,22 @@ $(document).ready(function () {
         addressDidChange();
     });
 
+    /**=============BEGIN CHECKOUT USER CHOOSE OPTION=================**/
+    var wizard = $("#wizard").wizardPro();
+    $("#optChooseCheckout").on('submit', function (evt) {
+        evt.preventDefault();
+        var userChoosed = $("input[name=optionsRadios]:checked").val();
+        if (userChoosed == 1) {
+            window.location = "/Register.aspx?ref=Checkout.aspx";
+        } else {
+            wizard.openstep('next');
+        }
+    });
+
+    /**=============END CHECKOUT USER CHOOSE OPTION=================**/
+
+
+
 
     /**=============BEGIN LOGIN AJAX=================**/
     $("#loginForm").on("submit", function (evt) {

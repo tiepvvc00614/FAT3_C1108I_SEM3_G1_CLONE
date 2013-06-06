@@ -28,11 +28,23 @@ namespace eProject_SEM3_G1.Utilities
                 jsonStr += "[";
                 for (int i = 0, length = listOrder.Count; i < length; i++)
                 {
+                    string status = "Not Define";
+
+                    if (listOrder[i].Status == Order.ORDER_STATUS_CANCELED)
+                        status = "Cancelled";
+                    if (listOrder[i].Status == Order.ORDER_STATUS_COMPLETED)
+                        status = "Completed";
+                    if (listOrder[i].Status == Order.ORDER_STATUS_PAID)
+                        status = "Paid";
+                    if (listOrder[i].Status == Order.ORDER_STATUS_PLACED)
+                        status = "Placed";
+
                     jsonStr += "{";
                     jsonStr += "\"orderId\": \""+ listOrder[i].OrderId.ToString() +"\",";
                     jsonStr += "\"customerName\": \"" + listOrder[i].Billing.Fullname + "\",";
                     jsonStr += "\"total\": \"" + listOrder[i].Total.ToString() + "\",";
-                    jsonStr += "\"time\": \"" + listOrder[i].DateOrder.Day.ToString() + "/" + listOrder[i].DateOrder.Month + "\"";
+                    jsonStr += "\"status\": \"" + status + "\",";
+                    jsonStr += "\"time\": \"" + listOrder[i].DateOrder.ToShortDateString() + " " +listOrder[i].DateOrder.ToShortTimeString() + "\"";
                     jsonStr += "}";
 
                     if (i < length - 1)

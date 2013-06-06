@@ -40,7 +40,7 @@ namespace eProject_SEM3_G1.admin.Ajax
 
                     List<Order> listOrder = new List<Order>();
                     Order o1 = new Order();
-                    o1.Status = Order.ORDER_STATUS_PLACED;
+                    o1.Status = Order.ORDER_STATUS_PAID;
                     o1.OrderId = 1;
                     o1.Email = "order-one@gmail.com";
                     o1.DateOrder = DateTime.Now.AddDays(new Random().Next(10));

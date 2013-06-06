@@ -5,17 +5,6 @@
  <script type="text/javascript" src="/js/validate.js"></script> 
     <script type="text/javascript" src="/js/hoverIntent.js"></script> 
     <script type="text/javascript" src="/js/wizardPro.min.js"></script> 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            var wizard = $("#wizard").wizardPro();
-            $("#ContactWizard").wizardPro();
-            //Remote Next/Prev Step 
-            //wizard.openstep(2);
-
-            //Block interaction
-            //wizard.interactionBlock(1);
-        });
-    </script>
 <link href="/css/wizardPro.css" media="screen" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
@@ -43,35 +32,37 @@
 									<tr>
 										<td>
 											<h3>New Customer</h3>
-											<form method="post" action="page">
-												<label class="radio">
+                                            <form id="optChooseCheckout">
+                                                <label class="radio">
 												  <input type="radio" name="optionsRadios" value="1" checked>
-												  Registeration Account.
-												</label>
-												<label class="radio">
-												  <input type="radio" name="optionsRadios" value="0">
-												  Continue as guest account.
-												</label>
-											</form><!--end form-->
-											<p>By creating an account you will be able to shop faster, be up to date on an order's status, and keep track of the orders you have previously made.</p>
-											<a href="/Register.aspx" class="btn">Register</a>
-                                            <button class="btn next"><span>Next Step</span></button>
+												      Registeration Account.
+												    </label>
+												    <label class="radio">
+												      <input type="radio" name="optionsRadios" value="2">
+												      Continue as guest account.
+												    </label>
+											    <p>By creating an account you will be able to shop faster, be up to date on an order's status, and keep track of the orders you have previously made.</p>
+                                                <button class="btn"><span>Next Step</span></button>
+                                            </form>
+												
 										</td>
 
 										<td>
 											<h3>Returning Customer</h3>
-											<form method="post" action="page">
+											<form id="loginForm">
 												<div class="controls">
 													<label>Your E-Mail: <span class="text-error">*</span></label>
-													<input type="text" name="" value="" placeholder="example@example.com">
+													<input type="text" name="" value="" placeholder="example@example.com" typeValid="email" id="emailLogin">
+                                                     <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 												</div>
 												<div class="controls">
 													<label>Your Password: <span class="text-error">*</span></label>
-													<input type="password" name="" value="" placeholder="**************">
+													<input type="password" name="" value="" placeholder="**************" id="passwordLogin">
+                                                     <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 												</div>
 												<div class="controls">
 													<label class="checkbox">
-												      <input type="checkbox"> Check me out
+												      <input type="checkbox" id="rememberLogin"> Remember me?
 												    </label>
                                                     <input type="submit" name="btnLoginSubmit" value="Login" class="btn" />
 												</div>

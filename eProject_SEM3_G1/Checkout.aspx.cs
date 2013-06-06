@@ -12,7 +12,7 @@ namespace eProject_SEM3_G1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (ShoppingCart.GetListItemInCart(Session).Count <= 0) Response.Redirect("Cart.aspx");
+            //if (ShoppingCart.GetListItemInCart(Session).Count <= 0) Response.Redirect("Cart.aspx");
         }
     }
 }

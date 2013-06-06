@@ -19,7 +19,8 @@
             msg.dateFrom = msg.dateFrom.getDate() + "/" + (msg.dateFrom.getMonth() + 1) + "/" + msg.dateFrom.getFullYear();
             msg.dateTo = msg.dateTo.getDate() + "/" + (msg.dateTo.getMonth() + 1) + "/" + msg.dateTo.getFullYear();
             $.get('/js/jquery.tmpl/order_statistic_table_template.txt', function (data) {
-                $('.order-statistic-content').html($.tmpl(data, msg));
+                $("#ajax-Loader").hide('fast');
+                $('.order-statistic-content').append($.tmpl(data, msg));
             });
         }
     });

@@ -41,7 +41,16 @@
 	</form>
 </div>
 
-<div class="widget widget-2 order-statistic-content" style="margin-top: -1px;" id="MainContent" runat="server">
-    <img src="theme/images/ajax-loader.gif" align="center" style="display: block;margin-left: auto; margin-right: auto; margin-top:20px; margin-bottom:20px;" />
+<div class="widget widget-2" style="margin-top: -1px;" id="MainContent" runat="server">
+    	<div class="widget-head">
+		    <h4 class="heading glyphicons calendar"><i></i> 
+			    From 20/06/2012 to 25/06/2012
+		    </h4>
+	    </div>
+        <div class="widget-body">
+            <div class="order-statistic-content">
+            </div>
+            <img src="theme/images/ajax-loader.gif" align="center" style="display: block;margin-left: auto; margin-right: auto; margin-top:auto; margin-bottom:auto;" id="ajax-Loader" />
+        </div>
 </div>
 </asp:Content>
