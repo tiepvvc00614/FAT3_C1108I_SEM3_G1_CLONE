@@ -47,8 +47,8 @@ namespace eProject_SEM3_G1.Model.DataAccess
             }
             catch (Exception ex)
             {
-                
-                throw ex;
+
+                throw new Exception("Date Start or Date End wrong, please check again !!!!! ");
             }
         }
 
@@ -76,8 +76,8 @@ namespace eProject_SEM3_G1.Model.DataAccess
             }
             catch (Exception ex)
             {
-                
-                throw ex;
+
+                throw new Exception("Current page isnt exit, please check again !!!!! ");
             }
         }
 
@@ -106,8 +106,8 @@ namespace eProject_SEM3_G1.Model.DataAccess
             }
             catch (Exception ex)
             {
-                
-                throw ex;
+
+                throw new Exception("Date Start or Date End wrong, please check again !!!!! ");
             }
         }
 
@@ -136,8 +136,8 @@ namespace eProject_SEM3_G1.Model.DataAccess
             }
             catch (Exception ex)
             {
-                
-                throw ex;
+
+                throw new Exception("Date Start or Date End wrong, please check again !!!!! ");
             }
         }
 

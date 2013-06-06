@@ -22,71 +22,96 @@ namespace eProject_SEM3_G1.Model.DataAccess
 
         public override void Delete()
         {
-            SqlCommand command = new SqlCommand();
-            command.Connection = this.connectionForAccess;
-            command.CommandText = "DeleteProduct";
-            command.CommandType = System.Data.CommandType.StoredProcedure;
-            command.Parameters.AddWithValue("@product_id", this.productForAccess.ProductId);
-            command.ExecuteNonQuery();
+            try
+            {
+                SqlCommand command = new SqlCommand();
+                command.Connection = this.connectionForAccess;
+                command.CommandText = "DeleteProduct";
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@product_id", this.productForAccess.ProductId);
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("You cant' Delete. Maybe Product ID wrong, please check again !!!!");
+            }
+            
         }
         public override void Update()
         {
-            SqlCommand command = new SqlCommand();
-            command.Connection = this.connectionForAccess;
-            command.CommandText = "UpdateProduct";
-            command.CommandType = System.Data.CommandType.StoredProcedure;
-            command.Parameters.AddWithValue("@bs_product_id", this.productForAccess.ProductId);
-            command.Parameters.AddWithValue("@bs_product_name", this.productForAccess.ProductName);
-            command.Parameters.AddWithValue("@bs_product_price", this.productForAccess.ProductPrice);
-            command.Parameters.AddWithValue("@bs_product_description", this.productForAccess.ProductDescription);
-            command.Parameters.AddWithValue("@bs_product_discount", this.productForAccess.ProductDiscount);
-            command.Parameters.AddWithValue("@bs_product_image_url", this.productForAccess.ProductImageURL);
-            command.Parameters.AddWithValue("@bs_product_in_stock", this.productForAccess.ProductInStock);
-            command.ExecuteNonQuery();                   
+            try
+            {
+                SqlCommand command = new SqlCommand();
+                command.Connection = this.connectionForAccess;
+                command.CommandText = "UpdateProduct";
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@bs_product_name", this.productForAccess.ProductName);
+                command.Parameters.AddWithValue("@bs_product_price", this.productForAccess.ProductPrice);
+                command.Parameters.AddWithValue("@bs_product_description", this.productForAccess.ProductDescription);
+                command.Parameters.AddWithValue("@bs_product_discount", this.productForAccess.ProductDiscount);
+                command.Parameters.AddWithValue("@bs_product_image_url", this.productForAccess.ProductImageURL);
+                command.Parameters.AddWithValue("@bs_product_in_stock", this.productForAccess.ProductInStock);
+                command.ExecuteNonQuery();                   
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("You cant' Update Product ");
+            }
+            
           
 
         }
         public override void Add()
         {
-             
-            SqlDataAdapter objAdapter = new SqlDataAdapter("AddProduct", this.connectionForAccess);
-            objAdapter.InsertCommand = new SqlCommand();
-            objAdapter.InsertCommand.CommandText = "AddProduct";
-            objAdapter.InsertCommand.Connection = this.connectionForAccess;
-            objAdapter.InsertCommand.CommandType = System.Data.CommandType.StoredProcedure;
+            try
+            {
+                SqlDataAdapter objAdapter = new SqlDataAdapter("AddProduct", this.connectionForAccess);
+                objAdapter.InsertCommand = new SqlCommand();
+                objAdapter.InsertCommand.CommandText = "AddProduct";
+                objAdapter.InsertCommand.Connection = this.connectionForAccess;
+                objAdapter.InsertCommand.CommandType = System.Data.CommandType.StoredProcedure;
 
-            SqlParameter objParam1 = new SqlParameter("@bs_product_name", SqlDbType.VarChar);
-            objParam1.Direction = ParameterDirection.Input;
-            objParam1.Value = this.productForAccess.ProductName;
-            objAdapter.InsertCommand.Parameters.Add(objParam1);
+                SqlParameter objParam1 = new SqlParameter("@bs_product_name", SqlDbType.VarChar);
+                objParam1.Direction = ParameterDirection.Input;
+                objParam1.Value = this.productForAccess.ProductName;
+                objAdapter.InsertCommand.Parameters.Add(objParam1);
 
-            SqlParameter objParam2 = new SqlParameter("@bs_product_price", SqlDbType.Float);
-            objParam2.Direction = ParameterDirection.Input;
-            objParam2.Value = this.productForAccess.ProductPrice;
-            objAdapter.InsertCommand.Parameters.Add(objParam2);
+                SqlParameter objParam2 = new SqlParameter("@bs_product_price", SqlDbType.Float);
+                objParam2.Direction = ParameterDirection.Input;
+                objParam2.Value = this.productForAccess.ProductPrice;
+                objAdapter.InsertCommand.Parameters.Add(objParam2);
 
-            SqlParameter objParam3 = new SqlParameter("@bs_product_description", SqlDbType.Text);
-            objParam3.Direction = ParameterDirection.Input;
-            objParam3.Value = this.productForAccess.ProductDescription;
-            objAdapter.InsertCommand.Parameters.Add(objParam3);
+                SqlParameter objParam3 = new SqlParameter("@bs_product_description", SqlDbType.Text);
+                objParam3.Direction = ParameterDirection.Input;
+                objParam3.Value = this.productForAccess.ProductDescription;
+                objAdapter.InsertCommand.Parameters.Add(objParam3);
 
-            SqlParameter objParam4 = new SqlParameter("@bs_product_discount", SqlDbType.Int);
-            objParam4.Direction = ParameterDirection.Input;
-            objParam4.Value = this.productForAccess.ProductDiscount;
-            objAdapter.InsertCommand.Parameters.Add(objParam4);
+                SqlParameter objParam4 = new SqlParameter("@bs_product_discount", SqlDbType.Int);
+                objParam4.Direction = ParameterDirection.Input;
+                objParam4.Value = this.productForAccess.ProductDiscount;
+                objAdapter.InsertCommand.Parameters.Add(objParam4);
 
-            SqlParameter objParam5 = new SqlParameter("@bs_product_image_url", SqlDbType.VarChar);
-            objParam5.Direction = ParameterDirection.Input;
-            objParam5.Value = this.productForAccess.ProductImageURL;
-            objAdapter.InsertCommand.Parameters.Add(objParam5);
+                SqlParameter objParam5 = new SqlParameter("@bs_product_image_url", SqlDbType.VarChar);
+                objParam5.Direction = ParameterDirection.Input;
+                objParam5.Value = this.productForAccess.ProductImageURL;
+                objAdapter.InsertCommand.Parameters.Add(objParam5);
 
-            SqlParameter objParam6 = new SqlParameter("@bs_product_in_stock", SqlDbType.Int);
-            objParam6.Direction = ParameterDirection.Input;
-            objParam6.Value = this.productForAccess.ProductInStock;
-            objAdapter.InsertCommand.Parameters.Add(objParam6);
+                SqlParameter objParam6 = new SqlParameter("@bs_product_in_stock", SqlDbType.Int);
+                objParam6.Direction = ParameterDirection.Input;
+                objParam6.Value = this.productForAccess.ProductInStock;
+                objAdapter.InsertCommand.Parameters.Add(objParam6);
 
-            objAdapter.InsertCommand.ExecuteNonQuery();
+                objAdapter.InsertCommand.ExecuteNonQuery();
             
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("You cant' Add Product . Something wrong. Please Check Again !!!! ");
+            }
+           
         }
 
         public static HashSet<Product> GetHotProduct() 
@@ -136,7 +161,7 @@ namespace eProject_SEM3_G1.Model.DataAccess
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw new Exception("Product ID wrong, please check again !!!!! ");
             }
         }
 
@@ -163,7 +188,7 @@ namespace eProject_SEM3_G1.Model.DataAccess
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw new Exception("Product ID wrong, please check again !!!!! ");
             }
         }
 
@@ -195,7 +220,7 @@ namespace eProject_SEM3_G1.Model.DataAccess
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw new Exception("Product ID wrong, please check again !!!!! ");
             }
         }
         public static List<Product> GetListProductByCategoryId(int categoryId, int currentPage)
@@ -237,7 +262,7 @@ namespace eProject_SEM3_G1.Model.DataAccess
             catch (Exception ex)
             {
 
-                throw ex;
+                throw new Exception("Something Wrong , please check again !!!!! ");
             }
         }
 

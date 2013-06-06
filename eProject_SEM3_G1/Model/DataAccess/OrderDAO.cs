@@ -9,6 +9,11 @@ namespace eProject_SEM3_G1.Model.DataAccess
 {
     public class OrderDAO : DataAccessObject
     {
+        private Order orderForAccess;
+        public OrderDAO(Order order) : base()
+        {
+            this.orderForAccess = order;
+        }
         public override void Delete()
         {
             
@@ -16,6 +21,20 @@ namespace eProject_SEM3_G1.Model.DataAccess
 
         public override void Update()
         {
+            try
+            {
+                SqlCommand command = new SqlCommand();
+                command.Connection = this.connectionForAccess;
+                command.CommandText = "UpdateOrder";
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@Status_Order", this.orderForAccess.Status);
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("You can't Update Order ");
+            }
             
         }
 
@@ -51,7 +70,7 @@ namespace eProject_SEM3_G1.Model.DataAccess
             catch (Exception ex)
             {
                 
-                throw ex;
+                throw new Exception("Order ID wrong, please check again !!!!! ");
             }
         }
     }

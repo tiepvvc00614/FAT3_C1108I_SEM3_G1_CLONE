@@ -43,7 +43,7 @@ namespace eProject_SEM3_G1.Model.DataAccess
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw new Exception("You cant Login beacause WRONG USERNAME or PASSWORD, please check again !!!!! ");
             }
         }
 
@@ -66,7 +66,7 @@ namespace eProject_SEM3_G1.Model.DataAccess
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw new Exception("You can't Register something wrong, please check again !!!!! ");
             }
         }
 
@@ -86,8 +86,8 @@ namespace eProject_SEM3_G1.Model.DataAccess
             }
             catch (Exception ex)
             {
-                
-                throw ex;
+
+                throw new Exception("User ID  wrong, please check again !!!!! ");
             }
            
         }
@@ -105,8 +105,8 @@ namespace eProject_SEM3_G1.Model.DataAccess
             }
             catch (Exception ex)
             {
-                
-                throw ex;
+
+                throw new Exception("User ID wrong, please check again !!!!! ");
             }
         }
         public override void Update()

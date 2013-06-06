@@ -9,17 +9,74 @@ namespace eProject_SEM3_G1.Model.DataAccess
 {
     public class CategoryDAO : DataAccessObject
     {
+        private Category categoryForAccess;
+        public CategoryDAO(Category category) : base()
+        {
+            this.categoryForAccess = category;
+        }
         public override void Delete()
         {
-
+            try
+            {
+                SqlCommand command = new SqlCommand();
+                command.Connection = this.connectionForAccess;
+                command.CommandText = "DeleteCategory";
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@category_id", this.categoryForAccess.CategoryId);
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                
+                throw new Exception("You cant' delete because wrong Category ID");
+            }
+            
         }
         public override void Update()
         {
-
+            
         }
         public override void Add()
         {
+            
+        }
+        public void Update(int parentId)
+        {
+            try
+            {
+                SqlConnection con = DatabaseFactory.GetConnection(DatabaseFactory.SQL_TYPE_MSSQL).GetConnection();
+                SqlCommand command = new SqlCommand();
+                command.Connection = con;
+                command.CommandText = "UpdateCategory";
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@Category_Name", this.categoryForAccess.CategoryName);
+                command.Parameters.AddWithValue("@Parent_ID", parentId);
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
 
+                throw new Exception("You cant' Update Category");
+            }
+        }
+        public void Add(int parentId)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand();
+                command.Connection = this.connectionForAccess;
+                command.CommandText = "AddCategory";
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@Category_Name", this.categoryForAccess.CategoryName);
+                command.Parameters.AddWithValue("@Parent_Id",parentId);
+                command.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("You cant' Add Category. Something wrong . Please Check Again !!! ");
+            }
         }
 
         public static Dictionary<string, Category> GetAllCategory()
