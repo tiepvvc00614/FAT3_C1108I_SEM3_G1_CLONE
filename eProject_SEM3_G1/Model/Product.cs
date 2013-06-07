@@ -22,6 +22,19 @@ namespace eProject_SEM3_G1.Model
         internal Product() { productDataAccess = new ProductDAO(this); }
         private Dictionary<string, string> productInfos;
 
+        public static Product GetProduct(int productId)
+        {
+            return ProductDAO.GetProductByProductId(productId);
+        }
+
+        public void Add()
+        {
+            this.productDataAccess.Add();
+        }
+        public void Delete()
+        {
+            this.productDataAccess.Delete();
+        }
         public int ProductDiscount
         {
             get

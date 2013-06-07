@@ -58,11 +58,15 @@ namespace eProject_SEM3_G1.Model.DataAccess
                 if (reader.Read())
                 {
                     orderReturn = new Order();
-                    orderReturn.OrderId = reader.GetInt32(0);                    
+                    orderReturn.OrderId = reader.GetInt32(0);
                     orderReturn.Email = reader.GetString(1);
                     orderReturn.Status = reader.GetInt32(2);
                     orderReturn.DateOrder = reader.GetDateTime(3);
                     reader.Close();
+                }
+                else
+                {
+                    throw new Exception("Order ID is not exits");
                 }
                 return orderReturn;
                 
@@ -70,7 +74,7 @@ namespace eProject_SEM3_G1.Model.DataAccess
             catch (Exception ex)
             {
                 
-                throw new Exception("Order ID wrong, please check again !!!!! ");
+                throw ex;
             }
         }
     }

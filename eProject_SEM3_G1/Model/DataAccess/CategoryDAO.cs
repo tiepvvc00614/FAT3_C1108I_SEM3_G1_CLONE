@@ -23,12 +23,14 @@ namespace eProject_SEM3_G1.Model.DataAccess
                 command.CommandText = "DeleteCategory";
                 command.CommandType = System.Data.CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@category_id", this.categoryForAccess.CategoryId);
-                command.ExecuteNonQuery();
+                int result=command.ExecuteNonQuery();
+                if (result == 0 || result > 1)
+                    throw new Exception(" Category ID is not exits");
             }
             catch (Exception ex)
             {
                 
-                throw new Exception("You cant' delete because wrong Category ID");
+                throw ex;
             }
             
         }
@@ -51,18 +53,24 @@ namespace eProject_SEM3_G1.Model.DataAccess
                 command.CommandType = System.Data.CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@Category_Name", this.categoryForAccess.CategoryName);
                 command.Parameters.AddWithValue("@Parent_ID", parentId);
-                command.ExecuteNonQuery();
+                int result=command.ExecuteNonQuery();
+                if (result == 0 || result > 1)
+                    throw new Exception("Category ID is not exits");
             }
             catch (Exception ex)
             {
 
-                throw new Exception("You cant' Update Category");
+                throw ex;
             }
         }
         public void Add(int parentId)
         {
             try
             {
+                if (this.categoryForAccess.CategoryId == 0)
+                    throw new Exception("Category is not exits");
+                if (this.categoryForAccess.CategoryName == null || this.categoryForAccess.CategoryName == "")
+                    throw new Exception("Category Name is not exits");
                 SqlCommand command = new SqlCommand();
                 command.Connection = this.connectionForAccess;
                 command.CommandText = "AddCategory";
@@ -75,7 +83,7 @@ namespace eProject_SEM3_G1.Model.DataAccess
             catch (Exception ex)
             {
 
-                throw new Exception("You cant' Add Category. Something wrong . Please Check Again !!! ");
+                throw new Exception(ex.Message);
             }
         }
 

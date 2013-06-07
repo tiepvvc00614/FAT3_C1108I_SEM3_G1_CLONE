@@ -24,17 +24,19 @@ namespace eProject_SEM3_G1.Model.DataAccess
         {
             try
             {
+                if(this.productForAccess.ProductId == 0)
+                    throw new Exception("Invalid Product ID");
                 SqlCommand command = new SqlCommand();
                 command.Connection = this.connectionForAccess;
                 command.CommandText = "DeleteProduct";
                 command.CommandType = System.Data.CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@product_id", this.productForAccess.ProductId);
-                command.ExecuteNonQuery();
+                if (command.ExecuteNonQuery() == 0) throw new Exception("Product is not exsit");
             }
             catch (Exception ex)
             {
 
-                throw new Exception("You cant' Delete. Maybe Product ID wrong, please check again !!!!");
+                throw new Exception(ex.Message);
             }
             
         }
@@ -42,31 +44,39 @@ namespace eProject_SEM3_G1.Model.DataAccess
         {
             try
             {
+                if (this.productForAccess.ProductName == null || this.productForAccess.ProductName == "")
+                    throw new Exception("Not exit Product Name");
+                if (this.productForAccess.ProductPrice <= 0)
+                    throw new Exception("Price is not initialization");
                 SqlCommand command = new SqlCommand();
                 command.Connection = this.connectionForAccess;
                 command.CommandText = "UpdateProduct";
                 command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@bs_product_id", this.productForAccess.ProductId);
                 command.Parameters.AddWithValue("@bs_product_name", this.productForAccess.ProductName);
                 command.Parameters.AddWithValue("@bs_product_price", this.productForAccess.ProductPrice);
                 command.Parameters.AddWithValue("@bs_product_description", this.productForAccess.ProductDescription);
                 command.Parameters.AddWithValue("@bs_product_discount", this.productForAccess.ProductDiscount);
                 command.Parameters.AddWithValue("@bs_product_image_url", this.productForAccess.ProductImageURL);
                 command.Parameters.AddWithValue("@bs_product_in_stock", this.productForAccess.ProductInStock);
-                command.ExecuteNonQuery();                   
+                int result= command.ExecuteNonQuery();
+                if(result == 0 || result >1) throw new Exception("Product Id is not exits");
             }
             catch (Exception ex)
             {
 
-                throw new Exception("You cant' Update Product ");
+                if (ex.Message.Contains("The INSERT statement conflicted with the FOREIGN KEY constraint"))
+                                    throw new Exception(" Category invalid");               
             }
-            
-          
-
         }
         public override void Add()
         {
             try
             {
+                if (this.productForAccess.ProductName == null || this.productForAccess.ProductName == "")
+                    throw new Exception(" Not exit Product Name");
+                if (this.productForAccess.ProductPrice <= 0)
+                    throw new Exception("Price is not initialization");
                 SqlDataAdapter objAdapter = new SqlDataAdapter("AddProduct", this.connectionForAccess);
                 objAdapter.InsertCommand = new SqlCommand();
                 objAdapter.InsertCommand.CommandText = "AddProduct";
@@ -103,13 +113,19 @@ namespace eProject_SEM3_G1.Model.DataAccess
                 objParam6.Value = this.productForAccess.ProductInStock;
                 objAdapter.InsertCommand.Parameters.Add(objParam6);
 
+                SqlParameter objParam7 = new SqlParameter("@bs_product_category_id", SqlDbType.Int);
+                objParam7.Direction = ParameterDirection.Input;
+                objParam7.Value = this.productForAccess.InCategory.CategoryId;
+                objAdapter.InsertCommand.Parameters.Add(objParam7);
+
                 objAdapter.InsertCommand.ExecuteNonQuery();
             
             }
             catch (Exception ex)
             {
 
-                throw new Exception("You cant' Add Product . Something wrong. Please Check Again !!!! ");
+                if(ex.Message.Contains(@"The INSERT statement conflicted with the FOREIGN KEY constraint"))
+                    throw new Exception("Category invalid");
             }
            
         }
@@ -131,6 +147,7 @@ namespace eProject_SEM3_G1.Model.DataAccess
         {
             try
             {
+                
                 Product productReturn = null;
                 SqlCommand command = new SqlCommand();
                 command.CommandText = "ViewProduct";
@@ -157,11 +174,15 @@ namespace eProject_SEM3_G1.Model.DataAccess
                     productReturn.ProductInStock = reader.GetInt32(6);
                     reader.Close();
                 }
+                else
+                {
+                    throw new Exception("Product Id not exits");
+                }
                 return productReturn;
             }
             catch (Exception ex)
             {
-                throw new Exception("Product ID wrong, please check again !!!!! ");
+                throw ex;
             }
         }
 
@@ -188,7 +209,7 @@ namespace eProject_SEM3_G1.Model.DataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception("Product ID wrong, please check again !!!!! ");
+                throw ex;
             }
         }
 
@@ -256,6 +277,7 @@ namespace eProject_SEM3_G1.Model.DataAccess
                     product.ProductInStock = reader.GetInt32(6);
                     listProductReturn.Add(product);
                 }
+                
                 reader.Close();
                 return listProductReturn;
             }
