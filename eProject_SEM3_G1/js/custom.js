@@ -346,6 +346,42 @@ $(document).ready(function () {
     /**=============END CHECKOUT USER CHOOSE OPTION=================**/
 
 
+    /**=============BEGIN CHECKOUT ADDRESS VALIDATE=================**/
+    $("#submit-validate").on("click", function (evt) {
+        evt.preventDefault();
+        var firstNameBilling = $("#first-name-billing");
+        var lastNameBilling = $("#last-name-billing");
+        var firstAddressBilling = $("#first-address-billing");
+        var secondAddressBilling = $("#second-address-billing");
+        var cityBilling = $("#city-billing");
+        var postCodeBilling = $("#post-code-billing");
+        var phoneBilling = $("#phone-billing");
+        var countryBilling = $("select[name=country-billing]");
+        var regionBilling = $("select[name=region-billing]");
+
+        var firstNameShipping = $("#first-name-shipping");
+        var lastNameShipping = $("#last-name-shipping");
+        var firstAddressShipping = $("#first-address-shipping");
+        var secondAddressShipping = $("#second-address-shipping");
+        var cityShipping = $("#city-shipping");
+        var postCodeShipping = $("#post-code-shipping");
+        var phoneShipping = $("#phone-shipping");
+        var countryShipping = $("select[name=country-shipping]");
+        var regionShipping = $("select[name=region-shipping]");
+
+        var validArray = [firstNameBilling, lastNameBilling, firstAddressBilling, secondAddressBilling, cityBilling, postCodeBilling, phoneBilling, countryBilling, regionBilling, firstNameShipping, lastNameShipping, firstAddressShipping, secondAddressShipping, cityShipping, countryShipping, regionShipping, postCodeShipping, phoneShipping];
+        var isValid = false;
+
+        isValid = validateInformation(validArray, validateRegisterCallbackFunction);
+    });
+    /**=============END CHECKOUT ADDRESS VALIDATE=================**/
+
+
+
+
+
+
+
 
 
     /**=============BEGIN LOGIN AJAX=================**/
@@ -439,8 +475,6 @@ function validateInformation(listInputObject, callBackFunction) {
                 validateInformation(arrTmp, callBackFunction);
             });
         }
-
-
         if (val.length > 1) {
             if (validateInformation(val, callBackFunction)) {
                 if (val[0].val() != val[1].val()) {

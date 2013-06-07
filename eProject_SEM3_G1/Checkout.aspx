@@ -90,6 +90,7 @@
 								                    <label class="control-label" for="inputFirstName">First Name: <span class="text-error">*</span></label>
 								                    <div class="controls">
 								                      <input type="text" id="first-name-billing" placeholder="John">
+                                                      <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 								                    </div>
 								                </div><!--end control-group-->
 
@@ -97,6 +98,7 @@
 								                    <label class="control-label" for="inputLastName">Last Name: <span class="text-error">*</span></label>
 								                    <div class="controls">
 								                      <input type="text" id="last-name-billing" placeholder="Doe">
+                                                      <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 								                    </div>
 								                </div><!--end control-group-->
 
@@ -111,13 +113,15 @@
 								                    <label class="control-label" for="inputFirstAdd">First Address: <span class="text-error">*</span></label>
 								                    <div class="controls">
 								                      <input type="text" id="first-address-billing" placeholder="3st el-hakim">
+                                                      <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 								                    </div>
 								                </div><!--end control-group-->
 
 								                <div class="control-group">
 								                    <label class="control-label" for="inputSecondAdd">Second Address:</label>
 								                    <div class="controls">
-								                      <input type="text" id="second-address-billing" placeholder="6st el-hakim">
+								                      <input type="text" id="second-address-billing" typeValid="email" placeholder="6st el-hakim">
+                                                      <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 								                    </div>
 								                </div><!--end control-group-->
 
@@ -125,6 +129,7 @@
 								                    <label class="control-label" for="inputCity">City: <span class="text-error">*</span></label>
 								                    <div class="controls">
 								                      <input type="text" id="city-billing" placeholder="Ex: New York">
+                                                      <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 								                    </div>
 								                </div><!--end control-group-->
 
@@ -132,12 +137,14 @@
 								                    <label class="control-label" for="inputPostCode">Post Code: <span class="text-error">*</span></label>
 								                    <div class="controls">
 								                      <input type="text" id="post-code-billing" placeholder="Ex: 55421">
+                                                      <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 								                    </div>
 								                </div><!--end control-group-->
                                                 <div class="control-group">
 								                    <label class="control-label" for="inputPostCode">Phone Number: <span class="text-error">*</span></label>
 								                    <div class="controls">
 								                      <input type="text" id="phone-billing" placeholder="Ex: 55421">
+                                                      <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 								                    </div>
 								                </div><!--end control-group-->
 
@@ -176,6 +183,7 @@
 								                    <label class="control-label" for="inputFirstName">First Name: <span class="text-error">*</span></label>
 								                    <div class="controls">
 								                      <input type="text" id="first-name-shipping" placeholder="John">
+                                                      <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 								                    </div>
 								                </div><!--end control-group-->
 
@@ -183,6 +191,7 @@
 								                    <label class="control-label" for="inputLastName">Last Name: <span class="text-error">*</span></label>
 								                    <div class="controls">
 								                      <input type="text" id="last-name-shipping" placeholder="Doe">
+                                                      <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 								                    </div>
 								                </div><!--end control-group-->
 
@@ -190,6 +199,7 @@
 								                    <label class="control-label" for="inputCompany">Company:</label>
 								                    <div class="controls">
 								                      <input type="text" id="company-shipping" placeholder="Shopfine, INC">
+                                                      <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 								                    </div>
 								                </div><!--end control-group-->
 
@@ -197,6 +207,7 @@
 								                    <label class="control-label" for="inputFirstAdd">First Address: <span class="text-error">*</span></label>
 								                    <div class="controls">
 								                      <input type="text" id="first-address-shipping" placeholder="3st el-hakim">
+                                                      <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 								                    </div>
 								                </div><!--end control-group-->
 
@@ -204,6 +215,7 @@
 								                    <label class="control-label" for="inputSecondAdd">Second Address:</label>
 								                    <div class="controls">
 								                      <input type="text" id="second-address-shipping" placeholder="6st el-hakim">
+                                                      <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 								                    </div>
 								                </div><!--end control-group-->
 
@@ -211,6 +223,7 @@
 								                    <label class="control-label" for="inputCity">City: <span class="text-error">*</span></label>
 								                    <div class="controls">
 								                      <input type="text" id="city-shipping" placeholder="Cairo">
+                                                      <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 								                    </div>
 								                </div><!--end control-group-->
 
@@ -218,12 +231,14 @@
 								                    <label class="control-label" for="inputPostCode">Post Code: <span class="text-error">*</span></label>
 								                    <div class="controls">
 								                      <input type="text" id="post-code-shipping" placeholder="12345">
+                                                      <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 								                    </div>
 								                </div><!--end control-group-->
                                                 <div class="control-group">
 								                    <label class="control-label" for="inputPostCode">Phone Number: <span class="text-error">*</span></label>
 								                    <div class="controls">
 								                      <input type="text" id="phone-shipping" placeholder="Ex: 55421">
+                                                      <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 								                    </div>
 								                </div><!--end control-group-->
 
@@ -264,7 +279,7 @@
                                                       <p class="span3"><b>Billing Information:<br /></b></p>
 								                    </div>
 								                </div><!--end control-group-->
-                                                <button type="submit" class="btn btn-primary">Continue</button>
+                                                <button class="btn btn-primary" id="submit-validate">Continue</button>
 										</td>
                                         
                                         </form>

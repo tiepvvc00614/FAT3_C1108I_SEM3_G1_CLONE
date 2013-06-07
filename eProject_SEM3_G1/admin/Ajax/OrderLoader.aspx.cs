@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using eProject_SEM3_G1.Model;
 using eProject_SEM3_G1.Utilities;
+using System.Threading;
 
 namespace eProject_SEM3_G1.admin.Ajax
 {
@@ -66,6 +67,7 @@ namespace eProject_SEM3_G1.admin.Ajax
 
                     listOrder.Add(o1);
 
+                    Thread.Sleep(200);
 
                     Order o2 = new Order();
                     o2.Status = Order.ORDER_STATUS_COMPLETED;
