@@ -16,7 +16,7 @@ namespace eProject_SEM3_G1.Model.DataAccess
             this.userForAccess = user;
         }
 
-        public static User Login(string username, string password)
+        public static User Login(string email, string password)
         {
             
             try
@@ -26,18 +26,22 @@ namespace eProject_SEM3_G1.Model.DataAccess
                 SqlConnection con = DatabaseFactory.GetConnection(DatabaseFactory.SQL_TYPE_MSSQL).GetConnection();
                 SqlCommand command = new SqlCommand();
                 command.Connection = con;
-                command.CommandText = "Login";
+                command.CommandText = "LoginPROC";
                 command.CommandType = System.Data.CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@username", username);
-                command.Parameters.AddWithValue("@password", password);
+                command.Parameters.AddWithValue("@email_login", email);
+                command.Parameters.AddWithValue("@password_login", password);
 
                 SqlDataReader reader = command.ExecuteReader();
                 if (reader.Read())
                 {
-                    user = new User(reader.GetString(0),reader.GetString(1));
-                    user.UserEmail = reader.GetString(2);
-                    user.DateRegister = reader.GetDateTime(3);
-                    user.UserID = reader.GetInt32(4);
+                    user = new User();
+                    user.UserEmail = reader.GetString(0);
+                    user.UserID = reader.GetInt32(1);
+                    user.Firstname = reader.GetString(2);
+                    user.Lastname = reader.GetString(3);
+                    user.Status = reader.GetInt32(4);
+                    user.Username = reader.GetString(5);
+                    user.DateRegister = reader.GetDateTime(6);
                 }
                 return user;
             }
@@ -56,11 +60,13 @@ namespace eProject_SEM3_G1.Model.DataAccess
                 command.Connection = con;
                 command.CommandText = "RegisterUser";
                 command.CommandType = System.Data.CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@bs_User_username", user.Username);
-                command.Parameters.AddWithValue("@bs_User_password", user.Password);
-                command.Parameters.AddWithValue("@bs_User_status", user.Status);
-                command.Parameters.AddWithValue("@bs_User_email", user.UserEmail);
-                command.Parameters.AddWithValue("@bs_User_date", user.DateRegister);
+                command.Parameters.AddWithValue("@username", user.Username);
+                command.Parameters.AddWithValue("@password", user.Password);
+                command.Parameters.AddWithValue("@firstname", user.Firstname);
+                command.Parameters.AddWithValue("@lastname", user.Lastname);
+                command.Parameters.AddWithValue("@status", user.Status);
+                command.Parameters.AddWithValue("@email", user.UserEmail);
+                command.Parameters.AddWithValue("@date", user.DateRegister);
                 int result=command.ExecuteNonQuery();                
                 return result == 1;
             }
@@ -79,8 +85,9 @@ namespace eProject_SEM3_G1.Model.DataAccess
                 command.Connection = this.connectionForAccess;
                 command.CommandText = "ChangePassword";
                 command.CommandType = System.Data.CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@bs_User_userid", this.userForAccess.UserID);
-                command.Parameters.AddWithValue("@bs_User_password", newPassword);
+                command.Parameters.AddWithValue("@password_login", this.userForAccess.Password);
+                command.Parameters.AddWithValue("@email_login", this.userForAccess.UserEmail);
+                command.Parameters.AddWithValue("@new_password", newPassword);
 
                 return command.ExecuteNonQuery() == 1;
             }
@@ -94,20 +101,13 @@ namespace eProject_SEM3_G1.Model.DataAccess
 
         public override void Delete()
         {
-            try
-            {
-                SqlCommand command = new SqlCommand();
+                /*SqlCommand command = new SqlCommand();
                 command.Connection = this.connectionForAccess;
                 command.CommandText = "DeleteUser";
                 command.CommandType = System.Data.CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@bs_User_userid", this.userForAccess.UserID);
-                command.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-
-                throw new Exception("User ID wrong, please check again !!!!! ");
-            }
+                command.ExecuteNonQuery();*/
+                throw new NotImplementedException("Not supported");
         }
         public override void Update()
         {
@@ -121,14 +121,10 @@ namespace eProject_SEM3_G1.Model.DataAccess
                     throw new Exception("Date is not format");
                 SqlCommand command = new SqlCommand();
                 command.Connection = this.connectionForAccess;
-                command.CommandText = "UpdateUser";
+                command.CommandText = "ChangeStatus";
                 command.CommandType = System.Data.CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@bs_User_userid", this.userForAccess.UserID);
-                command.Parameters.AddWithValue("@bs_User_useremail", this.userForAccess.UserEmail);
-                command.Parameters.AddWithValue("@bs_User_userdateregis", this.userForAccess.DateRegister);
-                command.Parameters.AddWithValue("@bs_User_username", this.userForAccess.Username);
-                command.Parameters.AddWithValue("@bs_User_password", this.userForAccess.Password);
-                command.Parameters.AddWithValue("@bs_User_status", this.userForAccess.Status);
+                command.Parameters.AddWithValue("@user_id", this.userForAccess.UserID);
+                command.Parameters.AddWithValue("@new_status", this.userForAccess.Status);
                 command.ExecuteNonQuery();
             }
             catch (Exception ex)

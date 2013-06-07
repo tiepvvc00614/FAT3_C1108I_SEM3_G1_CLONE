@@ -20,20 +20,34 @@ namespace eProject_SEM3_G1.Model
         private string password;
         private int status;
         private string userEmail;
+        private string firstname;
+        private string lastname;       
         private DateTime dateRegister;
         List<AddressBook> addressbooks;
         private UserDAO userDataAccess;
 
-        public User(string username, string password)
+        public User()
         {
-            
-            this.username = username;
+        }
+        public User(string email, string password)
+        {
+
+            this.userEmail = email;
             this.password = MD5Encrypt.GetMd5(password);
             this.status = STATUS_ACTIVE;
             this.dateRegister = DateTime.Now;
             this.userDataAccess = new UserDAO(this);
         }
-
+        public string Firstname
+        {
+            get { return firstname; }
+            set { firstname = value; }
+        }
+        public string Lastname
+        {
+            get { return lastname; }
+            set { lastname = value; }
+        }
         public string UserEmail
         {
             get
@@ -51,6 +65,10 @@ namespace eProject_SEM3_G1.Model
             get
             {
                 return this.username;
+            }
+            set
+            {
+                this.username = value;
             }
         }
 
