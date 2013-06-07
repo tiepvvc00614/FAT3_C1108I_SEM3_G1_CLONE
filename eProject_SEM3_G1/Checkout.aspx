@@ -89,7 +89,7 @@
 								                <div class="control-group">
 								                    <label class="control-label" for="inputFirstName">First Name: <span class="text-error">*</span></label>
 								                    <div class="controls">
-								                      <input type="text" id="first-name-billing" placeholder="John">
+								                      <input type="text" id="first-name-billing" name="first-name-billing" placeholder="John">
                                                       <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 								                    </div>
 								                </div><!--end control-group-->
@@ -97,7 +97,15 @@
 								                <div class="control-group">
 								                    <label class="control-label" for="inputLastName">Last Name: <span class="text-error">*</span></label>
 								                    <div class="controls">
-								                      <input type="text" id="last-name-billing" placeholder="Doe">
+								                      <input type="text" id="last-name-billing" name="last-name-billing" placeholder="Doe">
+                                                      <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
+								                    </div>
+								                </div><!--end control-group-->
+
+                                                <div class="control-group">
+								                    <label class="control-label" for="inputLastName">Email: <span class="text-error">*</span></label>
+								                    <div class="controls">
+								                      <input type="text" id="email-contact" name="email-contact" placeholder="example@example.com" typeValid="email" />
                                                       <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 								                    </div>
 								                </div><!--end control-group-->
@@ -105,14 +113,14 @@
 								                <div class="control-group">
 								                    <label class="control-label" for="inputCompany">Company:</label>
 								                    <div class="controls">
-								                      <input type="text" id="company-billing" placeholder="Shopfine, INC">
+								                      <input type="text" name="company-billing" id="company-billing" placeholder="Shopfine, INC">
 								                    </div>
 								                </div><!--end control-group-->
 
 								                <div class="control-group">
 								                    <label class="control-label" for="inputFirstAdd">First Address: <span class="text-error">*</span></label>
 								                    <div class="controls">
-								                      <input type="text" id="first-address-billing" placeholder="3st el-hakim">
+								                      <input type="text" name="first-address-billing" id="first-address-billing" placeholder="3st el-hakim">
                                                       <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 								                    </div>
 								                </div><!--end control-group-->
@@ -120,7 +128,7 @@
 								                <div class="control-group">
 								                    <label class="control-label" for="inputSecondAdd">Second Address:</label>
 								                    <div class="controls">
-								                      <input type="text" id="second-address-billing" typeValid="email" placeholder="6st el-hakim">
+								                      <input type="text" name="second-address-billing" id="second-address-billing" placeholder="6st el-hakim">
                                                       <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 								                    </div>
 								                </div><!--end control-group-->
@@ -128,7 +136,7 @@
 								                <div class="control-group">
 								                    <label class="control-label" for="inputCity">City: <span class="text-error">*</span></label>
 								                    <div class="controls">
-								                      <input type="text" id="city-billing" placeholder="Ex: New York">
+								                      <input type="text" name="city-billing" id="city-billing" placeholder="Ex: New York">
                                                       <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 								                    </div>
 								                </div><!--end control-group-->
@@ -136,14 +144,14 @@
 								                <div class="control-group">
 								                    <label class="control-label" for="inputPostCode">Post Code: <span class="text-error">*</span></label>
 								                    <div class="controls">
-								                      <input type="text" id="post-code-billing" placeholder="Ex: 55421">
+								                      <input type="text" name="post-code-billing" id="post-code-billing" placeholder="Ex: 55421">
                                                       <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 								                    </div>
 								                </div><!--end control-group-->
                                                 <div class="control-group">
 								                    <label class="control-label" for="inputPostCode">Phone Number: <span class="text-error">*</span></label>
 								                    <div class="controls">
-								                      <input type="text" id="phone-billing" placeholder="Ex: 55421">
+								                      <input type="text" name="phone-billing" id="phone-billing" placeholder="Ex: 55421">
                                                       <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 								                    </div>
 								                </div><!--end control-group-->
@@ -158,6 +166,7 @@
 								      	                <option>United Kingdom</option>
 								      	                <option>Australia</option>
 								                      </select>
+                                                      <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 								                    </div>
 								                </div><!--end control-group-->
 
@@ -172,6 +181,7 @@
 								      	                <option>Queenlands</option>
 								      	                <option>Western Australia</option>
 								                      </select>
+                                                      <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 								                    </div>
 								                </div><!--end control-group-->
 										</td>
@@ -182,7 +192,7 @@
 								                <div class="control-group">
 								                    <label class="control-label" for="inputFirstName">First Name: <span class="text-error">*</span></label>
 								                    <div class="controls">
-								                      <input type="text" id="first-name-shipping" placeholder="John">
+								                      <input type="text" name="first-name-shipping" id="first-name-shipping" placeholder="John">
                                                       <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 								                    </div>
 								                </div><!--end control-group-->
@@ -190,7 +200,7 @@
 								                <div class="control-group">
 								                    <label class="control-label" for="inputLastName">Last Name: <span class="text-error">*</span></label>
 								                    <div class="controls">
-								                      <input type="text" id="last-name-shipping" placeholder="Doe">
+								                      <input type="text" name="last-name-shipping" id="last-name-shipping" placeholder="Doe">
                                                       <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 								                    </div>
 								                </div><!--end control-group-->
@@ -198,7 +208,7 @@
 								                <div class="control-group">
 								                    <label class="control-label" for="inputCompany">Company:</label>
 								                    <div class="controls">
-								                      <input type="text" id="company-shipping" placeholder="Shopfine, INC">
+								                      <input type="text" name="company-shipping" id="company-shipping" placeholder="Shopfine, INC">
                                                       <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 								                    </div>
 								                </div><!--end control-group-->
@@ -206,7 +216,7 @@
 								                <div class="control-group">
 								                    <label class="control-label" for="inputFirstAdd">First Address: <span class="text-error">*</span></label>
 								                    <div class="controls">
-								                      <input type="text" id="first-address-shipping" placeholder="3st el-hakim">
+								                      <input type="text" name="first-address-shipping" id="first-address-shipping" placeholder="3st el-hakim">
                                                       <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 								                    </div>
 								                </div><!--end control-group-->
@@ -214,7 +224,7 @@
 								                <div class="control-group">
 								                    <label class="control-label" for="inputSecondAdd">Second Address:</label>
 								                    <div class="controls">
-								                      <input type="text" id="second-address-shipping" placeholder="6st el-hakim">
+								                      <input type="text" name="second-address-shipping" id="second-address-shipping" placeholder="6st el-hakim">
                                                       <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 								                    </div>
 								                </div><!--end control-group-->
@@ -222,7 +232,7 @@
 								                <div class="control-group">
 								                    <label class="control-label" for="inputCity">City: <span class="text-error">*</span></label>
 								                    <div class="controls">
-								                      <input type="text" id="city-shipping" placeholder="Cairo">
+								                      <input type="text" name="city-shipping" id="city-shipping" placeholder="Cairo">
                                                       <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 								                    </div>
 								                </div><!--end control-group-->
@@ -230,14 +240,14 @@
 								                <div class="control-group">
 								                    <label class="control-label" for="inputPostCode">Post Code: <span class="text-error">*</span></label>
 								                    <div class="controls">
-								                      <input type="text" id="post-code-shipping" placeholder="12345">
+								                      <input type="text" name="post-code-shipping" id="post-code-shipping" placeholder="12345">
                                                       <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 								                    </div>
 								                </div><!--end control-group-->
                                                 <div class="control-group">
 								                    <label class="control-label" for="inputPostCode">Phone Number: <span class="text-error">*</span></label>
 								                    <div class="controls">
-								                      <input type="text" id="phone-shipping" placeholder="Ex: 55421">
+								                      <input type="text" name="phone-shipping" id="phone-shipping" placeholder="Ex: 55421">
                                                       <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 								                    </div>
 								                </div><!--end control-group-->
@@ -252,6 +262,7 @@
 								      	                <option>United Kingdom</option>
 								      	                <option>Australia</option>
 								                      </select>
+                                                      <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 								                    </div>
 								                </div><!--end control-group-->
 
@@ -266,6 +277,7 @@
 								      	                <option>Queenlands</option>
 								      	                <option>Western Australia</option>
 								                      </select>
+                                                      <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 								                    </div>
 								                </div><!--end control-group-->
 							               <!--end form-->
@@ -279,7 +291,7 @@
                                                       <p class="span3"><b>Billing Information:<br /></b></p>
 								                    </div>
 								                </div><!--end control-group-->
-                                                <button class="btn btn-primary" id="submit-validate">Continue</button>
+                                                <button class="btn btn-primary" id="submit-validate-address">Continue</button>
 										</td>
                                         
                                         </form>
@@ -296,38 +308,8 @@
 			        <!-- </Wizard - Step 2 -->
 			
 			        <!-- Wizard - Step 3 -->
-			        <div id="step-3" class="step two_column">
-			
-				        <!-- Helper -->
-				        <div id="help-username" class="helper">
-					        <div class="text">
-						        <h3>Username</h3>
-						        <p>Usernames can have only alphanumeric characters, spaces, 
-						        underscores, hyphens, periods and the @ symbol.</p>
-					        </div>
-				        </div>
-				        <!-- </Helper -->
-				
-				        <!-- Helper -->
-				        <div id="help-password" class="helper">
-					        <div class="text">
-						        <h3>Password</h3>
-						        <p><strong>A password will be automatically generated for you if you leave this blank.</strong></p>
-						        <p>Hint: The password should be at least seven characters long.
-						        To make it stronger, use upper and lower case letters, numbers and symbols like ! " ? $ % ^ &amp; ).</p>
-					        </div>
-				        </div>
-				        <!-- </Helper -->
-				
+			        <div id="step-3" class="step one_column">
 				        <div class="column_one">
-					        <h3>Step 3 - Website Information</h3>
-					        <p>Welcome to the famous five minute WordPress installation process! 
-					        You may want to browse the ReadMe documentation  at your leisure. 
-					        Otherwise, just fill in the information below and you’ll be on your way to 
-					        using the most extendable and powerful personal publishing platform in the world.</p>
-				        </div>
-				
-				        <div class="column_two">
 					
 					        <form action="/Ajax/CheckoutValidate.aspx" class="defaultRequest" method="post">
 						        <fieldset>

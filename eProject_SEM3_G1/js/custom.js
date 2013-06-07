@@ -347,7 +347,7 @@ $(document).ready(function () {
 
 
     /**=============BEGIN CHECKOUT ADDRESS VALIDATE=================**/
-    $("#submit-validate").on("click", function (evt) {
+    $("#submit-validate-address").on("click", function (evt) {
         evt.preventDefault();
         var firstNameBilling = $("#first-name-billing");
         var lastNameBilling = $("#last-name-billing");
@@ -358,6 +358,7 @@ $(document).ready(function () {
         var phoneBilling = $("#phone-billing");
         var countryBilling = $("select[name=country-billing]");
         var regionBilling = $("select[name=region-billing]");
+        var emailContact = $("#email-contact");
 
         var firstNameShipping = $("#first-name-shipping");
         var lastNameShipping = $("#last-name-shipping");
@@ -369,10 +370,14 @@ $(document).ready(function () {
         var countryShipping = $("select[name=country-shipping]");
         var regionShipping = $("select[name=region-shipping]");
 
-        var validArray = [firstNameBilling, lastNameBilling, firstAddressBilling, secondAddressBilling, cityBilling, postCodeBilling, phoneBilling, countryBilling, regionBilling, firstNameShipping, lastNameShipping, firstAddressShipping, secondAddressShipping, cityShipping, countryShipping, regionShipping, postCodeShipping, phoneShipping];
+        var validArray = [firstNameBilling, emailContact, lastNameBilling, firstAddressBilling, cityBilling, postCodeBilling, phoneBilling, countryBilling, regionBilling, firstNameShipping, lastNameShipping, firstAddressShipping, cityShipping, countryShipping, regionShipping, postCodeShipping, phoneShipping];
         var isValid = false;
 
         isValid = validateInformation(validArray, validateRegisterCallbackFunction);
+
+        if (isValid) {
+            $("#checkout-address-validate").submit();
+        }
     });
     /**=============END CHECKOUT ADDRESS VALIDATE=================**/
 
