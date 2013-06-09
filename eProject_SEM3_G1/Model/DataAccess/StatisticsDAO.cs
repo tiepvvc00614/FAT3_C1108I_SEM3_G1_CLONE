@@ -81,7 +81,7 @@ namespace eProject_SEM3_G1.Model.DataAccess
             }
         }
 
-        public static List<OrderStatistics> GetOrderByPeriod(DateTime start, DateTime end)
+        /*public static List<OrderStatistics> GetOrderByPeriod(DateTime start, DateTime end)
         {
             try
             {
@@ -106,10 +106,9 @@ namespace eProject_SEM3_G1.Model.DataAccess
             }
             catch (Exception ex)
             {
-
-                throw new Exception("Date Start or Date End wrong, please check again !!!!! ");
+                throw ex;
             }
-        }
+        }*/
 
         public static List<Order> GetOrder(DateTime start, DateTime end)
         {
@@ -128,16 +127,17 @@ namespace eProject_SEM3_G1.Model.DataAccess
                 {
                     Order order = new Order();
                     order.OrderId = reader.GetInt32(0);
-                    order.Billing.Firstname = reader.GetString(1);
-                    order.Billing.Lastname = reader.GetString(2);
+                    BillingAddress bil = new BillingAddress();
+                    bil.Firstname = reader.GetString(1);
+                    bil.Lastname = reader.GetString(2);
+                    order.Billing = bil;
                     listOrderReturn.Add(order);
                 }
                 return listOrderReturn;
             }
             catch (Exception ex)
             {
-
-                throw new Exception("Date Start or Date End wrong, please check again !!!!! ");
+                throw ex;
             }
         }
 

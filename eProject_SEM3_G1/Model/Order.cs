@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using eProject_SEM3_G1.Model.DataAccess;
 
 namespace eProject_SEM3_G1.Model
 {
@@ -12,8 +13,14 @@ namespace eProject_SEM3_G1.Model
         public static int ORDER_STATUS_CANCELED = 3;
         public static int ORDER_STATUS_COMPLETED = 2;
 
-        private int orderId;
+        private OrderDAO dataAccessObj;
 
+        public Order()
+        {
+            this.dataAccessObj = new OrderDAO(this);
+        }
+
+        private int orderId;
         public int OrderId
         {
             get { return orderId; }
@@ -66,7 +73,7 @@ namespace eProject_SEM3_G1.Model
         {
             get {
                 float totalPrice = 0;
-                foreach (OrderDetails item in this.orderDetails)
+                foreach (OrderDetails item in this.OrderDetails)
                 {
                     totalPrice += item.TotalPrice;
                 }
@@ -82,21 +89,39 @@ namespace eProject_SEM3_G1.Model
             get { return orderTracking; }
             set { orderTracking = value; }
         }
-
-        
         private ShippingService deliveryMethod;
-
-
         private List<OrderDetails> orderDetails;
 
         public List<OrderDetails> OrderDetails
         {
-            get { return orderDetails; }
-            set { orderDetails = value; }
+            get 
+            {
+                if (orderDetails == null) orderDetails = this.dataAccessObj.GetOrderDetails();
+                return orderDetails;
+            }
+            set 
+            { 
+                orderDetails = value; 
+            }
         }
-        
 
 
 
+        public static List<Order> GetOrder(DateTime start, DateTime end)
+        {
+            try
+            {
+                return StatisticsDAO.GetOrder(start, end);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+      
+        }
+        public static List<Order> GetOrder(DateTime start, DateTime end, int status)
+        {
+            return null;
+        }
     }
 }

@@ -73,9 +73,21 @@ namespace eProject_SEM3_G1.Model.DataAccess
             }
             catch (Exception ex)
             {
-                
                 throw ex;
             }
+        }
+
+        public List<OrderDetails> GetOrderDetails()
+        {
+            try
+            {
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+      
         }
     }
 }
