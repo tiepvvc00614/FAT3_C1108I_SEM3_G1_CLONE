@@ -41,7 +41,7 @@ namespace eProject_SEM3_G1.Utilities
 
                     jsonStr += "{";
                     jsonStr += "\"orderId\": \""+ listOrder[i].OrderId.ToString() +"\",";
-                    jsonStr += "\"customerName\": \"" + listOrder[i].Billing.Fullname + "\",";
+                    jsonStr += "\"customerName\": \"" + listOrder[i].Billing.FullName + "\",";
                     jsonStr += "\"total\": \"" + listOrder[i].Total.ToString() + "\",";
                     jsonStr += "\"status\": \"" + status + "\",";
                     jsonStr += "\"time\": \"" + listOrder[i].DateOrder.ToShortDateString() + " " +listOrder[i].DateOrder.ToShortTimeString() + "\"";

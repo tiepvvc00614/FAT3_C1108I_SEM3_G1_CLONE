@@ -100,6 +100,7 @@
     <Content Include="admin\theme\images\pattern1.png" />
     <Content Include="admin\theme\images\pattern2.png" />
     <Content Include="admin\theme\scripts\chart_data_loader\income_loader.js" />
+    <Content Include="admin\theme\scripts\chart_data_loader\order_details_loader.js" />
     <Content Include="admin\theme\scripts\chart_data_loader\order_loader.js" />
     <Content Include="admin\theme\scripts\DataTables\docs\34cdb56b2c.html" />
     <Content Include="admin\theme\scripts\DataTables\docs\DataTable.defaults.columns.html" />
@@ -1676,6 +1677,7 @@
     <Content Include="js\jquery.tmpl\cart_detail_template.txt" />
     <Content Include="js\jquery.tmpl\cart_template.txt" />
     <Content Include="js\jquery.tmpl\income_statistic_overview_table_template.txt" />
+    <Content Include="js\jquery.tmpl\order_detail_template.txt" />
     <Content Include="js\jquery.tmpl\order_statistic_table_template.txt" />
     <Content Include="js\jquery.tmpl\product_detail_template.txt" />
     <Content Include="js\jquery.tweet.js" />
@@ -1862,7 +1864,6 @@
     <Compile Include="Model\DataAccess\StatisticsDAO.cs" />
     <Compile Include="Model\DataAccess\UserDAO.cs" />
     <Compile Include="Model\Guest.cs" />
-    <Compile Include="Model\IAddress.cs" />
     <Compile Include="Model\IncomeStatistics.cs" />
     <Compile Include="Model\Order.cs" />
     <Compile Include="Model\OrderDetails.cs" />

@@ -127,10 +127,6 @@ namespace eProject_SEM3_G1.Model.DataAccess
                 {
                     Order order = new Order();
                     order.OrderId = reader.GetInt32(0);
-                    BillingAddress bil = new BillingAddress();
-                    bil.Firstname = reader.GetString(1);
-                    bil.Lastname = reader.GetString(2);
-                    order.Billing = bil;
                     listOrderReturn.Add(order);
                 }
                 return listOrderReturn;

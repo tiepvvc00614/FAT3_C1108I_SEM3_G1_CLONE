@@ -11,11 +11,6 @@ namespace eProject_SEM3_G1.Model
         private int orderDetailQuantity;
         private Product orderDetailProduct;
 
-        public OrderDetails()
-        {
-
-        }
-
         public OrderDetails(Product pro, int quan)
         {
             this.orderDetailProduct = pro;
@@ -51,7 +46,37 @@ namespace eProject_SEM3_G1.Model
         public Product OrderDetailProduct
         {
             get { return orderDetailProduct; }
-        } 
+        }
+
+        public string ToJSONString()
+        {
+            string jsonStr = "";
+            jsonStr += "{";
+            jsonStr += "\"product\": "+ this.OrderDetailProduct.ToJSONString() +",";
+            jsonStr += "\"quantity\": "+ this.Quantity + ",";
+            jsonStr += "\"total\": " + this.TotalPrice.ToString() + "";
+            jsonStr += "}";
+
+            return jsonStr;
+        }
+
+        public static string ToJSONString(List<OrderDetails> listItem)
+        {
+            string jsonStr = "";
+
+            jsonStr += "{";
+
+            for(int i = 0, length = listItem.Count; i< length; i++)
+            {
+                jsonStr += listItem[i].ToJSONString();
+
+                if(i<length -1) jsonStr += ",";
+            }
+
+            jsonStr += "}";
+            return jsonStr;
+
+        }
     }
 
     public class OrderDetailComparer : IEqualityComparer<OrderDetails>

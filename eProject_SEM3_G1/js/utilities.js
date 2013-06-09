@@ -8,3 +8,14 @@ function getURLParameter(name) {
         (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search) || [, null])[1]
     );
 }
+
+function AjaxLoader(url, type, data, callBackFunction) {
+    $.ajax({
+        url: url,
+        type: type,
+        data: dataAjax,
+        success: function (msg) {
+            callBackFunction(msg);
+        }
+    });
+}

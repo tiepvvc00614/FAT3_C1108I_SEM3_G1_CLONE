@@ -5,7 +5,7 @@ using System.Web;
 
 namespace eProject_SEM3_G1.Model
 {
-    public class BillingAddress
+    public class BillingAddress : Address
     {
         private int orderId;
 
@@ -23,8 +23,6 @@ namespace eProject_SEM3_G1.Model
             set { firstname = value; }
         }
 
-
-
         private string lastname;
 
         public string Lastname
@@ -33,9 +31,9 @@ namespace eProject_SEM3_G1.Model
         }
 
 
-        public string Fullname
+        public string ToJSONString()
         {
-            get { return this.firstname + " " + this.lastname; }
+            return "{}";
         }
     }
 }

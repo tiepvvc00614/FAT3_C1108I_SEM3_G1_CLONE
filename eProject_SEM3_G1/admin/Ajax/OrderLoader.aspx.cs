@@ -59,6 +59,12 @@ namespace eProject_SEM3_G1.admin.Ajax
 
                     Response.Write(JSONUtilities.GetJSONString(listOrderStatistics, dateFrom, dateTo));
                 }
+                else if (Request.Params["orderId"] != null)
+                {
+                    int orderId = Int32.Parse(Request.Params["orderId"]);
+                    Order order = Order.GetOrder(orderId);
+                    Response.Write(order.ToJSONString());
+                }
                 else
                 {
                     DateTime dateFrom = DateTime.Now.AddDays(-8);

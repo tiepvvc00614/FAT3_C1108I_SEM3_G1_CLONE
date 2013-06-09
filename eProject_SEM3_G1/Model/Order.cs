@@ -14,66 +14,69 @@ namespace eProject_SEM3_G1.Model
         public static int ORDER_STATUS_COMPLETED = 2;
 
         private OrderDAO dataAccessObj;
+        private string email;
+        private int orderId;
+        private DateTime dateOrder;
+        private int status;
+        private BillingAddress billing;
+        private ShippingAddress shipping;
+        private User orderUser;
+        private Tracking orderTracking;
+        private ShippingService deliveryMethod;
+        private List<OrderDetails> orderDetails;
 
         public Order()
         {
             this.dataAccessObj = new OrderDAO(this);
         }
 
-        private int orderId;
+        /*========== BEGIN GET SET =============*/
         public int OrderId
         {
             get { return orderId; }
             set { orderId = value; }
         }
-        private string email;
-
         public string Email
         {
             get { return email; }
             set { email = value; }
         }
-        private DateTime dateOrder;
-
         public DateTime DateOrder
         {
             get { return dateOrder; }
             set { dateOrder = value; }
         }
-        private int status;
-
         public int Status
         {
             get { return status; }
             set { status = value; }
         }
-        private BillingAddress billing;
-
         public BillingAddress Billing
         {
-            get { return billing; }
-            set { billing = value; }
+            get 
+            {
+                if (billing == null) billing = dataAccessObj.GetBilling();
+                return billing;
+            }
         }
-        private ShippingAddress shipping;
-
         public ShippingAddress Shipping
         {
-            get { return shipping; }
-            set { shipping = value; }
+            get 
+            {
+                if (shipping == null) shipping = dataAccessObj.GetShipping();
+                return shipping;
+            }
         }
-        private User orderUser;
-
         public User OrderUser
         {
             get { return orderUser; }
             set { orderUser = value; }
         }
-        private float total;
         public float Total
         {
             get {
                 float totalPrice = 0;
-                foreach (OrderDetails item in this.OrderDetails)
+                foreach (OrderDetails item in this.ListOrderDetails)
                 {
                     totalPrice += item.TotalPrice;
                 }
@@ -81,28 +84,57 @@ namespace eProject_SEM3_G1.Model
                 return totalPrice;
             }
         }
-
-        private Tracking orderTracking;
-
         public Tracking OrderTracking
         {
             get { return orderTracking; }
             set { orderTracking = value; }
         }
-        private ShippingService deliveryMethod;
-        private List<OrderDetails> orderDetails;
-
-        public List<OrderDetails> OrderDetails
+        public List<OrderDetails> ListOrderDetails
         {
             get 
             {
                 if (orderDetails == null) orderDetails = this.dataAccessObj.GetOrderDetails();
                 return orderDetails;
             }
-            set 
-            { 
-                orderDetails = value; 
-            }
+        }
+
+        /*========== END GET SET =============*/
+
+
+
+
+        public string ToJSONString()
+        {
+            string jsonStr = "";
+            jsonStr += "{";
+
+            jsonStr += "\"orderId\": \""+ this.OrderId +"\",";
+            jsonStr += "\"emailContact\": \"" + this.email + "\",";
+            jsonStr += "\"dateOrder\": \"" + this.DateOrder.ToLongDateString() + "\",";
+            jsonStr += "\"status\": \"" + Order.GetStatusString(this.status) + "\",";
+            jsonStr += "\"billing\": \"" + this.Billing.ToJSONString() + "\",";
+            jsonStr += "\"shipping\": \"" + this.Shipping.ToJSONString() + "\",";
+            jsonStr += "\"total\": \"" + this.Total + "\",";
+            jsonStr += "\"orderDetails\": "+ OrderDetails.ToJSONString(this.ListOrderDetails) +"";
+
+            jsonStr += "}";
+
+            return jsonStr;
+        }
+
+        public static string GetStatusString(int status)
+        {
+            string statusStr = "Not defined";
+            if (status == Order.ORDER_STATUS_CANCELED)
+                statusStr = "cancelled";
+            if (status == Order.ORDER_STATUS_COMPLETED)
+                statusStr = "completed";
+            if (status == Order.ORDER_STATUS_PAID)
+                statusStr = "paid";
+            if (status == Order.ORDER_STATUS_PLACED)
+                statusStr = "placed";
+
+            return statusStr;
         }
 
 
@@ -122,6 +154,11 @@ namespace eProject_SEM3_G1.Model
         public static List<Order> GetOrder(DateTime start, DateTime end, int status)
         {
             return null;
+        }
+
+        public static Order GetOrder(int orderId)
+        {
+            return OrderDAO.GetOrderByOrderId(orderId);
         }
     }
 }

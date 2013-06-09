@@ -1,0 +1,243 @@
+<div class="widget widget-2" style="margin-top: -1px;">
+    	<div class="widget-head">
+		    <h4 class="heading glyphicons calendar"><i></i> 
+			    Customer Information
+		    </h4>
+	    </div>
+        <div class="widget-body">
+                <table class="table table-condensed">
+				<tbody>
+					<tr>
+						<td style="width: 50%;"><b>Name:</b></td>
+						<td style="width: 50%;">${billing.fullName}</td>
+					</tr>
+					<tr>
+						<td><b>Company: </b></td>
+						<td>
+							{{if billing.company}}
+								${billing.company}
+							{{else}}
+								&nbsp;
+							{{/if}}
+						</td>
+					</tr>
+					<tr>
+						<td><b>Customer Email:</b></td>
+						<td>
+							{{if billing.emailContact}}
+								${billing.emailContact}
+							{{else}}
+								&nbsp;
+							{{/if}}
+						</td>
+					</tr>
+                    <tr>
+						<td><b>Phone Contact:</b></td>
+						<td>
+							{{if billing.phoneContact}}
+								${billing.phoneContact}
+							{{else}}
+								&nbsp;
+							{{/if}}
+						</td>
+					</tr>
+                    <tr>
+						<td><b>Fax:</b></td>
+						<td>
+							{{if billing.fax}}
+								${billing.fax}
+							{{else}}
+								&nbsp;
+							{{/if}}
+						</td>
+					</tr>
+				</tbody>
+			   </table>
+        </div>
+        <div class="widget-head">
+		    <h4 class="heading glyphicons calendar"><i></i> 
+			    Billing Information
+		    </h4>
+	    </div>
+        <div class="widget-body">
+                <table class="table table-condensed">
+				<tbody>
+					<tr>
+						<td style="width: 50%;"><b>Billing Address:</b></td>
+						<td style="width: 50%;">
+							{{if billing.firstAddress}}
+								${billing.firstAddress}
+							{{else}}
+								&nbsp;
+							{{/if}}
+						</td>
+					</tr>
+					<tr>
+						<td style="width: 50%;"><b>Billing Address 2: </b></td>
+						<td style="width: 50%;">
+							{{if billing.secondAddress}}
+								${billing.secondAddress}
+							{{else}}
+								&nbsp;
+							{{/if}}
+						</td>
+					</tr>
+					<tr>
+						<td style="width: 50%;"><b>Billing City:</b></td>
+						<td style="width: 50%;">
+							{{if billing.city}}
+								${billing.city}
+							{{else}}
+								&nbsp;
+							{{/if}}
+						</td>
+					</tr>
+                    <tr>
+						<td style="width: 50%;"><b>Billing State:</b></td>
+						<td style="width: 50%;">
+							{{if billing.state}}
+								${billing.state}
+							{{else}}
+								&nbsp;
+							{{/if}}
+						</td>
+					</tr>
+                    <tr>
+						<td style="width: 50%;"><b>Billing Postcode:</b></td>
+						<td style="width: 50%;">
+							{{if billing.postcode}}
+								${billing.postcode}
+							{{else}}
+								&nbsp;
+							{{/if}}						
+						</td>
+					</tr>
+                    <tr>
+						<td style="width: 50%;"><b>Phone Contact:</b></td>
+						<td style="width: 50%;">
+							{{if billing.phoneContact}}
+								${billing.phoneContact}
+							{{else}}
+								&nbsp;
+							{{/if}}
+						</td>
+					</tr>
+				</tbody>
+			   </table>
+        </div>
+        <div class="widget-head">
+		    <h4 class="heading glyphicons calendar"><i></i> 
+			    Shipping Information
+		    </h4>
+	    </div>
+        <div class="widget-body">
+            <table class="table table-condensed">
+				<tbody>
+                    <tr>
+						<td style="width: 50%;"><b>Receiver Name:</b></td>
+						<td style="width: 50%;">
+							{{if shipping.fullName}}
+								${shipping.fullName}
+							{{else}}
+								&nbsp;
+							{{/if}}
+						</td>
+					</tr>
+					<tr>
+						<td style="width: 50%;"><b>Shipping Address:</b></td>
+						<td style="width: 50%;">
+							{{if shipping.firstAddress}}
+								${shipping.firstAddress}
+							{{else}}
+								&nbsp;
+							{{/if}}
+						</td>
+					</tr>
+					<tr>
+						<td style="width: 50%;"><b>Shipping Address 2: </b></td>
+						<td style="width: 50%;">
+							{{if shipping.secondAddress}}
+								${shipping.secondAddress}
+							{{else}}
+								&nbsp;
+							{{/if}}
+						</td>
+					</tr>
+					<tr>
+						<td style="width: 50%;"><b>Shipping City:</b></td>
+						<td style="width: 50%;">
+							{{if shipping.city}}
+								${shipping.city}
+							{{else}}
+								&nbsp;
+							{{/if}}
+						</td>
+					</tr>
+                    <tr>
+						<td style="width: 50%;"><b>Shipping State:</b></td>
+						<td style="width: 50%;">
+							{{if shipping.state}}
+								${shipping.state}
+							{{else}}
+								&nbsp;
+							{{/if}}
+						</td>
+					</tr>
+                    <tr>
+						<td style="width: 50%;"><b>Shipping Postcode:</b></td>
+						<td style="width: 50%;">
+							{{if shipping.postcode}}
+								${shipping.postcode}
+							{{else}}
+								&nbsp;
+							{{/if}}
+						</td>
+					</tr>
+                    <tr>
+						<td style="width: 50%;"><b>Phone Contact:</b></td>
+						<td style="width: 50%;">
+							{{if shipping.phoneContact}}
+								${shipping.phoneContact}
+							{{else}}
+								&nbsp;
+							{{/if}}
+						</td>
+					</tr>
+				</tbody>
+			   </table>
+        </div><br />
+		<table class="table table-bordered table-condensed" style="border-radius:0px;">
+			<thead>
+				<tr>
+					<th style="width: 80%;">Item</th>
+					<th style="width:5%;">Quantity</th>
+					<th style="width: 15%;">Subtotal</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{each orderDetails}}
+					<tr>
+						<td><a href="ViewProduct.aspx?productId=${product.productId}" target="_blank" />${product.productName} / #${product.productId}</a></td>
+						<td>${quantity}</td>
+						<td>${total}</td>
+					</tr>
+				{{/each}}
+				<tr>
+					<td><b>TAX</b></td>
+					<td>&nbsp;</td>
+					<td>$30</td>
+				</tr>
+				<tr>
+					<td><b>HANDLING</b></td>
+					<td>&nbsp;</td>
+					<td>$3.5</td>
+				</tr>
+				<tr>
+					<td><b>GRAND TOTAL</b></td>
+					<td>&nbsp;</td>
+					<td><b>${total}</b></td>
+				</tr>
+			</tbody>
+		</table>
+            
+</div>

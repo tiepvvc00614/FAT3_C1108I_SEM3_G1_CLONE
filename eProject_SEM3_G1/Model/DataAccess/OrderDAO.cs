@@ -87,7 +87,30 @@ namespace eProject_SEM3_G1.Model.DataAccess
             {
                 throw ex;
             }
-      
+        }
+
+        public BillingAddress GetBilling()
+        {
+            try
+            {
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public ShippingAddress GetShipping()
+        {
+            try
+            {
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

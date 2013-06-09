@@ -7,8 +7,6 @@ namespace eProject_SEM3_G1.Model
 {
     public class Address
     {
-        public IAddress delegateObj;
-
         private int addressId;
         private string address;
         private string firstName;
@@ -19,12 +17,14 @@ namespace eProject_SEM3_G1.Model
 
         private Country country;
 
-        private void AddressDidChange()
-        {
-            //save to sql when address did change
-            this.delegateObj.AddressChanged(this);
-        }
 
+        public string FullName
+        {
+            get
+            {
+                return this.firstName + " " + this.lastName;
+            }
+        }
 
         public int AddressId
         {
@@ -37,7 +37,6 @@ namespace eProject_SEM3_G1.Model
                 if (addressId != value)
                 {
                     addressId = value;
-                    AddressDidChange();
                 }
             }
         }
@@ -53,7 +52,6 @@ namespace eProject_SEM3_G1.Model
                 if (address != value)
                 {
                     address = value;
-                    AddressDidChange();
                 }
             }
         }
@@ -69,7 +67,6 @@ namespace eProject_SEM3_G1.Model
                 if (firstName != value)
                 {
                     firstName = value;
-                    AddressDidChange();
                 }
             }
         }
@@ -85,7 +82,6 @@ namespace eProject_SEM3_G1.Model
                 if (lastName != value)
                 {
                     lastName = value;
-                    AddressDidChange();
                 }
             }
         }
@@ -101,7 +97,6 @@ namespace eProject_SEM3_G1.Model
                 if (city != value)
                 {
                     city = value;
-                    AddressDidChange();
                 }
             }
         }
@@ -117,7 +112,6 @@ namespace eProject_SEM3_G1.Model
                 if (states != value)
                 {
                     states = value;
-                    AddressDidChange();
                 }
             }
         }
@@ -133,7 +127,6 @@ namespace eProject_SEM3_G1.Model
                 if (zipcode != value)
                 {
                     zipcode = value;
-                    AddressDidChange();
                 }
             }
         }
@@ -149,7 +142,6 @@ namespace eProject_SEM3_G1.Model
                 if (country != value)
                 {
                     country = value;
-                    AddressDidChange();
                 }
             }
         }

@@ -9,5 +9,11 @@ namespace eProject_SEM3_G1.Model
     {
         private string phone;
         private int orderId;
+
+        public string ToJSONString() 
+        {
+            return "{}";
+        }
+
     }
 }
