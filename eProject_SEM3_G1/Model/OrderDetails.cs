@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using eProject_SEM3_G1.Model.DataAccess;
 
 namespace eProject_SEM3_G1.Model
 {
@@ -15,6 +16,14 @@ namespace eProject_SEM3_G1.Model
         {
             this.orderDetailProduct = pro;
             this.orderDetailQuantity = quan;
+        }
+
+        public int OrderDetailId
+        {
+            set
+            {
+                this.orderDetailId = value;
+            }
         }
 
         public int Quantity
