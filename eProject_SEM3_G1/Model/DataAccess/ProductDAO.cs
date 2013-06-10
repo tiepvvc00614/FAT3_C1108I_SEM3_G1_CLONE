@@ -283,8 +283,7 @@ namespace eProject_SEM3_G1.Model.DataAccess
             }
             catch (Exception ex)
             {
-
-                throw new Exception("Something Wrong , please check again !!!!! ");
+                throw ex;
             }
         }
 

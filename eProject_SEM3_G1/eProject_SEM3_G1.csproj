@@ -1685,6 +1685,7 @@
     <Content Include="js\product-loader.js" />
     <Content Include="js\utilities.js" />
     <Content Include="js\validate.js" />
+    <Content Include="js\view.product.js" />
     <Content Include="js\wizardPro.min.js" />
     <Content Include="Login.aspx" />
     <Content Include="Master Page\UserControl\Cart.ascx" />

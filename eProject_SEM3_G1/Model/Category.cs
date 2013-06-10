@@ -26,7 +26,11 @@ namespace eProject_SEM3_G1.Model
 
         public List<Category> ChildrenCategory
         {
-            get { return childrenCategory; }
+            get 
+            {
+                if (childrenCategory == null) childrenCategory = new List<Category>();
+                return childrenCategory; 
+            }
             set { childrenCategory = value; }
         }
 

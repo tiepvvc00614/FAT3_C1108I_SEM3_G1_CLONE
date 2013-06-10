@@ -98,9 +98,13 @@ namespace eProject_SEM3_G1.Model.DataAccess
             Dictionary<string, Category> hsReturn = new Dictionary<string, Category>();
 
             Category tmpCate = new Category();
+            
 
             while (reader.Read())
             {
+
+
+
 
                 Category parentNode = new Category();
                 Category firstChildNode = null;

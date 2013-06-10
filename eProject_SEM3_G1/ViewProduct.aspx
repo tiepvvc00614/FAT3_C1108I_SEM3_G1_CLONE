@@ -2,8 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleTextContentPlaceHolder" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeaderAppend" runat="server">
-    <script src="js/wizardPro.min.js" type="text/javascript"></script>
-    <script src="js/validate.js" type="text/javascript"></script>
+    <script src="js/view.product.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
 <div class="container">
@@ -486,18 +485,6 @@
 							</li>
 						</ul>
 					</div><!--end row-->
-
-					<div class="pagination pagination-right">
-						<span class="pull-left">Showing 9 of 20 pages:</span>
-						<ul>
-							<li><a class="invarseColor" href="">Prev</a></li>
-							<li class="active"><a class="invarseColor" href="">1</a></li>
-							<li><a class="invarseColor" href="">2</a></li>
-							<li><a class="invarseColor" href="">2</a></li>
-							<li><a class="invarseColor" href="">3</a></li>
-							<li><a class="invarseColor" href="">Next</a></li>
-						</ul>
-					</div><!--end pagination-->
 
 				</div><!--end span9-->
 
