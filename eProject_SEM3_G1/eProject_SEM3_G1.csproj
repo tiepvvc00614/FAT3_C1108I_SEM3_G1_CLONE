@@ -1693,6 +1693,7 @@
     <Content Include="Master Page\UserControl\Header.ascx" />
     <Content Include="ProductDetail.aspx" />
     <Content Include="Register.aspx" />
+    <Content Include="ViewProduct.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1899,6 +1900,13 @@
     <Compile Include="Utilities\DatabaseConnection\SqlClientConnectionAbstract.cs" />
     <Compile Include="Utilities\Mail\SendMail.cs" />
     <Compile Include="Utilities\WebConfiguration.cs" />
+    <Compile Include="ViewProduct.aspx.cs">
+      <DependentUpon>ViewProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewProduct.aspx.designer.cs">
+      <DependentUpon>ViewProduct.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="admin\theme\scripts\excanvas\examples\.svn\props\" />

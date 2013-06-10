@@ -437,8 +437,30 @@ $(document).ready(function () {
         }
     });
 
-    /**=============BEGIN REGISTER AJAX=================**/
+    /**=============END REGISTER AJAX=================**/
+
+
+
+
+    /*============BEGIN PRODUCTS LOADER==============*/
+    $('.hProductItems').bind('scroll', function () {
+        var scrollPosition = $(this).scrollTop() + $(this).outerHeight();
+        var divTotalHeight = $(this)[0].scrollHeight
+                          + parseInt($(this).css('padding-top'), 10)
+                          + parseInt($(this).css('padding-bottom'), 10)
+                          + parseInt($(this).css('border-top-width'), 10)
+                          + parseInt($(this).css('border-bottom-width'), 10);
+
+        if (scrollPosition == divTotalHeight) {
+            alert('end reached');
+        }
+    });
+
+    /*============END PRODUCTS LOADER==============*/
+
 });
+
+
 
 
 
