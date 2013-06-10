@@ -48,6 +48,7 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="admin\AddProduct.aspx" />
     <Content Include="admin\Ajax\IncomeLoader.aspx" />
     <Content Include="admin\Ajax\OrderLoader.aspx" />
     <Content Include="admin\bootstrap\css\bootstrap-responsive.css" />
@@ -1706,6 +1707,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="admin\AddProduct.aspx.cs">
+      <DependentUpon>AddProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\AddProduct.aspx.designer.cs">
+      <DependentUpon>AddProduct.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\Ajax\IncomeLoader.aspx.cs">
       <DependentUpon>IncomeLoader.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
