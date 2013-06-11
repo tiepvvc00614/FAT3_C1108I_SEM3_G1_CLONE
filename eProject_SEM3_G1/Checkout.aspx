@@ -2,10 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleTextContentPlaceHolder" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeaderAppend" runat="server">
- <script type="text/javascript" src="/js/validate.js"></script> 
-    <script type="text/javascript" src="/js/hoverIntent.js"></script> 
-    <script type="text/javascript" src="/js/wizardPro.min.js"></script> 
-<link href="/css/wizardPro.css" media="screen" rel="stylesheet" type="text/css" />
+
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
 <div class="container">

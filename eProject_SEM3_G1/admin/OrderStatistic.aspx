@@ -30,11 +30,13 @@
 			</div>
 		</div>
 		<div>
-			<label>Select:</label>
-			<select name="filterBy" style="width: 80px;">
-				<option>Some option</option>
-				<option>Other option</option>
-				<option>Some other option</option>
+			<label>Sorting by:</label>
+			<select name="sortingBy" style="width: 120px;">
+                <option value="none">None</option>
+				<option value="completed">Completed</option>
+                <option value="cancelled">Cancelled</option>
+                <option value="paid">Paid</option>
+                <option value="placed">Placed</option>
 			</select>
 		</div>
         <div>

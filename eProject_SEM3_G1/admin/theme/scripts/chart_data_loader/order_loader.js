@@ -1,13 +1,13 @@
 ﻿$(document).ready(function () {
     var fromDate = getURLParameter('fromDate');
     var toDate = getURLParameter('toDate');
-    var filterBy = getURLParameter('filterBy');
+    var filterBy = getURLParameter('sortingBy');
 
     var dataAjax = {};
 
     if (fromDate != null && fromDate != "" && fromDate != "null") dataAjax.fromDate = fromDate;
     if (toDate != null && toDate != "" && toDate != "null") dataAjax.toDate = toDate;
-    if (filterBy != null && filterBy != "" && filterBy != "null") dataAjax.filterBy = filterBy;
+    if (filterBy != null && filterBy != "" && filterBy != "null") dataAjax.sortingBy = filterBy;
     LoadOrderAjax(dataAjax);
 
 
@@ -15,17 +15,21 @@
         evt.preventDefault();
         var fromDate = $("#dateRangeFrom").val();
         var toDate = $("#dateRangeTo").val();
-        var filterBy = $("select[name=filterBy]").val();
+        var filterBy = $("select[name=sortingBy]").val();
         var dataAjax = {};
 
         if (fromDate != null && fromDate != "" && fromDate != "null") dataAjax.fromDate = fromDate;
         if (toDate != null && toDate != "" && toDate != "null") dataAjax.toDate = toDate;
-        if (filterBy != null && filterBy != "" && filterBy != "null") dataAjax.filterBy = filterBy;
+        if (filterBy != null && filterBy != "" && filterBy != "null") dataAjax.sortingBy = filterBy;
         LoadOrderAjax(dataAjax);
     });
 });
 
 function LoadOrderAjax(dataAjax) {
+
+    $('.order-statistic-content').html("");
+    $("#ajax-Loader").show('fast');
+
     $.ajax({
         url: "/admin/Ajax/OrderLoader.aspx",
         type: "GET",
@@ -41,6 +45,7 @@ function LoadOrderAjax(dataAjax) {
                 $('.order-statistic-content').html($.tmpl(data, msg));
             });
         }
+
     });
     
 }

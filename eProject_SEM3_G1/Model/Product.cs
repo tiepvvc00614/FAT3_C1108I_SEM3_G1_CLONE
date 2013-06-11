@@ -27,6 +27,14 @@ namespace eProject_SEM3_G1.Model
             return ProductDAO.GetProductByProductId(productId);
         }
 
+        public static List<Product> SearchProduct(string keyword, int categoryId = 0)
+        {
+            if (categoryId > 0)
+                return ProductDAO.SearchProduct(keyword, categoryId);
+            else
+                return ProductDAO.SearchProduct(keyword);
+        }
+
         public void Add()
         {
             this.productDataAccess.Add();

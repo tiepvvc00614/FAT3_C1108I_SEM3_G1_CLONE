@@ -287,5 +287,28 @@ namespace eProject_SEM3_G1.Model.DataAccess
             }
         }
 
+        public static List<Product> SearchProduct(string keyword)
+        {
+            try
+            {
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public static List<Product> SearchProduct(string keyword, int categoryId)
+        {
+            try
+            {
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

@@ -45,6 +45,10 @@
     <script src="js/jquery.flexslider-min.js"></script>
     <!-- cycle2 -->
     <script src="js/jquery.cycle2.min.js"></script>
+     <script type="text/javascript" src="/js/validate.js"></script> 
+     <script type="text/javascript" src="/js/hoverIntent.js"></script> 
+     <script type="text/javascript" src="/js/wizardPro.min.js"></script> 
+    <link href="/css/wizardPro.css" media="screen" rel="stylesheet" type="text/css" />
     <script src="js/jquery.cycle2.carousel.min.js"></script>
     <!-- tweets -->
     <script src="js/jquery.tweet.js"></script>

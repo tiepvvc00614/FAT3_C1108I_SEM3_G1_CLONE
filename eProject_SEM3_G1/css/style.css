@@ -819,7 +819,10 @@ footer {margin:82px 0 0 0;}
 
 
 /*===================== product-details ===================*/
-
+#ajaxLoader
+{
+    display: none;
+}
 .product-details .product-title {
 	margin-bottom:12px;
 }

@@ -1590,6 +1590,7 @@
     <Content Include="admin\UserManagement.aspx" />
     <Content Include="admin\ViewOrder.aspx" />
     <Content Include="Ajax\CheckoutValidate.aspx" />
+    <Content Include="Ajax\Contact.aspx" />
     <Content Include="Ajax\GetProductInfo.aspx" />
     <Content Include="Ajax\ShoppingCartHandler.aspx" />
     <Content Include="Cart.aspx" />
@@ -1695,6 +1696,7 @@
     <Content Include="Master Page\UserControl\Header.ascx" />
     <Content Include="ProductDetail.aspx" />
     <Content Include="Register.aspx" />
+    <Content Include="Search.aspx" />
     <Content Include="ViewProduct.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -1769,6 +1771,13 @@
     </Compile>
     <Compile Include="Ajax\CheckoutValidate.aspx.designer.cs">
       <DependentUpon>CheckoutValidate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="Ajax\GetProductInfo.aspx.cs">
       <DependentUpon>GetProductInfo.aspx</DependentUpon>
@@ -1901,6 +1910,13 @@
     </Compile>
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Search.aspx.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Search.aspx.designer.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
     </Compile>
     <Compile Include="Utilities\JSONUtilities.cs" />
     <Compile Include="Utilities\Cryptography\MD5Encrypt.cs" />

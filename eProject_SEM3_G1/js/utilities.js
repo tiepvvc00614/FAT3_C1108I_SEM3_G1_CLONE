@@ -13,7 +13,7 @@ function AjaxLoader(url, type, data, callBackFunction) {
     $.ajax({
         url: url,
         type: type,
-        data: dataAjax,
+        data: data,
         success: function (msg) {
             callBackFunction(msg);
         }

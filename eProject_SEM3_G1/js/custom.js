@@ -397,7 +397,18 @@ $(document).ready(function () {
         var passwordLogin = $("#passwordLogin");
         var validateArray = [emailLogin, passwordLogin];
 
-        var isValid = validateInformation(validateArray, validateLoginCallbackFunction);
+        var isValid = validateInformation(validateArray, function (message, index, val, isValid) {
+            if (!isValid) {
+                val.next('span').html("<i class='icon-remove'></i> " + message + "");
+                val.parent().attr("class", "control-group error");
+                val.next('span').show('fast');
+            } else {
+                val.parent().attr("class", "control-group success");
+                val.next('span').html("<i class='icon-ok'></i> " + message + "");
+                val.next('span').show('fast');
+            }
+
+        });
         if (isValid) {
             //console.log("Valid");
             //calling ajax
@@ -430,7 +441,19 @@ $(document).ready(function () {
 
         var validateArray = [firstNameRegister, lastNameRegister, emailRegister, phoneRegister, firstAddressRegister, cityRegister, postCodeRegister, countryRegister, regionRegister, [passwordRegister, repasswordRegister]];
 
-        var isValid = validateInformation(validateArray, validateRegisterCallbackFunction);
+        var isValid = validateInformation(validateArray, function (message, index, val, isValid) {
+            if (!isValid) {
+                val.next('span').html("<i class='icon-remove'></i> " + message + "");
+                val.parent().parent().removeClass("success");
+                val.parent().parent().addClass("error");
+                val.next('span').show('fast');
+            } else {
+                val.parent().parent().removeClass("error");
+                val.parent().parent().addClass("success");
+                val.next('span').html("<i class='icon-ok'></i> " + message + "");
+                val.next('span').show('fast');
+            }
+        });
         isValid = (isValid && agreeWithTermRegister.is(":checked"));
         if (isValid) {
             console.log("Valid");
@@ -442,21 +465,29 @@ $(document).ready(function () {
 
 
 
-    /*============BEGIN PRODUCTS LOADER==============*/
-    $('.hProductItems').bind('scroll', function () {
-        var scrollPosition = $(this).scrollTop() + $(this).outerHeight();
-        var divTotalHeight = $(this)[0].scrollHeight
-                          + parseInt($(this).css('padding-top'), 10)
-                          + parseInt($(this).css('padding-bottom'), 10)
-                          + parseInt($(this).css('border-top-width'), 10)
-                          + parseInt($(this).css('border-bottom-width'), 10);
+    /*============BEGIN CONTACT FORM==============*/
+    $("#contact-us").on("submit", function (evt) {
+        var nameContact = $("input[name=name-contact]");
+        var emailContact = $("input[name=email-contact]");
+        var messageContact = $("textarea[name=message-contact]");
 
-        if (scrollPosition == divTotalHeight) {
-            alert('end reached');
+        var arrayValid = [nameContact, emailContact, messageContact];
+
+        var isValid = validateInformation(arrayValid, function (message, index, val, isValid) {
+            if (!isValid) alert("Please fill all field");
+        });
+
+        evt.preventDefault();
+        if (isValid) {
+            $("#ajaxLoader").show('fast');
+            AjaxLoader("/Ajax/Contact.aspx", $(this).attr("method"), $(this).serialize(), function (msg) {
+                $("#ajaxLoader").hide('fast');
+                console.log(msg);
+            });
         }
     });
 
-    /*============END PRODUCTS LOADER==============*/
+    /*============END CONTACT FORM==============*/
 
 });
 
@@ -464,33 +495,8 @@ $(document).ready(function () {
 
 
 
-function validateLoginCallbackFunction(message, index, val, isValid) {
 
-    if (!isValid) {
-        val.next('span').html("<i class='icon-remove'></i> " + message + "");
-        val.parent().attr("class", "control-group error");
-        val.next('span').show('fast');
-    } else {
-        val.parent().attr("class", "control-group success");
-        val.next('span').html("<i class='icon-ok'></i> " + message + "");
-        val.next('span').show('fast');
-    }
 
-}
-
-function validateRegisterCallbackFunction(message, index, val, isValid) {
-    if (!isValid) {
-        val.next('span').html("<i class='icon-remove'></i> "+ message +"");
-        val.parent().parent().removeClass("success");
-        val.parent().parent().addClass("error");
-        val.next('span').show('fast');
-    } else {
-        val.parent().parent().removeClass("error");
-        val.parent().parent().addClass("success");
-        val.next('span').html("<i class='icon-ok'></i> " + message + "");
-        val.next('span').show('fast');
-    }
-}
 
 
 function validateInformation(listInputObject, callBackFunction) {
