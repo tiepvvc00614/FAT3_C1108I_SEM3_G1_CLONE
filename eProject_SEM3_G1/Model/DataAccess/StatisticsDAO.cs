@@ -118,15 +118,14 @@ namespace eProject_SEM3_G1.Model.DataAccess
                 SqlConnection con = DatabaseFactory.GetConnection(DatabaseFactory.SQL_TYPE_MSSQL).GetConnection();
                 SqlCommand command = new SqlCommand();
                 command.Connection = con;
-                command.CommandText = "GetOrder";
+                command.CommandText = "SearchOrderByTime";
                 command.CommandType = System.Data.CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@date_from", new System.Data.SqlTypes.SqlDateTime(start));
                 command.Parameters.AddWithValue("@date_to", new System.Data.SqlTypes.SqlDateTime(end));
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    Order order = new Order();
-                    order.OrderId = reader.GetInt32(0);
+                    Order order = Order.GetOrder(reader.GetInt32(0));
                     listOrderReturn.Add(order);
                 }
                 return listOrderReturn;

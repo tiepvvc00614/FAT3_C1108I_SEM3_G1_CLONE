@@ -28,23 +28,26 @@ namespace eProject_SEM3_G1.Utilities
                 jsonStr += "[";
                 for (int i = 0, length = listOrder.Count; i < length; i++)
                 {
+                    Order odTmp = listOrder[i];
                     string status = "Not Define";
 
-                    if (listOrder[i].Status == Order.ORDER_STATUS_CANCELED)
+                    if (odTmp.Status == Order.ORDER_STATUS_CANCELED)
                         status = "Cancelled";
-                    if (listOrder[i].Status == Order.ORDER_STATUS_COMPLETED)
+                    if (odTmp.Status == Order.ORDER_STATUS_COMPLETED)
                         status = "Completed";
-                    if (listOrder[i].Status == Order.ORDER_STATUS_PAID)
+                    if (odTmp.Status == Order.ORDER_STATUS_PAID)
                         status = "Paid";
-                    if (listOrder[i].Status == Order.ORDER_STATUS_PLACED)
+                    if (odTmp.Status == Order.ORDER_STATUS_PLACED)
                         status = "Placed";
 
                     jsonStr += "{";
-                    jsonStr += "\"orderId\": \""+ listOrder[i].OrderId.ToString() +"\",";
-                    jsonStr += "\"customerName\": \"" + listOrder[i].Billing.FullName + "\",";
-                    jsonStr += "\"total\": \"" + listOrder[i].Total.ToString() + "\",";
+                    jsonStr += "\"orderId\": \"" + odTmp.OrderId.ToString() + "\",";
+                    jsonStr += "\"customerName\": \"" + odTmp.Billing.FullName + "\",";
+                    jsonStr += "\"total\": \"" + odTmp.Total.ToString() + "\",";
                     jsonStr += "\"status\": \"" + status + "\",";
-                    jsonStr += "\"time\": \"" + listOrder[i].DateOrder.ToShortDateString() + " " +listOrder[i].DateOrder.ToShortTimeString() + "\"";
+                    jsonStr += "\"billing\": " + odTmp.Billing.ToJSONString() + ",";
+                    jsonStr += "\"shipping\": " + odTmp.Shipping.ToJSONString() + ",";
+                    jsonStr += "\"time\": \"" + odTmp.DateOrder.ToShortDateString() + " " + odTmp.DateOrder.ToShortTimeString() + "\"";
                     jsonStr += "}";
 
                     if (i < length - 1)

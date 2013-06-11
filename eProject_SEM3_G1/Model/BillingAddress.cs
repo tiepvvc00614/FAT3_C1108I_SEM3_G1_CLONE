@@ -15,25 +15,5 @@ namespace eProject_SEM3_G1.Model
             set { orderId = value; }
         }
 
-
-        private string firstname;
-
-        public string Firstname
-        {
-            set { firstname = value; }
-        }
-
-        private string lastname;
-
-        public string Lastname
-        {
-            set { lastname = value; }
-        }
-
-
-        public string ToJSONString()
-        {
-            return "{}";
-        }
     }
 }

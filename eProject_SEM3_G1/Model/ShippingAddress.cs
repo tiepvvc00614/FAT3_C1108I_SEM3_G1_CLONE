@@ -5,15 +5,30 @@ using System.Web;
 
 namespace eProject_SEM3_G1.Model
 {
-    public class ShippingAddress
+    public class ShippingAddress : Address
     {
         private string phone;
         private int orderId;
 
-        public string ToJSONString() 
+        public int OrderId
         {
-            return "{}";
+            get { return orderId; }
+            set { orderId = value; }
         }
+
+
+        public string Phone
+        {
+            get
+            {
+                return this.phone;
+            }
+            set
+            {
+                this.phone = value;
+            }
+        }
+
 
     }
 }

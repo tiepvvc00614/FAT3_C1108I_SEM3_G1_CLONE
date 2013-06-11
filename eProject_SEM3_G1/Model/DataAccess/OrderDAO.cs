@@ -49,15 +49,15 @@ namespace eProject_SEM3_G1.Model.DataAccess
             {
                 Order orderReturn = null;
                 Dictionary<string, object> listKV = new Dictionary<string,object>();
-                listKV.Add("@order_id", orderid);
-                SqlDataReader reader = DatabaseFactory.DataReader(System.Data.CommandType.StoredProcedure, "GetOrderByOrderId", listKV, DatabaseFactory.GetConnection(DatabaseFactory.SQL_TYPE_MSSQL).GetConnection());
+                listKV.Add("@id", orderid);
+                SqlDataReader reader = DatabaseFactory.DataReader(System.Data.CommandType.StoredProcedure, "GetOrderById", listKV, DatabaseFactory.GetConnection(DatabaseFactory.SQL_TYPE_MSSQL).GetConnection());
                 if (reader.Read())
                 {
                     orderReturn = new Order();
                     orderReturn.OrderId = reader.GetInt32(0);
                     orderReturn.Email = reader.GetString(1);
-                    orderReturn.Status = reader.GetInt32(2);
-                    orderReturn.DateOrder = reader.GetDateTime(3);
+                    orderReturn.Status = reader.GetInt32(3);
+                    orderReturn.DateOrder = reader.GetDateTime(2);
                     reader.Close();
                 }
                 else
@@ -84,10 +84,11 @@ namespace eProject_SEM3_G1.Model.DataAccess
                 List<OrderDetails> listReturn = new List<OrderDetails>();
                 while (reader.Read())
                 {
-                    OrderDetails odTmp = new OrderDetails(Product.GetProduct(reader.GetInt32(2)), reader.GetInt32(1));
+                    OrderDetails odTmp = new OrderDetails(Product.GetProduct(reader.GetInt32(3)), reader.GetInt32(1));
                     odTmp.OrderDetailId = reader.GetInt32(0);
                     listReturn.Add(odTmp);
                 }
+                reader.Close();
                 return listReturn;
 
             }
@@ -101,6 +102,7 @@ namespace eProject_SEM3_G1.Model.DataAccess
         {
             try
             {
+                
                 Dictionary<string, object> listKV = new Dictionary<string,object>();
                 listKV.Add("@order_id", this.orderForAccess.OrderId.ToString());
 
@@ -109,15 +111,19 @@ namespace eProject_SEM3_G1.Model.DataAccess
                 SqlDataReader reader = DatabaseFactory.DataReader(System.Data.CommandType.StoredProcedure, "GetBilling", listKV, this.connectionForAccess);
                 if (reader.Read())
                 {
+                    billingTmp = new BillingAddress();
                     billingTmp.AddressId = reader.GetInt32(0);
-                    billingTmp.Firstname = reader.GetString(1);
-                    billingTmp.Lastname = reader.GetString(2);
-                    billingTmp.State = reader.GetString(3);
-                    billingTmp.ZipCode = reader.GetString(4);
-                    billingTmp.City = reader.GetString(5);
+                    billingTmp.FullAddress = reader.GetString(1); 
+                    billingTmp.FirstName = reader.GetString(4); 
+                    billingTmp.LastName = reader.GetString(5); 
+                    billingTmp.State = reader.GetString(6); 
+                    billingTmp.ZipCode = reader.GetString(7);
+                    billingTmp.City = reader.GetString(2);
+                    billingTmp.Country = new Country(reader.GetString(3));
                     billingTmp.OrderId = this.orderForAccess.OrderId;
                 }
-
+                reader.Close();
+                if (billingTmp == null) throw new Exception("Fail to get billing");
                 return billingTmp;
             }
             catch (Exception ex)
@@ -140,8 +146,19 @@ namespace eProject_SEM3_G1.Model.DataAccess
                 if (reader.Read())
                 {
                     shippingTmp = new ShippingAddress();
-                    
+                    shippingTmp.AddressId = reader.GetInt32(0);
+                    shippingTmp.FullAddress = reader.GetString(1);
+                    shippingTmp.FirstName = reader.GetString(4);
+                    shippingTmp.LastName = reader.GetString(5);
+                    shippingTmp.State = reader.GetString(6);
+                    shippingTmp.ZipCode = reader.GetString(7);
+                    shippingTmp.City = reader.GetString(2);
+                    shippingTmp.Phone = reader.GetString(8);
+                    shippingTmp.Country = new Country(reader.GetString(3));
+                    shippingTmp.OrderId = this.orderForAccess.OrderId;
                 }
+                reader.Close();
+                if (shippingTmp == null) throw new Exception("Fail to get shipping");
                 return shippingTmp;
             }
             catch (Exception ex)

@@ -86,7 +86,7 @@ namespace eProject_SEM3_G1.admin.Ajax
             }
             catch (Exception ex)
             {
-                Response.Write("\"message\": \"" + ex.StackTrace + "\"");
+                Response.Write("\"message\": \"" + ex.StackTrace + " | " + ex.Message + "\"");
             }
         }
     }

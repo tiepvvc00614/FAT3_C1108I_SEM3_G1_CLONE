@@ -16,13 +16,30 @@ namespace eProject_SEM3_G1.Model
         private string zipcode;
 
         private Country country;
+        
+        public string FirstName
+        {
+            get
+            {
+                return this.firstName;
+            }
+            set { this.firstName = value; }
+        }
 
+        public string LastName
+        {
+            get
+            {
+                return this.lastName;
+            }
+            set { this.lastName = value; }
+        }
 
         public string FullName
         {
             get
             {
-                return this.firstName + " " + this.lastName;
+                return this.FirstName + " " + this.LastName;
             }
         }
 
@@ -30,14 +47,11 @@ namespace eProject_SEM3_G1.Model
         {
             get
             {
-                return addressId;
+                return this.addressId;
             }
             set
             {
-                if (addressId != value)
-                {
-                    addressId = value;
-                }
+                this.addressId = value;
             }
         }
 
@@ -45,44 +59,11 @@ namespace eProject_SEM3_G1.Model
         {
             get
             {
-                return address;
+                return this.address;
             }
             set
             {
-                if (address != value)
-                {
-                    address = value;
-                }
-            }
-        }
-
-        public string FirstName
-        {
-            get
-            {
-                return firstName;
-            }
-            set
-            {
-                if (firstName != value)
-                {
-                    firstName = value;
-                }
-            }
-        }
-
-        public string LastName
-        {
-            get
-            {
-                return lastName;
-            }
-            set
-            {
-                if (lastName != value)
-                {
-                    lastName = value;
-                }
+                this.address = value;
             }
         }
 
@@ -90,14 +71,11 @@ namespace eProject_SEM3_G1.Model
         {
             get
             {
-                return city;
+                return this.city;
             }
             set
             {
-                if (city != value)
-                {
-                    city = value;
-                }
+                this.city = value;
             }
         }
 
@@ -105,14 +83,11 @@ namespace eProject_SEM3_G1.Model
         {
             get
             {
-                return states;
+                return this.states;
             }
             set
             {
-                if (states != value)
-                {
-                    states = value;
-                }
+                this.states = value;
             }
         }
 
@@ -120,14 +95,11 @@ namespace eProject_SEM3_G1.Model
         {
             get
             {
-                return zipcode;
+                return this.zipcode;
             }
             set
             {
-                if (zipcode != value)
-                {
-                    zipcode = value;
-                }
+                this.zipcode = value;
             }
         }
 
@@ -135,15 +107,30 @@ namespace eProject_SEM3_G1.Model
         {
             get
             {
-                return country;
+                return this.country;
             }
             set
             {
-                if (country != value)
-                {
-                    country = value;
-                }
+                this.country = value;
             }
+        }
+
+        public string ToJSONString()
+        {
+            string jsonStr = "";
+            jsonStr += "{";
+            jsonStr += "\"id\": \""+ this.AddressId +"\",";
+            jsonStr += "\"firstName\": \"" + this.FirstName + "\",";
+            jsonStr += "\"lastName\": \"" + this.LastName + "\",";
+            jsonStr += "\"address\": \"" + this.FullAddress + "\",";
+            jsonStr += "\"city\": \"" + this.City + "\",";
+            jsonStr += "\"state\": \"" + this.State + "\",";
+            jsonStr += "\"zipcode\": \"" + this.ZipCode + "\",";
+            jsonStr += "\"country\": \"" + this.Country.CountryName + "\"";
+            jsonStr += "}";
+
+
+            return jsonStr;
         }
 
     }

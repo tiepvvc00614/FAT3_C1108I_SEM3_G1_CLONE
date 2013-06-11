@@ -55,16 +55,16 @@ namespace eProject_SEM3_G1.Model
         {
             get 
             {
-                if (billing == null) billing = dataAccessObj.GetBilling();
-                return billing;
+                if (billing == null) this.billing = this.dataAccessObj.GetBilling();
+                return this.billing;
             }
         }
         public ShippingAddress Shipping
         {
             get 
             {
-                if (shipping == null) shipping = dataAccessObj.GetShipping();
-                return shipping;
+                if (shipping == null) this.shipping = this.dataAccessObj.GetShipping();
+                return this.shipping;
             }
         }
         public User OrderUser
