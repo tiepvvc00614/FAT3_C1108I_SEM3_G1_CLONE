@@ -496,6 +496,8 @@ $(document).ready(function () {
             AjaxLoader("/Ajax/Contact.aspx", $(this).attr("method"), $(this).serialize(), function (msg) {
                 $("#ajaxLoader").hide('fast');
                 console.log(msg);
+            }, function (arg1, arg2, arg3) {
+                console.log(arg1);
             });
         }
     });

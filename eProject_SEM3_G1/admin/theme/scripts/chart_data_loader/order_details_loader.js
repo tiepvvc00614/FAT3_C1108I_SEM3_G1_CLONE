@@ -12,5 +12,7 @@
             $("#orderIdText").html("<i></i>View Order: #" + msg.orderId);
             $('#order-details').html($.tmpl(data, msg));
         });
+    }, function (arg1, arg2, arg3) {
+        console.log(arg1);
     });
 });

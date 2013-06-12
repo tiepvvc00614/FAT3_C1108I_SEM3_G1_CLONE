@@ -20,5 +20,7 @@ function reloadProduct(categoryId, currentPage) {
             $("#ajax-Loader").hide('fast');
             $('.listProducts').html($.tmpl(data, msg));
         });
+    }, function (arg1, arg2, arg3) {
+        console.log(arg1);
     });
 }

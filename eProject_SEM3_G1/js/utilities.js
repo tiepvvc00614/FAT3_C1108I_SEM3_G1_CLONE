@@ -9,7 +9,7 @@ function getURLParameter(name) {
     );
 }
 
-function AjaxLoader(url, type, data, callBackFunction) {
+function AjaxLoader(url, type, data, callBackFunction, errorFunction) {
     $.ajax({
         url: url,
         type: type,
@@ -17,7 +17,7 @@ function AjaxLoader(url, type, data, callBackFunction) {
         success: function (msg) {
             callBackFunction(msg);
         }, error: function (arg1, arg2, arg3) {
-            console.log(arg1);
+            errorFunction(arg1, arg2, arg3);
         }
     });
 }
