@@ -69,7 +69,7 @@ namespace eProject_SEM3_G1.Model
         {
             string jsonStr = "";
 
-            jsonStr += "{";
+            jsonStr += "[";
 
             for(int i = 0, length = listItem.Count; i< length; i++)
             {
@@ -78,7 +78,7 @@ namespace eProject_SEM3_G1.Model
                 if(i<length -1) jsonStr += ",";
             }
 
-            jsonStr += "}";
+            jsonStr += "]";
             return jsonStr;
 
         }

@@ -307,31 +307,11 @@
 			        <!-- Wizard - Step 3 -->
 			        <div id="step-3" class="step one_column">
 				        <div class="column_one">
-					
-					        <form action="/Ajax/CheckoutValidate.aspx" class="defaultRequest" method="post">
-						        <fieldset>
-							        <p><label>Site Title</label>
-							        <input type="text" name="sitetitle" class="required" value="" /></p>
-							
-							        <p><label><a href="#help-username" class="show_helper"><span>(?)</span> Username</a></label>
-							        <input type="text" name="username" class="required" value="" /></p>
-							
-							        <p><label><a href="#help-password" class="show_helper"><span>(?)</span> Password</a></label>
-							        <input type="password" name="password" value="" /></p>
-							
-							        <p><label>Your E-mail</label>
-							        <input type="text" name="dbhost" class="required email" value="" /></p>
-							
-							        <p><label>&nbsp;</label>
-							        <input type="checkbox" name="blog_public" value="1"  checked='checked' /> Allow my site to appear in search engines like Google and Technorati.</p>
-						        </fieldset>
-						
-						        <fieldset>
-		     				         <p><label>&nbsp;</label>
-		     				         <button type="submit"><span>Install WordPress</span></button></p>
-		    			        </fieldset>
-					        </form>
-					
+                            <div class="span12">
+                                <input type="radio" name="paymentOptions" value="cc" />Credit card<br />
+                                <input type="radio" name="paymentOptions" value="pp" />Paypal<br />
+                                <input type="radio" name="paymentOptions" value="checkque" />Checkque<br />
+                            </div>
 				        </div>
 				
 			        </div>

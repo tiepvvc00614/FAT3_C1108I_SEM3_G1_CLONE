@@ -18,14 +18,14 @@
 		<div>
 			<label>From:</label>
 			<div class="input-append">
-				<input type="text" name="from" id="dateRangeFrom" class="input-mini" value="08/05/13" style="width: 70px;" />
+				<input type="text" name="fromDate" id="dateRangeFrom" class="input-mini" style="width: 70px;" />
 				<span class="add-on glyphicons calendar"><i></i></span>
 			</div>
 		</div>
 		<div>
 			<label>To:</label>
 			<div class="input-append">
-				<input type="text" name="to" id="dateRangeTo" class="input-mini" value="08/18/13" style="width: 70px;" />
+				<input type="text" name="toDate" id="dateRangeTo" class="input-mini" style="width: 70px;" />
 				<span class="add-on glyphicons calendar"><i></i></span>
 			</div>
 		</div>

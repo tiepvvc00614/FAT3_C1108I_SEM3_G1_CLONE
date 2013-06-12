@@ -5,5 +5,12 @@
     if (orderId != null && orderId != "" && !isNaN(orderId)) dataAjax.orderId = orderId;
     else return false;
 
-    console.log(orderId);
+    console.log(dataAjax);
+    AjaxLoader("/admin/Ajax/OrderLoader.aspx", "POST", dataAjax, function (msg) {
+        $.get('/js/jquery.tmpl/order_detail_template.txt', function (data) {
+            $("#ajax-Loader").hide('fast');
+            $("#orderIdText").html("<i></i>View Order: #" + msg.orderId);
+            $('#order-details').html($.tmpl(data, msg));
+        });
+    });
 });

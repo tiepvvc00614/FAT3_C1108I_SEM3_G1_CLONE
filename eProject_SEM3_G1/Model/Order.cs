@@ -112,10 +112,10 @@ namespace eProject_SEM3_G1.Model
             jsonStr += "\"emailContact\": \"" + this.email + "\",";
             jsonStr += "\"dateOrder\": \"" + this.DateOrder.ToLongDateString() + "\",";
             jsonStr += "\"status\": \"" + Order.GetStatusString(this.status) + "\",";
-            jsonStr += "\"billing\": \"" + this.Billing.ToJSONString() + "\",";
-            jsonStr += "\"shipping\": \"" + this.Shipping.ToJSONString() + "\",";
+            jsonStr += "\"billing\": " + this.Billing.ToJSONString() + ",";
+            jsonStr += "\"shipping\": " + this.Shipping.ToJSONString() + ",";
             jsonStr += "\"total\": \"" + this.Total + "\",";
-            jsonStr += "\"orderDetails\": "+ OrderDetails.ToJSONString(this.ListOrderDetails) +"";
+            jsonStr += "\"orderDetails\": " + OrderDetails.ToJSONString(this.ListOrderDetails) + "";
 
             jsonStr += "}";
 
@@ -153,7 +153,15 @@ namespace eProject_SEM3_G1.Model
         }
         public static List<Order> GetOrder(DateTime start, DateTime end, int status)
         {
-            return null;
+            try
+            {
+                return StatisticsDAO.GetOrder(start, end, status);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
         }
 
         public static Order GetOrder(int orderId)

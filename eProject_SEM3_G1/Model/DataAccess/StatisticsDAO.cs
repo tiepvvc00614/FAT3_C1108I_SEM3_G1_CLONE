@@ -136,6 +136,30 @@ namespace eProject_SEM3_G1.Model.DataAccess
             }
         }
 
+        public static List<Order> GetOrder(DateTime start, DateTime end, int status)
+        {
+            try
+            {
+                Dictionary<string, object> listKV = new Dictionary<string, object>();
+                listKV.Add("@date_from", start);
+                listKV.Add("@date_to", end);
+                listKV.Add("@status", status);
+                List<Order> listOrderReturn = new List<Order>();
+                SqlDataReader reader = DatabaseFactory.DataReader(System.Data.CommandType.StoredProcedure, "SearchOrderByStatus", listKV, DatabaseFactory.GetConnection(DatabaseFactory.SQL_TYPE_MSSQL).GetConnection());
+
+                while (reader.Read())
+                {
+                    Order order = Order.GetOrder(reader.GetInt32(0));
+                    listOrderReturn.Add(order);
+                }
+                return listOrderReturn;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
        
     }
 }

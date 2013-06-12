@@ -373,10 +373,23 @@ $(document).ready(function () {
         var validArray = [firstNameBilling, emailContact, lastNameBilling, firstAddressBilling, cityBilling, postCodeBilling, phoneBilling, countryBilling, regionBilling, firstNameShipping, lastNameShipping, firstAddressShipping, cityShipping, countryShipping, regionShipping, postCodeShipping, phoneShipping];
         var isValid = false;
 
-        isValid = validateInformation(validArray, validateRegisterCallbackFunction);
+        isValid = validateInformation(validArray, function (message, index, val, isValid) {
+            if (!isValid) {
+                val.next('span').html("<i class='icon-remove'></i> " + message + "");
+                val.parent().parent().removeClass("success");
+                val.parent().parent().addClass("error");
+                val.next('span').show('fast');
+            } else {
+                val.parent().parent().removeClass("error");
+                val.parent().parent().addClass("success");
+                val.next('span').html("<i class='icon-ok'></i> " + message + "");
+                val.next('span').show('fast');
+            }
+        });
 
-        if (isValid) {
-            $("#checkout-address-validate").submit();
+        if (!isValid) {
+            wizard.openstep('next');
+            //$("#checkout-address-validate").submit();
         }
     });
     /**=============END CHECKOUT ADDRESS VALIDATE=================**/

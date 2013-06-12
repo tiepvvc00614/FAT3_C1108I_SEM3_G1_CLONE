@@ -9,7 +9,7 @@
 				<tbody>
 					<tr>
 						<td style="width: 50%;"><b>Name:</b></td>
-						<td style="width: 50%;">${billing.fullName}</td>
+						<td style="width: 50%;">${billing.firstName} ${billing.lastName}</td>
 					</tr>
 					<tr>
 						<td><b>Company: </b></td>
@@ -24,8 +24,8 @@
 					<tr>
 						<td><b>Customer Email:</b></td>
 						<td>
-							{{if billing.emailContact}}
-								${billing.emailContact}
+							{{if emailContact}}
+								${emailContact}
 							{{else}}
 								&nbsp;
 							{{/if}}
@@ -65,8 +65,8 @@
 					<tr>
 						<td style="width: 50%;"><b>Billing Address:</b></td>
 						<td style="width: 50%;">
-							{{if billing.firstAddress}}
-								${billing.firstAddress}
+							{{if billing.address}}
+								${billing.address}
 							{{else}}
 								&nbsp;
 							{{/if}}
@@ -105,8 +105,8 @@
                     <tr>
 						<td style="width: 50%;"><b>Billing Postcode:</b></td>
 						<td style="width: 50%;">
-							{{if billing.postcode}}
-								${billing.postcode}
+							{{if billing.zipcode}}
+								${billing.zipcode}
 							{{else}}
 								&nbsp;
 							{{/if}}						
@@ -136,8 +136,8 @@
                     <tr>
 						<td style="width: 50%;"><b>Receiver Name:</b></td>
 						<td style="width: 50%;">
-							{{if shipping.fullName}}
-								${shipping.fullName}
+							{{if shipping.firstName}}
+								${shipping.firstName} ${shipping.lastName}
 							{{else}}
 								&nbsp;
 							{{/if}}
@@ -146,8 +146,8 @@
 					<tr>
 						<td style="width: 50%;"><b>Shipping Address:</b></td>
 						<td style="width: 50%;">
-							{{if shipping.firstAddress}}
-								${shipping.firstAddress}
+							{{if shipping.address}}
+								${shipping.address}
 							{{else}}
 								&nbsp;
 							{{/if}}
@@ -186,8 +186,8 @@
                     <tr>
 						<td style="width: 50%;"><b>Shipping Postcode:</b></td>
 						<td style="width: 50%;">
-							{{if shipping.postcode}}
-								${shipping.postcode}
+							{{if shipping.zipcode}}
+								${shipping.zipcode}
 							{{else}}
 								&nbsp;
 							{{/if}}

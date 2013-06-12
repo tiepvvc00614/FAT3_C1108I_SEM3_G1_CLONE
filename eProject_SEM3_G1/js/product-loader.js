@@ -12,7 +12,7 @@ $('document').ready(function () {
 
     var container = $('.container');
 
-    var productId = $.urlParam('productId');
+    var productId = getURLParameter('productId');
     if (isNaN(productId)) {
         return false;
     }

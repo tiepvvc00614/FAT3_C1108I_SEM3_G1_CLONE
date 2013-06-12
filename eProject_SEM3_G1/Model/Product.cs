@@ -249,7 +249,28 @@ namespace eProject_SEM3_G1.Model
                 throw ex;
             }
         }
+
+        public static string ToJSONString(List<Product> list)
+        {
+            string jsonStr = "{\"products\":[";
+            for (int i = 0, length = list.Count; i < length; i++)
+            {
+                jsonStr += list[i].ToJSONString();
+                if (i < length - 1) jsonStr += ",";
+            }
+            jsonStr += "]}";
+
+            return jsonStr;
+        }
+
+
+        public static List<Product> GetProductByCategory(int categoryId, int currentPage)
+        {
+            return ProductDAO.GetListProductByCategoryId(categoryId, currentPage);
+        }
     }
+
+
 
     public class ProductComparer : IEqualityComparer<Product>
     {

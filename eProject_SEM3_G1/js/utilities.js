@@ -16,6 +16,8 @@ function AjaxLoader(url, type, data, callBackFunction) {
         data: data,
         success: function (msg) {
             callBackFunction(msg);
+        }, error: function (arg1, arg2, arg3) {
+            console.log(arg1);
         }
     });
 }

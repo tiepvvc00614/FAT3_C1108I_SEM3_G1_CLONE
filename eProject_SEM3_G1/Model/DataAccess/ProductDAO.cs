@@ -248,36 +248,33 @@ namespace eProject_SEM3_G1.Model.DataAccess
         {
             try
             {
-                SqlConnection con = DatabaseFactory.GetConnection(DatabaseFactory.SQL_TYPE_MSSQL).GetConnection();
+                Dictionary<string, object> listKV = new Dictionary<string, object>();
+                listKV.Add("@categoryId", categoryId);
+                listKV.Add("@currPage", currentPage);
+                listKV.Add("@recodperpage", PRODUCT_STATISTIC_PAGE_SIZE);
+                SqlDataReader reader = DatabaseFactory.DataReader(CommandType.StoredProcedure, "GetPageProductByCategory", listKV, DatabaseFactory.GetConnection(DatabaseFactory.SQL_TYPE_MSSQL).GetConnection());
+
                 List<Product> listProductReturn = new List<Product>();
-                SqlCommand command = new SqlCommand();
-                command.Connection = con;
-                command.CommandText = "GetPageProductByCategory";
-                command.CommandType = System.Data.CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@categoryId", categoryId);
-                command.Parameters.AddWithValue("@currPage", currentPage);
-                command.Parameters.AddWithValue("@recodperpage", PRODUCT_STATISTIC_PAGE_SIZE);
-                SqlDataReader reader = command.ExecuteReader();
+
                 while (reader.Read())
                 {
                     Product product = new Product();
                     product = new Product();
-                    product.ProductId = reader.GetInt32(0);
-                    product.ProductName = reader.GetString(1);
-                    product.ProductPrice = float.Parse(reader.GetValue(2).ToString());
-                    System.Data.SqlTypes.SqlString desc = (System.Data.SqlTypes.SqlString)reader.GetSqlValue(3);
+                    product.ProductId = reader.GetInt32(1);
+                    product.ProductName = reader.GetString(2);
+                    product.ProductPrice = float.Parse(reader.GetValue(3).ToString());
+                    System.Data.SqlTypes.SqlString desc = (System.Data.SqlTypes.SqlString)reader.GetSqlValue(4);
                     if (desc.IsNull) product.ProductDescription = "N/A";
                     else product.ProductDescription = String.Format(desc.Value);
 
-                    System.Data.SqlTypes.SqlInt32 disc = (System.Data.SqlTypes.SqlInt32)reader.GetSqlValue(4);
+                    System.Data.SqlTypes.SqlInt32 disc = (System.Data.SqlTypes.SqlInt32)reader.GetSqlValue(5);
                     if (disc.IsNull) product.ProductDiscount = 0;
                     else product.ProductDiscount = disc.Value;
 
-                    product.ProductImageURL = reader.GetString(5);
-                    product.ProductInStock = reader.GetInt32(6);
+                    product.ProductImageURL = reader.GetString(6);
+                    product.ProductInStock = reader.GetInt32(7);
                     listProductReturn.Add(product);
                 }
-                
                 reader.Close();
                 return listProductReturn;
             }
