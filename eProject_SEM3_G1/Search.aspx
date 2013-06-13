@@ -35,7 +35,7 @@
 
 
 				<div class="span9">
-					<div class="alert alert-error">
+					<div class="alert alert-error search-error" style="display:none;">
 						<button type="button" class="close" data-dismiss="alert">&times;</button>
 						<h4>Oh, We're So Sorry</h4>
 						There is no product that matches the search criteria.
@@ -46,20 +46,9 @@
 						<h3>Search Result</h3>
 					</div><!--end titleHeader-->
 					<div class="row listProducts">
-                        
-					</div><!--end row-->
+                    </div><!--end row-->
 
-					<div class="pagination pagination-right">
-						<span class="pull-left">Showing 9 of 20 pages:</span>
-						<ul>
-							<li><a class="invarseColor" href="">Prev</a></li>
-							<li class="active"><a class="invarseColor" href="">1</a></li>
-							<li><a class="invarseColor" href="">2</a></li>
-							<li><a class="invarseColor" href="">2</a></li>
-							<li><a class="invarseColor" href="">3</a></li>
-							<li><a class="invarseColor" href="">Next</a></li>
-						</ul>
-					</div><!--end pagination-->
+					
 
 				</div><!--end span9-->
 

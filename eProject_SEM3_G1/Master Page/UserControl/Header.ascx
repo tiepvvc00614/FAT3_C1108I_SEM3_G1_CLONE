@@ -29,7 +29,7 @@
 					<div class="pull-right">
 						<form method="get" action="Search.aspx" class="siteSearch">
 							<div class="input-append">
-								<input type="text" class="span2" id="appendedInputButton" placeholder="Search...">
+								<input type="text" class="span2" name="keyword" id="appendedInputButton" placeholder="Search...">
 								<button class="btn btn-primary" type="submit" name=""><i class="icon-search"></i></button>
 							</div>
 						</form>

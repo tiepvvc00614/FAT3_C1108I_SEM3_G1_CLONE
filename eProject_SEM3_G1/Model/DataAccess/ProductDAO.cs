@@ -288,7 +288,33 @@ namespace eProject_SEM3_G1.Model.DataAccess
         {
             try
             {
-                return null;
+                Dictionary<string, object> listKV = new Dictionary<string, object>();
+                listKV.Add("@input", keyword);
+                SqlDataReader reader = DatabaseFactory.DataReader(CommandType.StoredProcedure, "SearchProduct", listKV, DatabaseFactory.GetConnection(DatabaseFactory.SQL_TYPE_MSSQL).GetConnection());
+
+                List<Product> listProductReturn = new List<Product>();
+
+                while (reader.Read())
+                {
+                    Product product = new Product();
+                    product = new Product();
+                    product.ProductId = reader.GetInt32(0);
+                    product.ProductName = reader.GetString(1);
+                    product.ProductPrice = float.Parse(reader.GetValue(2).ToString());
+                    System.Data.SqlTypes.SqlString desc = (System.Data.SqlTypes.SqlString)reader.GetSqlValue(3);
+                    if (desc.IsNull) product.ProductDescription = "N/A";
+                    else product.ProductDescription = String.Format(desc.Value);
+
+                    System.Data.SqlTypes.SqlInt32 disc = (System.Data.SqlTypes.SqlInt32)reader.GetSqlValue(4);
+                    if (disc.IsNull) product.ProductDiscount = 0;
+                    else product.ProductDiscount = disc.Value;
+
+                    product.ProductImageURL = reader.GetString(5);
+                    product.ProductInStock = reader.GetInt32(6);
+                    listProductReturn.Add(product);
+                }
+                reader.Close();
+                return listProductReturn;
             }
             catch (Exception ex)
             {
@@ -299,7 +325,34 @@ namespace eProject_SEM3_G1.Model.DataAccess
         {
             try
             {
-                return null;
+                Dictionary<string, object> listKV = new Dictionary<string, object>();
+                listKV.Add("@input", keyword);
+                listKV.Add("@categoryId", categoryId);
+                SqlDataReader reader = DatabaseFactory.DataReader(CommandType.StoredProcedure, "SearchProductWithCategoryId", listKV, DatabaseFactory.GetConnection(DatabaseFactory.SQL_TYPE_MSSQL).GetConnection());
+
+                List<Product> listProductReturn = new List<Product>();
+
+                while (reader.Read())
+                {
+                    Product product = new Product();
+                    product = new Product();
+                    product.ProductId = reader.GetInt32(0);
+                    product.ProductName = reader.GetString(1);
+                    product.ProductPrice = float.Parse(reader.GetValue(2).ToString());
+                    System.Data.SqlTypes.SqlString desc = (System.Data.SqlTypes.SqlString)reader.GetSqlValue(3);
+                    if (desc.IsNull) product.ProductDescription = "N/A";
+                    else product.ProductDescription = String.Format(desc.Value);
+
+                    System.Data.SqlTypes.SqlInt32 disc = (System.Data.SqlTypes.SqlInt32)reader.GetSqlValue(4);
+                    if (disc.IsNull) product.ProductDiscount = 0;
+                    else product.ProductDiscount = disc.Value;
+
+                    product.ProductImageURL = reader.GetString(5);
+                    product.ProductInStock = reader.GetInt32(6);
+                    listProductReturn.Add(product);
+                }
+                reader.Close();
+                return listProductReturn;
             }
             catch (Exception ex)
             {

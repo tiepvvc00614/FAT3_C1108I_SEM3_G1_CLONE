@@ -12,6 +12,8 @@ namespace eProject_SEM3_G1.Ajax
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            System.Threading.Thread.Sleep(2000);
+            Response.ContentType = "application/json";
             try
             {
                 int categoryId = 0;
@@ -42,7 +44,7 @@ namespace eProject_SEM3_G1.Ajax
             }
             catch (Exception ex)
             {
-                Response.Write("\"message\": \""+ex.Message+"\"");
+                Response.Write("\"message\": \""+ex.StackTrace+"\"");
             }
         }
     }
