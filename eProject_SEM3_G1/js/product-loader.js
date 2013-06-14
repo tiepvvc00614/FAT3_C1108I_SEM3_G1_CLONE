@@ -17,7 +17,10 @@ $('document').ready(function () {
         return false;
     }
 
-    $.get("/Ajax/GetProductInfo.aspx?productId=" + productId, function (msg) {
+    var dataAjax = {};
+    dataAjax.productId = productId;
+
+    AjaxLoader("/Ajax/GetProduct.aspx", "GET", dataAjax, function (msg) {
         $.get('/js/jquery.tmpl/product_detail_template.txt', function (data) {
             $('#ctl00_MainContentPlaceHolder_content_place').html($.tmpl(data, msg));
             $("#add-to-cart-form").on("submit", function (evt) {
@@ -40,6 +43,9 @@ $('document').ready(function () {
                 });
             });
         });
+    }, 
+    function (arg1, arg2, arg3) {
+        
     });
 });
 

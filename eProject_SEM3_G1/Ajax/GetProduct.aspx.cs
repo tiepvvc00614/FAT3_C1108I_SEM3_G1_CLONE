@@ -28,6 +28,41 @@ namespace eProject_SEM3_G1.Ajax
                     Response.Write(Product.ToJSONString(list));
 
                 }
+
+                if (Request.Params["getRandom"] != null &&
+                   Request.Params["getRandom"] != "" &&
+                   Request.Params["totalItem"] != null &&
+                   Request.Params["totalItem"] != "")
+                {
+                    int totalItem = Int32.Parse(Request.Params["totalItem"].ToString());
+
+                    List<Product> list = Product.GetRandomProduct(totalItem);
+                    Response.Write(Product.ToJSONString(list));
+                }
+
+                if (Request.Params["productId"] != null)
+                {
+                    int productId = 0;
+
+                    productId = int.Parse(Request.Params["productId"].ToString());
+
+                    Product product = Product.GetProduct(productId);
+                    List<Product> listRand = Product.GetRandomProduct(7);
+
+                    string jsonStr = "";
+                    jsonStr += "{";
+                    jsonStr += "\"randomProduct\": [";
+                    for (int i = 0, length = listRand.Count; i < length; i++) {
+                        jsonStr += listRand[i].ToJSONString();
+                        if (i < length - 1) jsonStr += ",";
+                    }
+                    jsonStr += "],";
+                    jsonStr += "\"currentProduct\": ";
+                    jsonStr += product.ToJSONString();
+                    jsonStr += "}";
+
+                    Response.Write(jsonStr);
+                }
             }
             catch (FormatException)
             {

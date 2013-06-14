@@ -360,5 +360,48 @@ namespace eProject_SEM3_G1.Model.DataAccess
             }
         }
 
+
+        public static List<Product> GetRandomProduct(int resultCount) {
+            try
+            {
+                Dictionary<string, object> listKV = new Dictionary<string, object>();
+                List<Product> listReturn = new List<Product>();
+
+                listKV.Add("@total_item", resultCount);
+                SqlDataReader reader = DatabaseFactory.DataReader(CommandType.StoredProcedure, "GetRandomProduct", listKV, DatabaseFactory.GetConnection(DatabaseFactory.SQL_TYPE_MSSQL).GetConnection());
+
+                while (reader.Read()) {
+                    Product product = new Product();
+                    product = new Product();
+                    product.ProductId = reader.GetInt32(0);
+                    product.ProductName = reader.GetString(1);
+                    product.ProductPrice = float.Parse(reader.GetValue(2).ToString());
+                    System.Data.SqlTypes.SqlString desc = (System.Data.SqlTypes.SqlString)reader.GetSqlValue(3);
+                    if (desc.IsNull) product.ProductDescription = "N/A";
+                    else product.ProductDescription = String.Format(desc.Value);
+
+                    System.Data.SqlTypes.SqlInt32 disc = (System.Data.SqlTypes.SqlInt32)reader.GetSqlValue(4);
+                    if (disc.IsNull) product.ProductDiscount = 0;
+                    else product.ProductDiscount = disc.Value;
+
+                    product.ProductImageURL = reader.GetString(5);
+                    product.ProductInStock = reader.GetInt32(6);
+                    listReturn.Add(product);
+                }
+
+                
+                reader.Close();
+
+                return listReturn;
+
+            }
+            catch (Exception ex)
+            {
+                
+                throw ex;
+            }
+        }
+
+
     }
 }

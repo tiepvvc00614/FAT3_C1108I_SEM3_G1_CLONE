@@ -263,6 +263,11 @@ namespace eProject_SEM3_G1.Model
             return jsonStr;
         }
 
+        public static List<Product> GetRandomProduct(int resultCount)
+        {
+            return ProductDAO.GetRandomProduct(resultCount);
+        }
+
 
         public static List<Product> GetProductByCategory(int categoryId, int currentPage)
         {

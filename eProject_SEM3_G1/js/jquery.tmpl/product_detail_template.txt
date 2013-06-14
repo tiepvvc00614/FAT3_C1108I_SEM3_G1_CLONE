@@ -5,11 +5,11 @@
 						<div class="product-details clearfix">
 							<div class="span5">
 								<div class="product-title">
-									<h2 style="font-weight:bold;">${productName}</h2>
+									<h2 style="font-weight:bold;">${currentProduct.productName}</h2>
 								</div>
 								<div class="product-img">
-									{{if productImageURL}}
-										<a class="fancybox" href="${productImageURL}" target="_blank"><img src="${productImageURL}" alt="${productName}" style="width: 372px; height: 400px;"></a>
+									{{if currentProduct.productImageURL}}
+										<a class="fancybox" href="${currentProduct.productImageURL}" target="_blank"><img src="${currentProduct.productImageURL}" alt="${currentProduct.productName}" style="width: 372px; height: 400px;"></a>
 										{{else}}
 										<a class="fancybox" href="img/650x700.jpg"><img src="img/372x370.jpg" alt="No IMAGE"></a>
 									{{/if}}
@@ -20,11 +20,11 @@
 							<div class="span4">
 								<div class="product-set">
 									<div class="product-price">
-										<span>$${productPrice}</span>
+										<span>$${currentProduct.productPrice}</span>
 									</div><!--end product-price-->
 									<div class="product-info">
 										<dl class="dl-horizontal">
-										  {{each productInfos}}
+										  {{each currentProduct.productInfos}}
 											<dt>${key}:</dt>
 											<dd>${value}</dd>
 										  {{/each}}
@@ -35,8 +35,8 @@
 											<div class="controls-row" ID="quantity" runat="server">
 											    <select class="span4" name="quantity">
 												    <option>-- Select Quantity --</option>
-                                                    {{if inStock > 0}}
-														{{for(i=1;i<=inStock;i++)}}
+                                                    {{if currentProduct.inStock > 0}}
+														{{for(i=1;i<=currentProduct.inStock;i++)}}
 														<option value="${i}">${i}</option>
 														{{/for}}
 													{{else}}
@@ -44,7 +44,7 @@
 													{{/if}}
 											    </select>
 											</div><!--end controls-row-->
-                                            <input type="hidden" name="product-id" class="product-id" value="${productId}" id="productID" />
+                                            <input type="hidden" name="product-id" class="product-id" value="${currentProduct.productId}" id="productID" />
 											<div class="input-append">
 											<button class="btn btn-primary"><i class="icon-shopping-cart"></i> Add To Cart</button><br /><img src="/img/ajax-loader.gif" id="ajax-loader" style="display:none;" />
 											</div>
@@ -104,7 +104,7 @@
 
 						<div class="row">
 						<ul class="hProductItems clearfix">
-							{{each relatedProduct}}
+							{{each currentProduct.relatedProduct}}
 								<li class="span3 clearfix">
 									<div class="thumbnail">
 										<a href="/ProductDetail.aspx?productId=${productId}"><img src="${productImageURL}" alt="${productName}" style="width: 212px; height: 192px;"></a>
@@ -145,22 +145,28 @@
 				<div class="aside-inner" id="product-aside">
 					<div class="special">
 						<div class="titleHeader clearfix">
-							<h3>Special</h3>
+							<h3>Feature</h3>
 						</div><!--end titleHeader-->
 
 						<ul class="vProductItemsTiny">
+						{{each randomProduct}}
 							<li class="span4 clearfix">
 								<div class="thumbImage">
-									<a href=""><img src="img/92x92.jpg" alt=""></a>
+									
+									{{if productImageURL}}
+										<a href="ProductDetail.aspx?productId=${productId}"><img src="${productImageURL}" alt="${productName}" style='width: 122px; height: 142px;'></a>
+									{{else}}
+									<a href="/img/92x92.jpg"><img src="/img/92x92.jpg" alt=""></a>
+									{{/if}}
 								</div>
 								<div class="thumbSetting">
 									<div class="thumbTitle">
-										<a href="#" class="invarseColor">
-											Foliomania the title here
+										<a href="ProductDetail.aspx?productId=${productId}" class="invarseColor">
+											${productName}
 										</a>
 									</div>
 									<div class="thumbPrice">
-										<span>$150.00</span>
+										<span>$${productPrice}</span>
 									</div>
 									<ul class="rating">
 										<li><i class="star-off"></i></li>
@@ -171,157 +177,7 @@
 									</ul>
 								</div>
 							</li>
-							<li class="span4 clearfix">
-								<div class="thumbImage">
-									<a href=""><img src="img/92x92.jpg" alt=""></a>
-								</div>
-								<div class="thumbSetting">
-									<div class="thumbTitle">
-										<a href="#" class="invarseColor">
-											Foliomania the designer portfolio
-										</a>
-									</div>
-									<div class="thumbPrice">
-										<span>$150.00</span>
-									</div>
-									<ul class="rating">
-										<li><i class="star-on"></i></li>
-										<li><i class="star-on"></i></li>
-										<li><i class="star-on"></i></li>
-										<li><i class="star-off"></i></li>
-										<li><i class="star-off"></i></li>
-									</ul>
-								</div>
-							</li>
-							<li class="span4 clearfix">
-								<div class="thumbImage">
-									<a href=""><img src="img/92x92.jpg" alt=""></a>
-								</div>
-								<div class="thumbSetting">
-									<div class="thumbTitle">
-										<a href="#" class="invarseColor">
-											Foliomania the designer portfolio
-										</a>
-									</div>
-									<div class="thumbPrice">
-										<span>$150.00</span>
-									</div>
-									<ul class="rating">
-										<li><i class="star-on"></i></li>
-										<li><i class="star-on"></i></li>
-										<li><i class="star-on"></i></li>
-										<li><i class="star-off"></i></li>
-										<li><i class="star-off"></i></li>
-									</ul>
-								</div>
-							</li>
-							<li class="span4 clearfix">
-								<div class="thumbImage">
-									<a href=""><img src="img/92x92.jpg" alt=""></a>
-								</div>
-								<div class="thumbSetting">
-									<div class="thumbTitle">
-										<a href="#" class="invarseColor">
-											Foliomania the designer portfolio
-										</a>
-									</div>
-									<div class="thumbPrice">
-										<span>$150.00</span>
-									</div>
-								</div>
-							</li>
-						</ul>
-					</div><!--end special-->
-
-
-
-					<div class="special">
-						<div class="titleHeader clearfix">
-							<h3>Featured</h3>
-						</div><!--end titleHeader-->
-
-						<ul class="vProductItemsTiny">
-							<li class="span4 clearfix">
-								<div class="thumbImage">
-									<a href=""><img src="img/92x92.jpg" alt=""></a>
-								</div>
-								<div class="thumbSetting">
-									<div class="thumbTitle">
-										<a href="#" class="invarseColor">
-											Foliomania the title here
-										</a>
-									</div>
-									<div class="thumbPrice">
-										<span>$150.00</span>
-									</div>
-									<ul class="rating">
-										<li><i class="star-off"></i></li>
-										<li><i class="star-off"></i></li>
-										<li><i class="star-off"></i></li>
-										<li><i class="star-off"></i></li>
-										<li><i class="star-off"></i></li>
-									</ul>
-								</div>
-							</li>
-							<li class="span4 clearfix">
-								<div class="thumbImage">
-									<a href=""><img src="img/92x92.jpg" alt=""></a>
-								</div>
-								<div class="thumbSetting">
-									<div class="thumbTitle">
-										<a href="#" class="invarseColor">
-											Foliomania the designer portfolio
-										</a>
-									</div>
-									<div class="thumbPrice">
-										<span>$150.00</span>
-									</div>
-									<ul class="rating">
-										<li><i class="star-on"></i></li>
-										<li><i class="star-on"></i></li>
-										<li><i class="star-on"></i></li>
-										<li><i class="star-off"></i></li>
-										<li><i class="star-off"></i></li>
-									</ul>
-								</div>
-							</li>
-							<li class="span4 clearfix">
-								<div class="thumbImage">
-									<a href=""><img src="img/92x92.jpg" alt=""></a>
-								</div>
-								<div class="thumbSetting">
-									<div class="thumbTitle">
-										<a href="#" class="invarseColor">
-											Foliomania the designer portfolio
-										</a>
-									</div>
-									<div class="thumbPrice">
-										<span>$150.00</span>
-									</div>
-									<ul class="rating">
-										<li><i class="star-on"></i></li>
-										<li><i class="star-on"></i></li>
-										<li><i class="star-on"></i></li>
-										<li><i class="star-off"></i></li>
-										<li><i class="star-off"></i></li>
-									</ul>
-								</div>
-							</li>
-							<li class="span4 clearfix">
-								<div class="thumbImage">
-									<a href=""><img src="img/92x92.jpg" alt=""></a>
-								</div>
-								<div class="thumbSetting">
-									<div class="thumbTitle">
-										<a href="#" class="invarseColor">
-											Foliomania the designer portfolio
-										</a>
-									</div>
-									<div class="thumbPrice">
-										<span>$150.00</span>
-									</div>
-								</div>
-							</li>
+						{{/each}}
 						</ul>
 					</div><!--end special-->
 
