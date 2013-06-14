@@ -12,6 +12,20 @@
         
 					<div class="cart-accordain" id="cart-acc">
 
+                        
+                        <div class="accordion-group">
+							<div class="accordion-heading">
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#cart-acc" href="#estimate">
+									<i class="icon-caret-right"></i> What does Billing Information Received mean?
+								</a>
+							</div>
+							<div id="Div10" class="accordion-body collapse in">
+								<div class="accordion-inner">									 
+									      <p>This means that UPS or FedEx has received the electronic transmission of your order along with its shipment information from our printer and a label has been created for your package. UPS or FedEx does not actually have possession of your order's package until there is an additional scan on that package. When that additional scan is made, you will then be able to track your package using the tracking number you've received.</p>
+								</div>
+							</div>
+						</div><!--end accordion-group-->
+
 						<div class="accordion-group">
 							<div class="accordion-heading">
 								<a class="accordion-toggle" data-toggle="collapse" data-parent="#cart-acc" href="#estimate">
@@ -115,48 +129,44 @@
                         <div class="accordion-group">
 							<div class="accordion-heading">
 								<a class="accordion-toggle" data-toggle="collapse" data-parent="#cart-acc" href="#estimate">
-									<i class="icon-caret-right"></i> What does Billing Information Received mean?
+									<i class="icon-caret-right"></i> Faster production time?
 								</a>
 							</div>
 							<div id="Div7" class="accordion-body collapse in">
 								<div class="accordion-inner">									 
-									      <p>This means that UPS or FedEx has received the electronic transmission of your order along with its shipment information from our printer and a label has been created for your package. UPS or FedEx does not actually have possession of your order's package until there is an additional scan on that package. When that additional scan is made, you will then be able to track your package using the tracking number you've received.</p>
+									      <p>Sometimes things get urgent. We know this, we've been there, and we can sympathize. Unfortunately, Blurb does not offer a rush or expedited service. It's up to you to select the fastest delivery date during checkout; we don't have the ability to deliver an order more quickly than what's displayed.</p>
+                                          <p>We cannot change shipping methods nor can we speed up any order while it is going through the printing process. It truly has to rest on the bookmaker to budget enough time.</p>
 								</div>
 							</div>
 						</div><!--end accordion-group-->
                         <div class="accordion-group">
 							<div class="accordion-heading">
 								<a class="accordion-toggle" data-toggle="collapse" data-parent="#cart-acc" href="#estimate">
-									<i class="icon-caret-right"></i> What does Billing Information Received mean?
-								</a>
+									<i class="icon-caret-right"></i> My book arrived with a quality issue. What is your return policy?
 							</div>
 							<div id="Div8" class="accordion-body collapse in">
 								<div class="accordion-inner">									 
-									      <p>This means that UPS or FedEx has received the electronic transmission of your order along with its shipment information from our printer and a label has been created for your package. UPS or FedEx does not actually have possession of your order's package until there is an additional scan on that package. When that additional scan is made, you will then be able to track your package using the tracking number you've received.</p>
+									      <p>Your book is all yours: Blurb does not proof, edit, or change your content in any way. This means it’s your responsibility to review your book before you publish, and fix:<br />
+                                             Typos, grammar, unfinished text, or other text errors<br />
+                                            Low-resolution images that may appear blurry in print<br />
+                                            Design issues, including book format, organization, style, color, and page layout<br />
+                                            Any other creative choices you’ve made in BookSmart that you want to revisit.<br />
+                                        </p>
 								</div>
 							</div>
 						</div><!--end accordion-group-->
                         <div class="accordion-group">
 							<div class="accordion-heading">
 								<a class="accordion-toggle" data-toggle="collapse" data-parent="#cart-acc" href="#estimate">
-									<i class="icon-caret-right"></i> What does Billing Information Received mean?
+									<i class="icon-caret-right"></i> Making changes or cancelling an existing order
 								</a>
 							</div>
 							<div id="Div9" class="accordion-body collapse in">
 								<div class="accordion-inner">									 
-									      <p>This means that UPS or FedEx has received the electronic transmission of your order along with its shipment information from our printer and a label has been created for your package. UPS or FedEx does not actually have possession of your order's package until there is an additional scan on that package. When that additional scan is made, you will then be able to track your package using the tracking number you've received.</p>
-								</div>
-							</div>
-						</div><!--end accordion-group-->
-                        <div class="accordion-group">
-							<div class="accordion-heading">
-								<a class="accordion-toggle" data-toggle="collapse" data-parent="#cart-acc" href="#estimate">
-									<i class="icon-caret-right"></i> What does Billing Information Received mean?
-								</a>
-							</div>
-							<div id="Div10" class="accordion-body collapse in">
-								<div class="accordion-inner">									 
-									      <p>This means that UPS or FedEx has received the electronic transmission of your order along with its shipment information from our printer and a label has been created for your package. UPS or FedEx does not actually have possession of your order's package until there is an additional scan on that package. When that additional scan is made, you will then be able to track your package using the tracking number you've received.</p>
+									      <p>After you place your order, you'll have a one-hour window in which you can cancel. So you can go back and correct the spelling of your grandma's name. Don't worry; it happens to the best of us.</p>
+                                          <p>To cancel an order, log-in to your account on Blurb.com and locate your Order History under My Account. Locate the order that you want to cancel. If its status says "Pending" click on the order number. Next, on the Order Detail page, locate the Cancel Order Button.</p>
+                                          <p>Click on "Cancel," verify that you want to cancel, and click again. Your entire order will be cancelled and your credit card will be refunded on your next statement.</p>
+                                          <p>If a cancel option is not available, the one-hour window has passed and your book has already moved on to "Processing," the next phase of production. </p>
 								</div>
 							</div>
 						</div><!--end accordion-group-->
