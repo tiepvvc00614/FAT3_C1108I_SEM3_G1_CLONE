@@ -1593,6 +1593,7 @@
     <Content Include="Ajax\Contact.aspx" />
     <Content Include="Ajax\GetProduct.aspx" />
     <Content Include="Ajax\GetProductInfo.aspx" />
+    <Content Include="Ajax\Register.aspx" />
     <Content Include="Ajax\SearchProduct.aspx" />
     <Content Include="Ajax\ShoppingCartHandler.aspx" />
     <Content Include="Cart.aspx" />
@@ -1797,6 +1798,13 @@
     </Compile>
     <Compile Include="Ajax\GetProductInfo.aspx.designer.cs">
       <DependentUpon>GetProductInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
     <Compile Include="Ajax\SearchProduct.aspx.cs">
       <DependentUpon>SearchProduct.aspx</DependentUpon>

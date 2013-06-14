@@ -469,7 +469,11 @@ $(document).ready(function () {
         });
         isValid = (isValid && agreeWithTermRegister.is(":checked"));
         if (isValid) {
-            console.log("Valid");
+            AjaxLoader("/Ajax/Register.aspx", "POST", $(this).serialize(), function (msg) {
+                console.log(msg);
+            }, function (arg1, arg2, arg3) {
+                console.log(arg1);
+            });
         }
     });
 

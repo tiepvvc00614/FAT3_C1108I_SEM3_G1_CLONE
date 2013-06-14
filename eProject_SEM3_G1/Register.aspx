@@ -23,7 +23,7 @@
 							<div class="control-group">
 							    <label class="control-label" for="inputFirstName">First Name: <span class="text-error">*</span></label>
 							    <div class="controls">
-							      <input type="text" id="inputFirstName" placeholder="John">
+							      <input type="text" name="firstName" id="inputFirstName" placeholder="John">
 							      <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 							    </div>
 							</div><!--end control-group-->
@@ -31,7 +31,7 @@
 							<div class="control-group">
 							    <label class="control-label" for="inputLastName">Last Name: <span class="text-error">*</span></label>
 							    <div class="controls">
-							      <input type="text" id="inputLastName" placeholder="Doe">
+							      <input type="text" name="lastName" id="inputLastName" placeholder="Doe">
 							      <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 							    </div>
 							</div><!--end control-group-->
@@ -39,7 +39,7 @@
 							<div class="control-group">
 							    <label class="control-label" for="inputEMAdd">E-Mail Address: <span class="text-error">*</span></label>
 							    <div class="controls">
-							      <input type="text" id="inputEMAdd" typeValid="email" placeholder="example@example.com">
+							      <input type="text" name="email" id="inputEMAdd" typeValid="email" placeholder="example@example.com">
                                   <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 							    </div>
 							</div><!--end control-group-->
@@ -47,7 +47,7 @@
 							<div class="control-group">
 							    <label class="control-label" for="inputTele">Telephone: <span class="text-error">*</span></label>
 							    <div class="controls">
-							      <input type="text" id="inputTele" typeValid="phone" placeholder="0957182748">
+							      <input type="text" name="phone" id="inputTele" typeValid="phone" placeholder="0957182748">
                                   <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 							    </div>
 							</div><!--end control-group-->
@@ -55,7 +55,7 @@
 							<div class="control-group">
 							    <label class="control-label" for="inputFAX">FAX:</label>
 							    <div class="controls">
-							      <input type="text" id="inputFAX" placeholder="478-986-14">
+							      <input type="text" name="fax" id="inputFAX" placeholder="478-986-14">
                                   <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 							    </div>
 							</div><!--end control-group-->
@@ -65,7 +65,7 @@
 							<div class="control-group">
 							    <label class="control-label" for="inputCompany">Company:</label>
 							    <div class="controls">
-							      <input type="text" id="inputCompany" placeholder="Google, INC">
+							      <input type="text" name="company" id="inputCompany" placeholder="Google, INC">
                                   <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 							    </div>
 							</div><!--end control-group-->
@@ -73,7 +73,7 @@
 							<div class="control-group">
 							    <label class="control-label" for="inputFirstAdd">First Address: <span class="text-error">*</span></label>
 							    <div class="controls">
-							      <input type="text" id="inputFirstAdd" placeholder="3st el-hikem">
+							      <input type="text" name="firstAddress" id="inputFirstAdd" placeholder="3st el-hikem">
                                   <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 							    </div>
 							</div><!--end control-group-->
@@ -81,7 +81,7 @@
 							<div class="control-group">
 							    <label class="control-label" for="inputSecondAdd">Second Address:</label>
 							    <div class="controls">
-							      <input type="text" id="inputSecondAdd" placeholder="6st el-hikem">
+							      <input type="text" name="secondAddress" id="inputSecondAdd" placeholder="6st el-hikem">
                                   <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 							    </div>
 							</div><!--end control-group-->
@@ -89,7 +89,7 @@
 							<div class="control-group">
 							    <label class="control-label" for="inputCity">City: <span class="text-error">*</span></label>
 							    <div class="controls">
-							      <input type="text" id="inputCity" placeholder="New York">
+							      <input type="text" name="city" id="inputCity" placeholder="New York">
                                   <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 							    </div>
 							</div><!--end control-group-->
@@ -97,20 +97,20 @@
 							<div class="control-group">
 							    <label class="control-label" for="inputPostCode">Post Code: <span class="text-error">*</span></label>
 							    <div class="controls">
-							      <input type="text" id="inputPostCode" placeholder="43331">
+							      <input type="text" name="zipcode" id="inputPostCode" placeholder="43331">
                                   <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 							    </div>
 							</div><!--end control-group-->
 
 							<div class="control-group">
-							    <div class="control-label">Contury: <span class="text-error">*</span></div>
+							    <div class="control-label">Country: <span class="text-error">*</span></div>
 							    <div class="controls">
-							      <select name="" id="inputCountry">
-							      	<option value="#">-- Select Contury --</option>
-							      	<option value="1">Contury2</option>
-							      	<option value="2">Contury3</option>
-							      	<option value="3">Contury4</option>
-							      	<option value="4">Contury5</option>
+							      <select name="country" id="inputCountry">
+							      	<option value="">-- Select Contury --</option>
+							      	<option value="VN">Vietnam</option>
+							      	<option value="US">United States</option>
+							      	<option value="UK">United Kingdom</option>
+							      	<option value="AU">Australia</option>
 							      </select>
                                   <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 							    </div>
@@ -118,15 +118,15 @@
 							</div><!--end control-group-->
 
 							<div class="control-group">
-							    <div class="control-label">Region/Stats: <span class="text-error">*</span></div>
+							    <div class="control-label">Region/State: <span class="text-error">*</span></div>
 							    <div class="controls">
-							      <select id="inputRegion">
+							      <select name="state" id="inputRegion">
 							      	<option value="#">-- Select Region --</option>
-							      	<option value="1">Region/Stats1</option>
-							      	<option value="2">Region/Stats2</option>
-							      	<option value="3">Region/Stats3</option>
-							      	<option value="4">Region/Stats4</option>
-							      	<option value="5">Region/Stats5</option>
+							      	<option value="OH">Ohio</option>
+							      	<option value="TX">Texas</option>
+							      	<option value="NY">New York</option>
+							      	<option value="CA">California</option>
+							      	<option value="OK">Okhalma</option>
 							      </select>
                                   <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 							    </div>
@@ -137,7 +137,7 @@
 							<div class="control-group">
 							    <label class="control-label" for="inputPass">Password: <span class="text-error">*</span></label>
 							    <div class="controls">
-							      <input type="password" id="inputPass" placeholder="**********">
+							      <input type="password" name="password" id="inputPass" placeholder="**********">
                                   <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 							    </div>
 							</div><!--end control-group-->
@@ -145,7 +145,7 @@
 							<div class="control-group">
 							    <label class="control-label" for="inputConPass">Re-Type Password: <span class="text-error">*</span></label>
 							    <div class="controls">
-							      <input type="password" id="inputConPass" placeholder="**********">
+							      <input type="password" name="repassword" id="inputConPass" placeholder="**********">
                                   <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 							    </div>
 							</div><!--end control-group-->
@@ -155,7 +155,7 @@
 							<div class="control-group">
 							    <div class="controls">
 							        <label class="checkbox">
-								      <input type="checkbox" id="inputAgreeTerm"> I'v read and agreed on <a href="#">Terms &amp; Condations</a>
+								      <input type="checkbox" name="agreeTerm" id="inputAgreeTerm"> I'v read and agreed on <a href="#">Terms &amp; Condations</a>
                                       
 								    </label>
 								    <br/>
