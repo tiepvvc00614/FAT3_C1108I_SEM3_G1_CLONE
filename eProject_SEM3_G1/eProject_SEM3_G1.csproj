@@ -50,6 +50,7 @@
   <ItemGroup>
     <Content Include="admin\AddProduct.aspx" />
     <Content Include="admin\Ajax\IncomeLoader.aspx" />
+    <Content Include="admin\Ajax\Login.aspx" />
     <Content Include="admin\Ajax\OrderLoader.aspx" />
     <Content Include="admin\bootstrap\css\bootstrap-responsive.css" />
     <Content Include="admin\bootstrap\css\bootstrap-responsive.min.css" />
@@ -88,6 +89,7 @@
     <Content Include="admin\bootstrap\js\bootstrap.min.js" />
     <Content Include="admin\Default.aspx" />
     <Content Include="admin\IncomeStatistic.aspx" />
+    <Content Include="admin\Login.aspx" />
     <Content Include="admin\OrderStatistic.aspx" />
     <Content Include="admin\theme\css\glyphicons.css" />
     <Content Include="admin\theme\css\style.css" />
@@ -1456,6 +1458,7 @@
     <Content Include="admin\theme\scripts\notyfy\jquery.notyfy.js" />
     <Content Include="admin\theme\scripts\notyfy\LICENSE.txt" />
     <Content Include="admin\theme\scripts\notyfy\themes\default.css" />
+    <Content Include="admin\theme\scripts\page.customization\login.page.js" />
     <Content Include="admin\theme\scripts\pixelmatrix-uniform\css\uniform.default.css" />
     <Content Include="admin\theme\scripts\pixelmatrix-uniform\demo\demo.html" />
     <Content Include="admin\theme\scripts\pixelmatrix-uniform\images\bg-input-focus.png" />
@@ -1623,6 +1626,7 @@
     <Content Include="css\style.css" />
     <Content Include="css\wizardPro.css" />
     <Content Include="Default.aspx" />
+    <Content Include="FAQ.aspx" />
     <Content Include="font\fontawesome-webfont.svg" />
     <Content Include="img\1.jpg" />
     <Content Include="img\132x116.jpg" />
@@ -1731,6 +1735,13 @@
     <Compile Include="admin\Ajax\IncomeLoader.aspx.designer.cs">
       <DependentUpon>IncomeLoader.aspx</DependentUpon>
     </Compile>
+    <Compile Include="admin\Ajax\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Ajax\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\Ajax\OrderLoader.aspx.cs">
       <DependentUpon>OrderLoader.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1751,6 +1762,13 @@
     </Compile>
     <Compile Include="admin\IncomeStatistic.aspx.designer.cs">
       <DependentUpon>IncomeStatistic.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\OrderStatistic.aspx.cs">
       <DependentUpon>OrderStatistic.aspx</DependentUpon>
@@ -1849,6 +1867,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FAQ.aspx.cs">
+      <DependentUpon>FAQ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FAQ.aspx.designer.cs">
+      <DependentUpon>FAQ.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

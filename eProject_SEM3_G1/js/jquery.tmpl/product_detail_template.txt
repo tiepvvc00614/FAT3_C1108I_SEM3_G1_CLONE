@@ -75,7 +75,7 @@
 						</ul>
 						<div class="tab-content">
 							<div class="tab-pane active" id="description">
-								<p>${productDescription}</p>
+								<p>${currentProduct.productDescription}</p>
 							</div>
 							<div class="tab-pane" id="return-info">
 								<h4>Read our Returning info</h4><br>
