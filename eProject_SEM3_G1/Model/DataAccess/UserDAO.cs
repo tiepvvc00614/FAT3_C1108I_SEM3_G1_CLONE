@@ -47,32 +47,30 @@ namespace eProject_SEM3_G1.Model.DataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception("You cant Login beacause WRONG USERNAME or PASSWORD, please check again !!!!! ");
+                throw ex;
             }
         }
 
-        public static bool Register(User user)
+        public bool Register()
         {
             try
             {
-                SqlConnection con= DatabaseFactory.GetConnection(DatabaseFactory.SQL_TYPE_MSSQL).GetConnection() ;
-                SqlCommand command = new SqlCommand();
-                command.Connection = con;
-                command.CommandText = "RegisterUser";
-                command.CommandType = System.Data.CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@username", user.Username);
-                command.Parameters.AddWithValue("@password", user.Password);
-                command.Parameters.AddWithValue("@firstname", user.Firstname);
-                command.Parameters.AddWithValue("@lastname", user.Lastname);
-                command.Parameters.AddWithValue("@status", user.Status);
-                command.Parameters.AddWithValue("@email", user.UserEmail);
-                command.Parameters.AddWithValue("@date", user.DateRegister);
-                int result=command.ExecuteNonQuery();                
+                Dictionary<string, object> listKV = new Dictionary<string, object>();
+                listKV.Add("@email", this.userForAccess.UserEmail);
+                listKV.Add("@firstname", this.userForAccess.Firstname);
+                listKV.Add("@lastname", this.userForAccess.Lastname);
+                listKV.Add("@status", this.userForAccess.Status);
+                listKV.Add("@username", this.userForAccess.UserEmail);
+                listKV.Add("@password", this.userForAccess.Password);
+                listKV.Add("@date", DateTime.Now);
+                int result = DatabaseFactory.DataUpdate(System.Data.CommandType.StoredProcedure, "Regiter", DatabaseFactory.GetConnection(DatabaseFactory.SQL_TYPE_MSSQL).GetConnection(), listKV);
+
                 return result == 1;
             }
             catch (Exception ex)
             {
-                throw new Exception("You can't Register something wrong, please check again !!!!! ");
+                if (ex.Message.Contains("Violation of UNIQUE KEY constraint")) throw new Exception("Email has been exist");
+                else throw ex;
             }
         }
 

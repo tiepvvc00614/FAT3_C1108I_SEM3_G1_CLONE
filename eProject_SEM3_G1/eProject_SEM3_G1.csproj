@@ -1593,6 +1593,7 @@
     <Content Include="Ajax\Contact.aspx" />
     <Content Include="Ajax\GetProduct.aspx" />
     <Content Include="Ajax\GetProductInfo.aspx" />
+    <Content Include="Ajax\Login.aspx" />
     <Content Include="Ajax\Register.aspx" />
     <Content Include="Ajax\SearchProduct.aspx" />
     <Content Include="Ajax\ShoppingCartHandler.aspx" />
@@ -1688,6 +1689,7 @@
     <Content Include="js\jquery.tmpl\product_detail_template.txt" />
     <Content Include="js\jquery.tweet.js" />
     <Content Include="js\jquery.tmpl.js" />
+    <Content Include="js\page.customization\cart.edit.js" />
     <Content Include="js\page.customization\checkout.js" />
     <Content Include="js\page.customization\search.product.js" />
     <Content Include="js\product-loader.js" />
@@ -1798,6 +1800,13 @@
     </Compile>
     <Compile Include="Ajax\GetProductInfo.aspx.designer.cs">
       <DependentUpon>GetProductInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Ajax\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>

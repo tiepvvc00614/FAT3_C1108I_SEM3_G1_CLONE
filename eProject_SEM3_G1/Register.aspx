@@ -10,8 +10,7 @@
 			<div class="row">
 
 				<div class="span12">
-					<div class="register">
-
+					<div class="register" align="center" style="display: block;margin-left: auto; margin-right: auto; margin-top:auto; margin-bottom:auto;">
 						<div class="titleHeader clearfix">
 							<h3>Create New Account</h3>
 						</div><!--end titleHeader-->

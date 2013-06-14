@@ -5,11 +5,11 @@
 						<div class="product-details clearfix">
 							<div class="span5">
 								<div class="product-title">
-									<h4>${productName}</h4>
+									<h2 style="font-weight:bold;">${productName}</h2>
 								</div>
 								<div class="product-img">
 									{{if productImageURL}}
-										<a class="fancybox" href="{productImageURL}" target="_blank"><img src="${productImageURL}" alt="${productName}" style="width: 372px; height: 370px;"></a>
+										<a class="fancybox" href="${productImageURL}" target="_blank"><img src="${productImageURL}" alt="${productName}" style="width: 372px; height: 400px;"></a>
 										{{else}}
 										<a class="fancybox" href="img/650x700.jpg"><img src="img/372x370.jpg" alt="No IMAGE"></a>
 									{{/if}}

@@ -322,7 +322,7 @@ $(document).ready(function () {
     changeLayoutStyle();
     changeColorStyle();
     rangePriceSlider();
-
+    
     preloaderShoppingCart();
     $("#checkout-address-validate input").on("keyup", function () {
         addressDidChange();
@@ -397,7 +397,11 @@ $(document).ready(function () {
 
 
 
+    /*===================BEGIN EDIT CART ======================*/
 
+
+
+    /*===================END EDIT CART =======================*/
 
 
 
@@ -423,8 +427,17 @@ $(document).ready(function () {
 
         });
         if (isValid) {
-            //console.log("Valid");
-            //calling ajax
+            AjaxLoader("/Ajax/Login.aspx", "POST", $(this).serialize(), function (msg) {
+                if (msg.message == "True") {
+                    window.location = "/Default.aspx";
+                } else {
+                    alert(msg.message);
+                }
+            }, function (arg1, arg2, arg3) {
+                console.log(arg1);
+                console.log(arg2);
+                console.log(arg3);
+            });
         }
     });
     /**=============END LOGIN AJAX=================**/
@@ -470,9 +483,16 @@ $(document).ready(function () {
         isValid = (isValid && agreeWithTermRegister.is(":checked"));
         if (isValid) {
             AjaxLoader("/Ajax/Register.aspx", "POST", $(this).serialize(), function (msg) {
-                console.log(msg);
+                if (msg.message == "True") {
+                    $('.register').html("<h2>Thank you</h2><p>Thank you for register at our site</p>");
+                } else {
+                    alert(msg.message);
+                }
             }, function (arg1, arg2, arg3) {
                 console.log(arg1);
+                console.log(arg2);
+                console.log(arg3);
+
             });
         }
     });

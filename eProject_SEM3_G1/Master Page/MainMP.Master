@@ -54,6 +54,7 @@
     <script src="js/jquery.tweet.js"></script>
     <!-- fancybox -->
     <script src="js/fancybox/jquery.fancybox.js"></script>
+    <script src="/js/page.customization/cart.edit.js" type="text/javascript"></script>
     <!-- custom function-->
     <script src="js/jquery.tmpl.js" type="text/javascript"></script>
     <script src="/js/utilities.js" type="text/javascript"></script>

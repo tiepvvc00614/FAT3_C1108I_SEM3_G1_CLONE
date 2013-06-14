@@ -13,7 +13,9 @@ namespace eProject_SEM3_G1.Model
         public static int STATUS_UNACTIVE = 0;
         public static int STATUS_ACTIVE = 1;
         public static int STATUS_BANNED = 2;
-
+        public static string USER_SESSION_KEY = "session_bs_email_login";
+        public static string USER_COOKIE_EMAIL_KEY = "bs_email_login";
+        public static string USER_COOKIE_PASSWORD_KEY = "bs_password_login";
 
         private int userId;
         private string username;
@@ -28,6 +30,7 @@ namespace eProject_SEM3_G1.Model
 
         public User()
         {
+            this.userDataAccess = new UserDAO(this);
         }
         public User(string email, string password)
         {
@@ -124,7 +127,15 @@ namespace eProject_SEM3_G1.Model
         }
 
 
+        public bool Register() 
+        {
+            return this.userDataAccess.Register();
+        }
 
+        public static User Login(string email, string password)
+        {
+            return UserDAO.Login(email, password);
+        }
 
         public void SaveAddressBook()
         {

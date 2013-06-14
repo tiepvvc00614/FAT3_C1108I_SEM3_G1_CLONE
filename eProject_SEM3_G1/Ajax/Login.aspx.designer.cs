@@ -7,9 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace eProject_SEM3_G1.Master_Page.UserControl {
+namespace eProject_SEM3_G1.Ajax {
     
     
-    public partial class Category {
+    public partial class Login {
     }
 }

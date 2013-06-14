@@ -11,7 +11,7 @@ namespace eProject_SEM3_G1.Master_Page.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

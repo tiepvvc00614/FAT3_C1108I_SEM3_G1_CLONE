@@ -23,7 +23,7 @@
 		</td>
 		<td class="cart-product-setting">
 			<p><strong>${quantity}x-$${productPrice}</strong></p>
-			<a href="#" class="remove-pro" productId="${productId}" data-toggle="tooltip" data-title="Delete"><i class="icon-trash"></i></a>
+			<a href="#" id="remove-product-in-cart" class="remove-pro" productId="${productId}" data-toggle="tooltip" data-title="Delete"><i class="icon-trash"></i></a>
 		</td>
 	</tr>
 	{{/each}}

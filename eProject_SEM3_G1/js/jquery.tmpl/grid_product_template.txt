@@ -3,7 +3,7 @@
 	{{each products}}
 		<li class="span3 clearfix">
 			<div class="thumbnail">
-				<a href=""><img src="${productImageURL}" style="width:212px; height:192px;" alt=""></a>
+				<a href="/ProductDetail.aspx?productId=${productId}"><img src="${productImageURL}" style="width:200px; height:232px;" alt=""></a>
 			</div>
 			<div class="thumbSetting">
 				<div class="thumbTitle">

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Collections;
+using eProject_SEM3_G1.Model.DataAccess;
 
 namespace eProject_SEM3_G1.Model
 {
@@ -48,6 +49,11 @@ namespace eProject_SEM3_G1.Model
         public override int GetHashCode()
         {
             return this.CategoryId.GetHashCode();
+        }
+
+        public static List<Category> GetAllCategory()
+        {
+            return CategoryDAO.GetAllCategory();
         }
     }
 

@@ -22,17 +22,17 @@
 									<form id="loginForm">
 										<div class="controls">
 											<label>Your E-Mail: <span class="text-error">*</span></label>
-											<input type="text" typeValid="email" id="emailLogin" placeholder="example@example.com">
+											<input type="text" name="emailLogin" typeValid="email" id="emailLogin" placeholder="example@example.com">
                                             <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 										</div>
 										<div class="controls">
 											<label>Your Password: <span class="text-error">*</span></label>
-											<input type="password" id="passwordLogin" placeholder="**************">
+											<input name="passwordLogin" type="password" id="passwordLogin" placeholder="**************">
                                             <span class="help-inline" style="display:none;"><i class="icon-remove"></i> Invalid input!</span>
 										</div>
 										<div class="controls">
 											<label class="checkbox">
-										      <input type="checkbox" id="rememberLogin"> Remember me?
+										      <input name="isRemember" type="checkbox" id="rememberLogin"> Remember me?
 										    </label>
 										    <button type="submit" class="btn btn-primary">Login</button>
 										</div>

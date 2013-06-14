@@ -11,8 +11,10 @@ namespace eProject_SEM3_G1.Ajax
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Response.ContentType = "application/json";
             try
             {
+                
                 string firstName = null;
                 string lastName = null;
                 string email = null;
@@ -79,15 +81,19 @@ namespace eProject_SEM3_G1.Ajax
                 if (Request.Params["repassword"] != null && Request.Params["repassword"] != "") repassword = Request.Params["repassword"].ToString();
                 else throw new Exception(" can't be blank");
                 
+                Model.User u = new Model.User();
+                u.Firstname = firstName;
+                u.Lastname = lastName;
+                u.UserEmail = email;
+                u.Status = Model.User.STATUS_ACTIVE;
+                u.Password = password;
+                
 
-                Response.Write("All are okay");
-
-
-
+                Response.Write("{\"message\": \""+ (u.Register()==true).ToString() +"\"}");
             }
             catch (Exception ex)
             {
-                Response.Write("\"message\": \""+ ex.Message +"\"");
+                Response.Write("{\"message\": \""+ ex.Message +"\"}");
             }
       
         }
