@@ -14,19 +14,19 @@
 					<div class="flexslider">
 						
 					<div style="overflow: hidden; position: relative;" class="flex-viewport"><ul style="width: 1000%; transition-duration: 0.6s; transform: translate3d(-1830px, 0px, 0px);" class="slides"><li style="width: 610px; float: left; display: block;" class="clone">
-								<img src="img/614x300.jpg" alt="slide3">
+								<img src="img/slide/6.jpg" alt="slide3">
 							</li>
 							<li class="" style="width: 610px; float: left; display: block;">
-								<img src="img/614x300.jpg" alt="slide1">
+								<img src="img/slide/7.jpg" alt="slide1">
 							</li>
 							<li class="" style="width: 610px; float: left; display: block;">
-								<img src="img/614x300.jpg" alt="slide2">
+								<img src="img/slide/4.jpg" alt="slide2">
 							</li>
 							<li class="flex-active-slide" style="width: 610px; float: left; display: block;">
-								<img src="img/614x300.jpg" alt="slide3">
+								<img src="img/slide/5.jpg" alt="slide3">
 							</li>
 						<li class="clone" style="width: 610px; float: left; display: block;">
-								<img src="img/614x300.jpg" alt="slide1">
+								<img src="img/slide/1.jpg" alt="slide1">
 							</li></ul></div><ol class="flex-control-nav flex-control-paging"><li><a class="">1</a></li><li><a class="">2</a></li><li><a class="flex-active">3</a></li></ol></div><!--end flexslider-->
 				</div><!--end span8-->
 
